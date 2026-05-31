@@ -20,6 +20,7 @@ setup(
     entry_points={
         'console_scripts': [
             'detector_node = phantom_detector.detector_node:main',
+            'rear_perception_node = phantom_detector.rear_perception_node:main',
         ],
     },
 )
