@@ -1,0 +1,159 @@
+=== node info odom_publisher ===
+/odom_publisher
+  Subscribers:
+    /cmd_vel: geometry_msgs/msg/Twist
+    /controller/cmd_vel: geometry_msgs/msg/Twist
+    /set_odom: geometry_msgs/msg/Pose2D
+  Publishers:
+    /odom_raw: nav_msgs/msg/Odometry
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /ros_robot_controller/bus_servo/set_state: ros_robot_controller_msgs/msg/SetBusServoState
+    /ros_robot_controller/set_motor: ros_robot_controller_msgs/msg/MotorsState
+    /rosout: rcl_interfaces/msg/Log
+    /set_pose: geometry_msgs/msg/PoseWithCovarianceStamped
+  Service Servers:
+    /controller/load_calibrate_param: std_srvs/srv/Trigger
+    /odom_publisher/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /odom_publisher/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /odom_publisher/get_parameters: rcl_interfaces/srv/GetParameters
+    /odom_publisher/init_finish: std_srvs/srv/Trigger
+    /odom_publisher/list_parameters: rcl_interfaces/srv/ListParameters
+    /odom_publisher/set_parameters: rcl_interfaces/srv/SetParameters
+    /odom_publisher/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+=== node info ros_robot_controller ===
+/ros_robot_controller
+  Subscribers:
+    /ros_robot_controller/bus_servo/set_position: ros_robot_controller_msgs/msg/ServosPosition
+    /ros_robot_controller/bus_servo/set_state: ros_robot_controller_msgs/msg/SetBusServoState
+    /ros_robot_controller/pwm_servo/set_state: ros_robot_controller_msgs/msg/SetPWMServoState
+    /ros_robot_controller/set_buzzer: ros_robot_controller_msgs/msg/BuzzerState
+    /ros_robot_controller/set_led: ros_robot_controller_msgs/msg/LedState
+    /ros_robot_controller/set_motor: ros_robot_controller_msgs/msg/MotorsState
+    /ros_robot_controller/set_oled: ros_robot_controller_msgs/msg/OLEDState
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /ros_robot_controller/battery: std_msgs/msg/UInt16
+    /ros_robot_controller/button: ros_robot_controller_msgs/msg/ButtonState
+    /ros_robot_controller/imu_raw: sensor_msgs/msg/Imu
+    /ros_robot_controller/joy: sensor_msgs/msg/Joy
+    /ros_robot_controller/sbus: ros_robot_controller_msgs/msg/Sbus
+    /rosout: rcl_interfaces/msg/Log
+  Service Servers:
+    /ros_robot_controller/bus_servo/get_state: ros_robot_controller_msgs/srv/GetBusServoState
+    /ros_robot_controller/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /ros_robot_controller/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /ros_robot_controller/get_parameters: rcl_interfaces/srv/GetParameters
+    /ros_robot_controller/init_finish: std_srvs/srv/Trigger
+    /ros_robot_controller/list_parameters: rcl_interfaces/srv/ListParameters
+    /ros_robot_controller/pwm_servo/get_state: ros_robot_controller_msgs/srv/GetPWMServoState
+    /ros_robot_controller/set_parameters: rcl_interfaces/srv/SetParameters
+    /ros_robot_controller/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+=== topic info /controller/cmd_vel ===
+Type: geometry_msgs/msg/Twist
+
+Publisher count: 1
+
+Node name: safety_shield_node
+Node namespace: /
+Topic type: geometry_msgs/msg/Twist
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.bb.11.89.bb.00.00.00.00.00.00.11.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 1
+
+Node name: odom_publisher
+Node namespace: /
+Topic type: geometry_msgs/msg/Twist
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.a9.11.e4.00.00.00.00.00.00.00.16.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== topic info /ros_robot_controller/set_motor ===
+Type: ros_robot_controller_msgs/msg/MotorsState
+
+Publisher count: 1
+
+Node name: odom_publisher
+Node namespace: /
+Topic type: ros_robot_controller_msgs/msg/MotorsState
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.a9.11.e4.00.00.00.00.00.00.00.12.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 1
+
+Node name: ros_robot_controller
+Node namespace: /
+Topic type: ros_robot_controller_msgs/msg/MotorsState
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.a7.11.dd.55.00.00.00.00.00.00.19.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== topic echo /cmd_vel_raw ===
+linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+---
+=== topic echo /controller/cmd_vel ===
+[37;1m2026-05-29 14:28:07.603 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7427: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+---
+=== topic echo /ros_robot_controller/set_motor ===
+=== topic echo /odom ===
+[37;1m2026-05-29 14:28:14.042 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7427: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m
+=== topic echo /nav/local_obstacle_features ===
+=== topic hz quick ===
+[37;1m2026-05-29 14:28:20.970 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed init_port fastrtps_port7427: open_and_lock_file failed[34;1m -> Function [36mopen_port_internal[m

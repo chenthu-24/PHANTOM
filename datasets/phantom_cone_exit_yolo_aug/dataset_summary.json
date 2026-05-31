@@ -1,0 +1,13 @@
+{
+  "warning": "PHASE2_TWO_IMAGE_AUGMENTED_OVERFIT_ONLY",
+  "source_images": [
+    "1.jpg",
+    "2.jpg"
+  ],
+  "sample_count_per_split": 10,
+  "classes": {
+    "traffic_cone": 0,
+    "exit": 1
+  },
+  "data_yaml": "datasets\\phantom_cone_exit_yolo_aug\\data.yaml"
+}

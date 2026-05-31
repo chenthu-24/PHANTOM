@@ -1,0 +1,8 @@
+/camera/aligned_depth_to_color/image_raw
+/camera/color/camera_info
+/camera/color/image_raw
+/parameter_events
+/perception/image_raw
+/phantom/sensor_bridge/camera_debug_image
+/phantom/sensor_bridge/camera_depth
+/rosout

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scan_topic" default="/scan"/>
+  <arg name="config_file" default="$(find phantom_free_space)/config/free_space.yaml"/>
+
+  <node name="free_space_node" pkg="phantom_free_space" type="free_space_node.py" output="screen">
+    <rosparam command="load" file="$(arg config_file)"/>
+    <param name="scan_topic" value="$(arg scan_topic)"/>
+  </node>
+</launch>

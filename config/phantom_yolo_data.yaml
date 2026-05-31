@@ -1,0 +1,8 @@
+# PHANTOM YOLOv8 dataset config.
+train: "C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/data/train"
+val: "C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/data/eval"
+nc: 3
+names:
+  0: exit
+  1: traffic_cone
+  2: yellow_car

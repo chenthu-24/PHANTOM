@@ -1,0 +1,6 @@
+path: C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/datasets/phantom_cone_exit_yolo
+train: images/train
+val: images/val
+names:
+  0: traffic_cone
+  1: exit

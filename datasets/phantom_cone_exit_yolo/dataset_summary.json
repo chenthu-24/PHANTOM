@@ -1,0 +1,14 @@
+{
+  "warning": "PHASE2_TWO_IMAGE_OVERFIT_ONLY",
+  "classes": {
+    "traffic_cone": 0,
+    "exit": 1
+  },
+  "images": [
+    "1.jpg",
+    "2.jpg"
+  ],
+  "annotation_count": 8,
+  "data_yaml": "datasets\\phantom_cone_exit_yolo\\data.yaml",
+  "preview_dir": "datasets\\phantom_cone_exit_yolo\\previews"
+}

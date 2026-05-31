@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.pyo
+
+.cache/
+
+# Local HuggingFace model cache; files exceed GitHub's normal Git limit.
+models/hf/

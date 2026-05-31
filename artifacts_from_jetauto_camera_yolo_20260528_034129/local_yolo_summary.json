@@ -1,0 +1,30 @@
+{
+  "model": "models\\yolo\\phantom_cone_yellow_random200_best.pt",
+  "source_frames": 6,
+  "frames": [
+    {
+      "frame": "frame_0000.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0001.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0002.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0003.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0004.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0005.jpg",
+      "detections": []
+    }
+  ]
+}

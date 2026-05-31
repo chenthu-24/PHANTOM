@@ -1,0 +1,18 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-28-04-12-04-916698-jetauto-11100
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ros_robot_controller-1]: process started with pid [11106]
+[INFO] [odom_publisher-2]: process started with pid [11108]
+[INFO] [detector_node-3]: process started with pid [11110]
+[INFO] [free_space_node-4]: process started with pid [11112]
+[INFO] [planner_controller_node-5]: process started with pid [11114]
+[INFO] [safety_shield_node-6]: process started with pid [11116]
+[free_space_node-4] [INFO] [1779941528.312009457] [free_space_node]: free_space_node subscribed to /scan, publishing /nav/local_obstacle_features
+[safety_shield_node-6] [INFO] [1779941528.528519060] [safety_shield_node]: Safety shield subscribed to /cmd_vel_raw and /nav/local_obstacle_features, publishing /controller/cmd_vel
+[odom_publisher-2] [INFO] [1779941529.063947865] [odom_publisher]: [1;32m1.000000 1.000000[0m
+[odom_publisher-2] [INFO] [1779941529.105025166] [odom_publisher]: [1;32mstart[0m
+[ros_robot_controller-1] [INFO] [1779941529.270740761] [ros_robot_controller]: [1;32mstart[0m
+[planner_controller_node-5] [INFO] [1779941531.340191053] [planner_controller_node]: planner_controller_node subscribed to /scan and ['/det/detections', '/det/yellow_boxes'], publishing /cmd_vel_raw
+[planner_controller_node-5] [INFO] [1779941531.413514231] [planner_controller_node]: saved first LiDAR free-space visualization: /home/ubuntu/phantom_ws/artifacts/real_motion_10s_fixed_pid_20260528_041157/first_lidar_freespace.png
+[detector_node-3] [ERROR] [1779941531.603789568] [detector_node]: ultralytics is not installed: No module named 'ultralytics'
+[detector_node-3] [INFO] [1779941531.667307391] [detector_node]: detector_node started in YOLO mode: /camera/color/image_raw -> /det/yellow_boxes, /det/detections
+[detector_node-3] [INFO] [1779941537.987643380] [detector_node]: saved first YOLO detection visualization: /home/ubuntu/phantom_ws/artifacts/real_motion_10s_fixed_pid_20260528_041157/first_yolo_detection.png

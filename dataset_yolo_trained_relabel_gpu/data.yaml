@@ -1,0 +1,7 @@
+path: ./dataset_yolo_trained_relabel_gpu
+train: images/train
+val: images/val
+
+names:
+  0: traffic_cone
+  1: yellow_car

@@ -1,0 +1,3 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-28-03-53-51-492180-jetauto-7533
+[INFO] [launch]: Default logging verbosity is set to INFO
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): package 'phantom_safety_shield' found at '/home/ubuntu/phantom_ws/install/phantom_safety_shield', but libexec directory '/home/ubuntu/phantom_ws/install/phantom_safety_shield/lib/phantom_safety_shield' does not exist

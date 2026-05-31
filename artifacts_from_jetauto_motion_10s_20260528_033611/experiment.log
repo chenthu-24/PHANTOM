@@ -1,0 +1,19 @@
+artifact_dir=/home/ubuntu/phantom_ws/artifacts/real_motion_10s_20260528_033611
+launch_pid=5223 capture_pid=5222
+motion_start=2026-05-28T03:36:16+00:00
+motion_stop=2026-05-28T03:36:26+00:00
+cleanup: publishing zero stop
+total 564K
+-rw-r--r-- 1 root root  56K May 28 03:36 camera_raw_first.jpg
+-rw-r--r-- 1 root root    0 May 28 03:36 capture.log
+-rw-r--r-- 1 root root  123 May 28 03:36 capture_summary.json
+-rw-r--r-- 1 root root  119 May 28 03:36 detections_once.txt
+-rw-r--r-- 1 root root  219 May 28 03:36 experiment.log
+-rw-r--r-- 1 root root  132 May 28 03:36 free_space_once.txt
+-rw-r--r-- 1 root root  689 May 28 03:36 launch.log
+-rw-r--r-- 1 root root   20 May 28 03:36 nodes_during.txt
+-rw-r--r-- 1 root root  394 May 28 03:36 stop_cmd.log
+-rw-r--r-- 1 root root  125 May 28 03:36 stuck_status_once.txt
+-rw-r--r-- 1 root root  217 May 28 03:36 topics_during.txt
+-rw-r--r-- 1 root root  61K May 28 03:36 yolo_annotated_first.jpg
+-rw-r--r-- 1 root root 405K May 28 03:36 yolo_detection_10s.gif

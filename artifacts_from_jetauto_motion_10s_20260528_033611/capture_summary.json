@@ -1,0 +1,6 @@
+{
+  "frames": 7,
+  "gif_saved": true,
+  "image_topic": "/camera/color/image_raw",
+  "detections_topic": "/det/detections"
+}

@@ -1,0 +1,32 @@
+artifact_dir=/home/ubuntu/phantom_ws/artifacts/real_motion_10s_20260528_035343
+start_time=2026-05-28T03:53:43+00:00
+lidar_pid=7498
+SCAN_OK=1
+frame_id=lidar_frame ranges=1080 finite=450 min=0.468 max=8.336
+capture_pid=7532
+launch_pid=7533
+motion_start=2026-05-28T03:53:59+00:00
+motion_stop=2026-05-28T03:54:09+00:00
+cleanup_time=2026-05-28T03:54:13+00:00
+total 636K
+-rw-r--r-- 1 root root  43K May 28 03:53 camera_raw_first.jpg
+-rw-r--r-- 1 root root    0 May 28 03:53 capture.log
+-rw-r--r-- 1 root root 241K May 28 03:54 first_yolo_detection.png
+-rw-r--r-- 1 root root  43K May 28 03:53 frame_0000.jpg
+-rw-r--r-- 1 root root  43K May 28 03:53 frame_0001.jpg
+-rw-r--r-- 1 root root  42K May 28 03:53 frame_0002.jpg
+-rw-r--r-- 1 root root  43K May 28 03:54 frame_0003.jpg
+-rw-r--r-- 1 root root  42K May 28 03:54 frame_0004.jpg
+-rw-r--r-- 1 root root  43K May 28 03:54 frame_0005.jpg
+-rw-r--r-- 1 root root  42K May 28 03:54 frame_0006.jpg
+-rw-r--r-- 1 root root  452 May 28 03:53 launch.log
+-rw-r--r-- 1 root root  646 May 28 03:53 lidar.log
+-rw-r--r-- 1 root root   79 May 28 03:53 nodes_during.txt
+-rw-r--r-- 1 root root   95 May 28 03:54 raw_capture_summary.json
+-rw-r--r-- 1 root root  354 May 28 03:54 run.log
+-rw-r--r-- 1 root root   74 May 28 03:53 scan_check.txt
+-rw-r--r-- 1 root root  630 May 28 03:54 status_samples.jsonl
+-rw-r--r-- 1 root root  146 May 28 03:54 stop_cmd_controller.log
+-rw-r--r-- 1 root root  146 May 28 03:54 stop_cmd_raw.log
+-rw-r--r-- 1 root root  435 May 28 03:53 topics_during.txt
+DONE_ART=/home/ubuntu/phantom_ws/artifacts/real_motion_10s_20260528_035343

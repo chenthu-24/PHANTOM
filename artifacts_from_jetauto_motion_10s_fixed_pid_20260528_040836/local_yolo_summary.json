@@ -1,0 +1,38 @@
+{
+  "model": "models\\yolo\\phantom_cone_yellow_random200_best.pt",
+  "source": "real camera frames from fixed PID 10s motion experiment",
+  "frames": [
+    {
+      "frame": "frame_0000.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0001.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0002.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0003.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0004.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0005.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0006.jpg",
+      "detections": []
+    },
+    {
+      "frame": "frame_0007.jpg",
+      "detections": []
+    }
+  ]
+}

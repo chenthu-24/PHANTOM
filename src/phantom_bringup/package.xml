@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>phantom_bringup</name>
+  <version>0.0.1</version>
+  <description>PHANTOM launch files.</description>
+  <maintainer email="phantom@example.com">phantom</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>phantom_sensor_bridge</exec_depend>
+  <exec_depend>phantom_detector</exec_depend>
+  <exec_depend>phantom_tracker_predictor</exec_depend>
+  <exec_depend>phantom_free_space</exec_depend>
+  <exec_depend>phantom_planner_controller</exec_depend>
+  <exec_depend>phantom_safety_shield</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,50 @@
+[
+  {
+    "visible": true,
+    "class_name": "traffic_cone",
+    "conf": 0.88,
+    "bbox_center_x": 0.3349,
+    "bbox_center_y": 0.4474,
+    "bbox_w": 0.3988,
+    "bbox_h": 0.8947,
+    "bbox_xyxy": [
+      774,
+      0,
+      3052,
+      3833
+    ],
+    "source": "red_cone_color_geometry"
+  },
+  {
+    "visible": true,
+    "class_name": "traffic_cone",
+    "conf": 0.86,
+    "bbox_center_x": 0.7785,
+    "bbox_center_y": 0.5752,
+    "bbox_w": 0.1579,
+    "bbox_h": 0.5257,
+    "bbox_xyxy": [
+      3996,
+      1338,
+      4898,
+      3590
+    ],
+    "source": "yellow_black_cone_color_geometry"
+  },
+  {
+    "visible": true,
+    "class_name": "exit",
+    "conf": 0.76,
+    "bbox_center_x": 0.5049,
+    "bbox_center_y": 0.3619,
+    "bbox_w": 0.1061,
+    "bbox_h": 0.2799,
+    "bbox_xyxy": [
+      2581,
+      951,
+      3187,
+      2150
+    ],
+    "source": "barrier_gap_geometry"
+  }
+]

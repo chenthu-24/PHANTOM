@@ -1,0 +1,2 @@
+SCAN_OK=1
+frame_id=lidar_frame ranges=1080 finite=459 min=0.259 max=8.400

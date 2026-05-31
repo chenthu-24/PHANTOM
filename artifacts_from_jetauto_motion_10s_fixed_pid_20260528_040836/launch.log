@@ -1,0 +1,43 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-28-04-08-46-796735-jetauto-10253
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ros_robot_controller-1]: process started with pid [10286]
+[INFO] [odom_publisher-2]: process started with pid [10288]
+[INFO] [detector_node-3]: process started with pid [10290]
+[INFO] [free_space_node-4]: process started with pid [10292]
+[INFO] [planner_controller_node-5]: process started with pid [10294]
+[INFO] [safety_shield_node-6]: process started with pid [10296]
+[odom_publisher-2] [INFO] [1779941330.502321010] [odom_publisher]: [1;32m1.000000 1.000000[0m
+[odom_publisher-2] [INFO] [1779941330.602080008] [odom_publisher]: [1;32mstart[0m
+[ros_robot_controller-1] [INFO] [1779941331.139620116] [ros_robot_controller]: [1;32mstart[0m
+[free_space_node-4] [INFO] [1779941331.296132462] [free_space_node]: free_space_node subscribed to /scan, publishing /nav/local_obstacle_features
+[safety_shield_node-6] [INFO] [1779941331.320173815] [safety_shield_node]: Safety shield subscribed to /cmd_vel_raw and /nav/local_obstacle_features, publishing /controller/cmd_vel
+[detector_node-3] [ERROR] [1779941333.082726622] [detector_node]: ultralytics is not installed: No module named 'ultralytics'
+[detector_node-3] [INFO] [1779941333.146234052] [detector_node]: detector_node started in YOLO mode: /camera/color/image_raw -> /det/yellow_boxes, /det/detections
+[planner_controller_node-5] [INFO] [1779941333.326890514] [planner_controller_node]: planner_controller_node subscribed to /scan and ['/det/detections', '/det/yellow_boxes'], publishing /cmd_vel_raw
+[planner_controller_node-5] [ERROR] [1779941333.362608733] [planner_controller_node]: planner_controller_node crashed: 'rear'
+[planner_controller_node-5] Traceback (most recent call last):
+[planner_controller_node-5]   File "/home/ubuntu/phantom_ws/install/phantom_planner_controller/lib/phantom_planner_controller/planner_controller_node", line 33, in <module>
+[planner_controller_node-5]     sys.exit(load_entry_point('phantom-planner-controller', 'console_scripts', 'planner_controller_node')())
+[planner_controller_node-5]   File "/home/ubuntu/phantom_ws/build/phantom_planner_controller/phantom_planner_controller/planner_controller_node.py", line 716, in main
+[planner_controller_node-5]     rclpy.spin(node)
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 222, in spin
+[planner_controller_node-5]     executor.spin_once()
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 739, in spin_once
+[planner_controller_node-5]     self._spin_once_impl(timeout_sec)
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 736, in _spin_once_impl
+[planner_controller_node-5]     raise handler.exception()
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py", line 239, in __call__
+[planner_controller_node-5]     self._handler.send(None)
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 437, in handler
+[planner_controller_node-5]     await call_coroutine(entity, arg)
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 362, in _execute_subscription
+[planner_controller_node-5]     await await_or_execute(sub.callback, msg)
+[planner_controller_node-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 107, in await_or_execute
+[planner_controller_node-5]     return callback(*args)
+[planner_controller_node-5]   File "/home/ubuntu/phantom_ws/build/phantom_planner_controller/phantom_planner_controller/planner_controller_node.py", line 187, in scan_callback
+[planner_controller_node-5]     self._save_lidar_visualization(sectors, selected)
+[planner_controller_node-5]   File "/home/ubuntu/phantom_ws/build/phantom_planner_controller/phantom_planner_controller/planner_controller_node.py", line 670, in _save_lidar_visualization
+[planner_controller_node-5]     cv2.fillPoly(image, [np.asarray(points, dtype=np.int32)], colors[name])
+[planner_controller_node-5] KeyError: 'rear'
+[ERROR] [planner_controller_node-5]: process has died [pid 10294, exit code 1, cmd '/home/ubuntu/phantom_ws/install/phantom_planner_controller/lib/phantom_planner_controller/planner_controller_node --ros-args -r __node:=planner_controller_node --params-file /tmp/launch_params_o913su2x'].
+[detector_node-3] [INFO] [1779941334.533503096] [detector_node]: saved first YOLO detection visualization: /home/ubuntu/phantom_ws/artifacts/real_motion_10s_fixed_pid_20260528_040836/first_yolo_detection.png

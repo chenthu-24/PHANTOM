@@ -1,0 +1,273 @@
+{
+  "camera_saved_frames": 19,
+  "cmd_vel_raw_stats": {
+    "count": 95,
+    "first": [
+      1780065229.669031,
+      0.0,
+      0.0
+    ],
+    "last": [
+      1780065238.929127,
+      0.18,
+      0.0
+    ],
+    "max_abs_angular_z": 0.0,
+    "max_abs_linear_x": 0.18,
+    "nonzero_samples": 83
+  },
+  "controller_cmd_vel_stats": {
+    "count": 179,
+    "first": [
+      1780065231.4880455,
+      0.17551463024996156,
+      0.0
+    ],
+    "last": [
+      1780065238.9311075,
+      0.18,
+      0.0
+    ],
+    "max_abs_angular_z": 0.0,
+    "max_abs_linear_x": 0.18,
+    "nonzero_samples": 179
+  },
+  "counts": {
+    "camera": 183,
+    "cmd_vel_raw": 95,
+    "controller_cmd_vel": 179,
+    "depth": 0,
+    "features": 100,
+    "odom": 0,
+    "odom_raw": 451,
+    "scan": 113,
+    "set_motor": 207,
+    "stuck_status": 83
+  },
+  "duration_sec": 10.0,
+  "features_samples": [
+    {
+      "corner_trap_score": 0.0,
+      "dead_end_score": 0.0,
+      "escape_corridor_score": 1.0,
+      "free_heading_switch_count": 0,
+      "front_blocked": false,
+      "front_clearance": 11.78,
+      "left_clearance": 11.78,
+      "left_front_blocked": false,
+      "left_front_clearance": 11.78,
+      "local_free_heading": 0.0,
+      "obstacle_inflation_m": 0.22,
+      "raw_front_clearance": 12.0,
+      "raw_left_front_clearance": 12.0,
+      "raw_right_front_clearance": 12.0,
+      "rear_clearance": 11.78,
+      "right_clearance": 11.78,
+      "right_front_blocked": false,
+      "right_front_clearance": 11.78
+    },
+    {
+      "corner_trap_score": 0.0,
+      "dead_end_score": 0.0,
+      "escape_corridor_score": 1.0,
+      "free_heading_switch_count": 0,
+      "front_blocked": false,
+      "front_clearance": 11.78,
+      "left_clearance": 11.78,
+      "left_front_blocked": false,
+      "left_front_clearance": 11.78,
+      "local_free_heading": 0.0,
+      "obstacle_inflation_m": 0.22,
+      "raw_front_clearance": 12.0,
+      "raw_left_front_clearance": 12.0,
+      "raw_right_front_clearance": 12.0,
+      "rear_clearance": 11.78,
+      "right_clearance": 11.78,
+      "right_front_blocked": false,
+      "right_front_clearance": 11.78
+    },
+    {
+      "corner_trap_score": 0.0,
+      "dead_end_score": 0.0,
+      "escape_corridor_score": 1.0,
+      "free_heading_switch_count": 0,
+      "front_blocked": false,
+      "front_clearance": 11.78,
+      "left_clearance": 11.78,
+      "left_front_blocked": false,
+      "left_front_clearance": 11.78,
+      "local_free_heading": 0.0,
+      "obstacle_inflation_m": 0.22,
+      "raw_front_clearance": 12.0,
+      "raw_left_front_clearance": 12.0,
+      "raw_right_front_clearance": 12.0,
+      "rear_clearance": 11.78,
+      "right_clearance": 11.78,
+      "right_front_blocked": false,
+      "right_front_clearance": 11.78
+    },
+    {
+      "corner_trap_score": 0.0,
+      "dead_end_score": 0.0,
+      "escape_corridor_score": 1.0,
+      "free_heading_switch_count": 0,
+      "front_blocked": false,
+      "front_clearance": 11.78,
+      "left_clearance": 11.78,
+      "left_front_blocked": false,
+      "left_front_clearance": 11.78,
+      "local_free_heading": 0.0,
+      "obstacle_inflation_m": 0.22,
+      "raw_front_clearance": 12.0,
+      "raw_left_front_clearance": 12.0,
+      "raw_right_front_clearance": 12.0,
+      "rear_clearance": 11.78,
+      "right_clearance": 11.78,
+      "right_front_blocked": false,
+      "right_front_clearance": 11.78
+    },
+    {
+      "corner_trap_score": 0.0,
+      "dead_end_score": 0.0,
+      "escape_corridor_score": 1.0,
+      "free_heading_switch_count": 0,
+      "front_blocked": false,
+      "front_clearance": 11.78,
+      "left_clearance": 11.78,
+      "left_front_blocked": false,
+      "left_front_clearance": 11.78,
+      "local_free_heading": 0.0,
+      "obstacle_inflation_m": 0.22,
+      "raw_front_clearance": 12.0,
+      "raw_left_front_clearance": 12.0,
+      "raw_right_front_clearance": 12.0,
+      "rear_clearance": 11.78,
+      "right_clearance": 11.78,
+      "right_front_blocked": false,
+      "right_front_clearance": 11.78
+    }
+  ],
+  "lidar_scan_png": "/home/ubuntu/phantom_ws/artifacts/integrated_10s_motion_after_front_fix_20260529_223327/lidar_scan.png",
+  "odom_distance_m": 0.0,
+  "odom_first": null,
+  "odom_last": null,
+  "odom_raw_distance_m": 1.4119383694776455,
+  "odom_raw_first": [
+    1780065229.0966775,
+    0.9911388129523742,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "odom_raw_last": [
+    1780065238.9126647,
+    2.4030771824300197,
+    0.0,
+    0.18,
+    0.0
+  ],
+  "set_motor_stats": {
+    "count": 207,
+    "first": [
+      1780065229.1316552,
+      [
+        {
+          "id": 1,
+          "rps": 0.0
+        },
+        {
+          "id": 2,
+          "rps": 0.0
+        },
+        {
+          "id": 3,
+          "rps": -0.0
+        },
+        {
+          "id": 4,
+          "rps": -0.0
+        }
+      ]
+    ],
+    "last": [
+      1780065238.9332001,
+      [
+        {
+          "id": 1,
+          "rps": 0.5906781393101269
+        },
+        {
+          "id": 2,
+          "rps": 0.5906781393101269
+        },
+        {
+          "id": 3,
+          "rps": -0.5906781393101269
+        },
+        {
+          "id": 4,
+          "rps": -0.5906781393101269
+        }
+      ]
+    ],
+    "max_abs_rps": 0.5906781393101269,
+    "nonzero_samples": 190
+  },
+  "stuck_samples": [
+    {
+      "direction_switch_score": 0.0,
+      "obstacle_score": 0.0,
+      "progress_score": 0.0,
+      "recover_active": false,
+      "reversal_score": 0.0,
+      "speed_score": 0.0,
+      "stamp": 1780065233.239,
+      "state": "CRUISE",
+      "stuck_score": 0.0
+    },
+    {
+      "direction_switch_score": 0.0,
+      "obstacle_score": 0.0,
+      "progress_score": 0.0,
+      "recover_active": false,
+      "reversal_score": 0.0,
+      "speed_score": 0.0,
+      "stamp": 1780065233.325,
+      "state": "CRUISE",
+      "stuck_score": 0.0
+    },
+    {
+      "direction_switch_score": 0.0,
+      "obstacle_score": 0.0,
+      "progress_score": 0.0,
+      "recover_active": false,
+      "reversal_score": 0.0,
+      "speed_score": 0.0,
+      "stamp": 1780065233.426,
+      "state": "CRUISE",
+      "stuck_score": 0.0
+    },
+    {
+      "direction_switch_score": 0.0,
+      "obstacle_score": 0.0,
+      "progress_score": 0.0,
+      "recover_active": false,
+      "reversal_score": 0.0,
+      "speed_score": 0.0,
+      "stamp": 1780065233.525,
+      "state": "CRUISE",
+      "stuck_score": 0.0
+    },
+    {
+      "direction_switch_score": 0.0,
+      "obstacle_score": 0.0,
+      "progress_score": 0.0,
+      "recover_active": false,
+      "reversal_score": 0.0,
+      "speed_score": 0.0,
+      "stamp": 1780065233.625,
+      "state": "CRUISE",
+      "stuck_score": 0.0
+    }
+  ]
+}
