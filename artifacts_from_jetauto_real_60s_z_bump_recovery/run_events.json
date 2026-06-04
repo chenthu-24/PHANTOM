@@ -1,0 +1,43 @@
+[
+  {
+    "event": "launch_started",
+    "pid": 14243,
+    "time": 1780548799.4449024
+  },
+  {
+    "event": "recorder_started",
+    "pid": 14876,
+    "time": 1780548973.3786864
+  },
+  {
+    "event": "continuous_motion_started",
+    "pid": 14883,
+    "time": 1780548974.3906658
+  },
+  {
+    "duration_s": 76.545,
+    "event": "continuous_motion_finished",
+    "returncode": 0,
+    "time": 1780549050.935419
+  },
+  {
+    "action": "SIGINT",
+    "name": "launch",
+    "pgid": 14243
+  },
+  {
+    "action": "SIGTERM",
+    "name": "launch",
+    "pgid": 14243
+  },
+  {
+    "action": "exited_after_SIGTERM",
+    "name": "launch",
+    "returncode": -15
+  },
+  {
+    "action": "already_exited",
+    "name": "recorder",
+    "returncode": 0
+  }
+]

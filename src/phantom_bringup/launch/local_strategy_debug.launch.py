@@ -14,6 +14,7 @@ def generate_launch_description():
     artifacts_dir = LaunchConfiguration('artifacts_dir')
     cmd_vel_raw_topic = LaunchConfiguration('cmd_vel_raw_topic')
     cmd_vel_safe_topic = LaunchConfiguration('cmd_vel_safe_topic')
+    lidar_angle_offset_rad = LaunchConfiguration('lidar_angle_offset_rad')
 
     return LaunchDescription([
         DeclareLaunchArgument('scan_topic', default_value='/scan'),
@@ -28,6 +29,7 @@ def generate_launch_description():
         DeclareLaunchArgument('artifacts_dir', default_value='/tmp/phantom_strategy_debug'),
         DeclareLaunchArgument('cmd_vel_raw_topic', default_value='/cmd_vel_raw'),
         DeclareLaunchArgument('cmd_vel_safe_topic', default_value='/controller/cmd_vel'),
+        DeclareLaunchArgument('lidar_angle_offset_rad', default_value='3.14159'),
         Node(
             package='phantom_free_space',
             executable='free_space_node',
@@ -39,6 +41,8 @@ def generate_launch_description():
                 'features_topic': '/nav/local_obstacle_features',
                 'publish_legacy_features': True,
                 'lidar_angle_sign': 1.0,
+                'lidar_angle_offset_rad': lidar_angle_offset_rad,
+                'front_min_valid_ratio': 0.05,
                 'front_hard_stop_m': 0.22,
                 'front_soft_stop_m': 0.35,
                 'front_slowdown_m': 0.50,

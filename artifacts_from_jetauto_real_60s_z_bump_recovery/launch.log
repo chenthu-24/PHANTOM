@@ -1,0 +1,167 @@
+﻿[INFO] [launch]: All log files can be found below /home/ubuntu/.ros/log/2026-06-04-04-53-27-336248-jetauto-14243
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sllidar_node-1]: process started with pid [14308]
+[INFO] [ros_robot_controller-2]: process started with pid [14310]
+[INFO] [odom_publisher-3]: process started with pid [14312]
+[INFO] [usb_cam_node_exe-4]: process started with pid [14314]
+[INFO] [detector_node-5]: process started with pid [14316]
+[INFO] [free_space_node-6]: process started with pid [14318]
+[INFO] [rear_perception_node-7]: process started with pid [14328]
+[INFO] [planner_controller_node-8]: process started with pid [14331]
+[INFO] [safety_shield_node-9]: process started with pid [14333]
+[sllidar_node-1] [INFO] [1780548808.599096767] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.1.0
+[sllidar_node-1] [INFO] [1780548808.620793280] [sllidar_node]: SLLidar S/N: 9DC4FA89C7E19EC8BCE499F016135670
+[sllidar_node-1] [INFO] [1780548808.620909309] [sllidar_node]: Firmware Ver: 1.29
+[sllidar_node-1] [INFO] [1780548808.620952065] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-1] [INFO] [1780548808.623799480] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-1] [INFO] [1780548808.623904105] [sllidar_node]: SLLidar health status : OK.
+[sllidar_node-1] [INFO] [1780548808.861803995] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz,
+[usb_cam_node_exe-4] [INFO] [1780548810.080636633] [usb_cam]: camera_name value: rear_camera
+[usb_cam_node_exe-4] [WARN] [1780548810.084962751] [usb_cam]: framerate: 30.000000
+[usb_cam_node_exe-4] [INFO] [1780548810.127492500] [usb_cam]: using default calibration URL
+[usb_cam_node_exe-4] [INFO] [1780548810.129276744] [usb_cam]: camera calibration URL: file:///home/ubuntu/.ros/camera_info/rear_camera.yaml
+[usb_cam_node_exe-4] [ERROR] [1780548810.132675353] [camera_calibration_parsers]: Unable to open camera calibration file [/home/ubuntu/.ros/camera_info/rear_camera.yaml]
+[usb_cam_node_exe-4] [WARN] [1780548810.134257795] [usb_cam]: Camera calibration file /home/ubuntu/.ros/camera_info/rear_camera.yaml not found
+[usb_cam_node_exe-4] [INFO] [1780548810.136873568] [usb_cam]: Starting 'rear_camera' (/dev/video2) at 640x480 via mmap (yuyv) at 30 FPS
+[usb_cam_node_exe-4] [swscaler @ 0x55754d0300] No accelerated colorspace conversion found from yuv422p to rgb24.
+[usb_cam_node_exe-4] This device supports the following formats:
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (6 Hz)
+[usb_cam_node_exe-4] 	16-bit Bayer BGBG/GRGR (Exp.) 1920 x 1080 (30 Hz)
+[usb_cam_node_exe-4] [INFO] [1780548810.169293937] [usb_cam]: Setting 'brightness' to 50
+[usb_cam_node_exe-4] [INFO] [1780548810.293211892] [usb_cam]: Setting 'white_balance_temperature_auto' to 1
+[usb_cam_node_exe-4] [INFO] [1780548810.293339640] [usb_cam]: Setting 'exposure_auto' to 3
+[usb_cam_node_exe-4] [INFO] [1780548810.372224718] [usb_cam]: Setting 'focus_auto' to 0
+[usb_cam_node_exe-4] unknown control 'focus_auto'
+[usb_cam_node_exe-4]
+[usb_cam_node_exe-4] [INFO] [1780548810.426488157] [usb_cam]: Timer triggering every 33 ms
+[free_space_node-6] [INFO] [1780548811.624738878] [free_space_node]: free_space_node subscribed to /scan, publishing /nav/front_free_space
+[free_space_node-6] [INFO] [1780548811.628951623] [free_space_node]: free_space_node also publishing legacy /nav/local_obstacle_features
+[rear_perception_node-7] [INFO] [1780548812.192150489] [rear_perception_node]: rear_perception_node subscribed to depth /camera/depth/image_raw and detections /det/detections, publishing /nav/rear_risk
+[odom_publisher-3] [INFO] [1780548812.219018525] [odom_publisher]: [1;32m1.000000 1.000000[0m
+[odom_publisher-3] [INFO] [1780548812.296049298] [odom_publisher]: [1;32mstart[0m
+[safety_shield_node-9] [INFO] [1780548812.323156736] [safety_shield_node]: safety_shield_node subscribed to /cmd_vel_raw, /nav/front_free_space, /nav/rear_risk; publishing /phantom/disabled_cmd_vel
+[planner_controller_node-8] [INFO] [1780548812.440091088] [planner_controller_node]: planner_controller_node subscribed to /nav/front_free_space, /nav/rear_risk, /det/detections, /odom//odom_raw; publishing /cmd_vel_raw
+[ros_robot_controller-2] [INFO] [1780548812.950467107] [ros_robot_controller]: [1;32mstart[0m
+[rear_perception_node-7] [INFO] [1780548813.978095909] [rear_perception_node]: visible camera/depth topics: /camera/depth/image_raw [sensor_msgs/msg/Image]; /camera_info [sensor_msgs/msg/CameraInfo]; /image_raw/compressedDepth [sensor_msgs/msg/CompressedImage]
+[detector_node-5] /home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+[detector_node-5]   warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+[detector_node-5] [INFO] [1780548833.490217625] [detector_node]: loaded YOLO model: /home/ubuntu/phantom_ws/models/yolo/phantom_cone_yellow_random200_best.pt
+[detector_node-5] [INFO] [1780548833.528393335] [detector_node]: detector_node started in YOLO mode: image /usb_cam/image_raw -> /det/detections, depth /camera/depth/image_rect_raw
+[detector_node-5] [INFO] [1780548835.882774344] [detector_node]: saved first YOLO detection visualization: /home/ubuntu/phantom_ws/artifacts/real_60s_debug/first_yolo_detection.png
+[planner_controller_node-8] [WARN] [1780548998.703940362] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549002.404819618] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549003.707514048] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549018.011058492] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549020.106573073] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549024.905436026] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549033.307124322] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549034.803943221] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549047.103817555] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549058.010432106] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549064.004156513] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549066.203598067] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549068.003867556] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549070.104684036] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549071.504588919] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780549073.705083212] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549075.706144310] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549077.403859652] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549079.103758653] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549080.403742137] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549081.803819379] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549083.103940723] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549084.904850341] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549087.704041072] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549089.103864627] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549094.704757834] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549096.003927655] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549097.903764731] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549099.205171683] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549101.103823738] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549102.503724476] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549104.106047295] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549105.804913522] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549107.604563879] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549109.004159405] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549111.005319096] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780549112.814695055] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [safety_shield_node-9]: sending signal 'SIGINT' to process[safety_shield_node-9]
+[INFO] [planner_controller_node-8]: sending signal 'SIGINT' to process[planner_controller_node-8]
+[INFO] [rear_perception_node-7]: sending signal 'SIGINT' to process[rear_perception_node-7]
+[INFO] [free_space_node-6]: sending signal 'SIGINT' to process[free_space_node-6]
+[INFO] [detector_node-5]: sending signal 'SIGINT' to process[detector_node-5]
+[INFO] [usb_cam_node_exe-4]: sending signal 'SIGINT' to process[usb_cam_node_exe-4]
+[ERROR] [rear_perception_node-7]: process has died [pid 14328, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_detector/lib/phantom_detector/rear_perception_node --ros-args -r __node:=rear_perception_node --params-file /tmp/launch_params_6ohhd0p1'].
+[INFO] [odom_publisher-3]: sending signal 'SIGINT' to process[odom_publisher-3]
+[INFO] [ros_robot_controller-2]: sending signal 'SIGINT' to process[ros_robot_controller-2]
+[INFO] [sllidar_node-1]: sending signal 'SIGINT' to process[sllidar_node-1]
+[usb_cam_node_exe-4] [INFO] [1780549114.039523814] [rclcpp]: signal_handler(signum=2)
+[usb_cam_node_exe-4] [WARN] [1780549114.051251524] [usb_cam]: Shutting down
+[free_space_node-6] Traceback (most recent call last):
+[free_space_node-6]   File "/home/ubuntu/phantom_ws/install/phantom_free_space/lib/phantom_free_space/free_space_node", line 33, in <module>
+[free_space_node-6]     sys.exit(load_entry_point('phantom-free-space', 'console_scripts', 'free_space_node')())
+[free_space_node-6]   File "/home/ubuntu/phantom_ws/build/phantom_free_space/phantom_free_space/free_space_node.py", line 579, in main
+[free_space_node-6]     node.destroy_node()
+[free_space_node-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1685, in destroy_node
+[free_space_node-6]     self.destroy_service(self._services[0])
+[free_space_node-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1609, in destroy_service
+[free_space_node-6]     service.destroy()
+[free_space_node-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/service.py", line 87, in destroy
+[free_space_node-6]     self.__service.destroy_when_not_in_use()
+[free_space_node-6] KeyboardInterrupt
+[sllidar_node-1] [INFO] [1780549114.189491926] [sllidar_node]: Stop motor
+[safety_shield_node-9] Traceback (most recent call last):
+[safety_shield_node-9]   File "/home/ubuntu/phantom_ws/install/phantom_safety_shield/lib/phantom_safety_shield/safety_shield_node", line 33, in <module>
+[safety_shield_node-9]     sys.exit(load_entry_point('phantom-safety-shield', 'console_scripts', 'safety_shield_node')())
+[safety_shield_node-9]   File "/home/ubuntu/phantom_ws/build/phantom_safety_shield/phantom_safety_shield/safety_shield_node.py", line 353, in main
+[safety_shield_node-9]     node.destroy_node()
+[safety_shield_node-9]   File "/home/ubuntu/phantom_ws/build/phantom_safety_shield/phantom_safety_shield/safety_shield_node.py", line 331, in destroy_node
+[safety_shield_node-9]     time.sleep(0.05)
+[safety_shield_node-9] KeyboardInterrupt
+[ERROR] [sllidar_node-1]: process has died [pid 14308, exit code -2, cmd '/home/ubuntu/third_party_ros2/third_party_ws/install/sllidar_ros2/lib/sllidar_ros2/sllidar_node --ros-args -r __node:=sllidar_node --params-file /tmp/launch_params_a7_cbrb6 -r scan:=/scan'].
+[planner_controller_node-8] Traceback (most recent call last):
+[planner_controller_node-8]   File "/home/ubuntu/phantom_ws/install/phantom_planner_controller/lib/phantom_planner_controller/planner_controller_node", line 33, in <module>
+[planner_controller_node-8]     sys.exit(load_entry_point('phantom-planner-controller', 'console_scripts', 'planner_controller_node')())
+[planner_controller_node-8]   File "/home/ubuntu/phantom_ws/build/phantom_planner_controller/phantom_planner_controller/planner_controller_node.py", line 1087, in main
+[planner_controller_node-8]     node.destroy_node()
+[planner_controller_node-8]   File "/home/ubuntu/phantom_ws/build/phantom_planner_controller/phantom_planner_controller/planner_controller_node.py", line 1065, in destroy_node
+[planner_controller_node-8]     time.sleep(0.03)
+[planner_controller_node-8] KeyboardInterrupt
+[usb_cam_node_exe-4] [INFO] [1780549114.220735196] [rclcpp]: signal_handler(signum=2)
+[ERROR] [detector_node-5]: process has died [pid 14316, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_detector/lib/phantom_detector/detector_node --ros-args -r __node:=detector_node --params-file /tmp/launch_params_c12__v5l'].
+[INFO] [usb_cam_node_exe-4]: process has finished cleanly [pid 14314]
+[ERROR] [safety_shield_node-9]: process has died [pid 14333, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_safety_shield/lib/phantom_safety_shield/safety_shield_node --ros-args -r __node:=safety_shield_node --params-file /tmp/launch_params_s0f2tg9q'].
+[ERROR] [planner_controller_node-8]: process has died [pid 14331, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_planner_controller/lib/phantom_planner_controller/planner_controller_node --ros-args -r __node:=planner_controller_node --params-file /tmp/launch_params_wngkuvbx'].
+[ERROR] [free_space_node-6]: process has died [pid 14318, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_free_space/lib/phantom_free_space/free_space_node --ros-args -r __node:=free_space_node --params-file /tmp/launch_params_hhvu8jvn'].

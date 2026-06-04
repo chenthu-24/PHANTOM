@@ -3,11 +3,21 @@ import math
 import os
 
 import numpy as np
-import rclpy
-from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
-from sensor_msgs.msg import Image
-from std_msgs.msg import String
+try:
+    import rclpy
+    from rclpy.node import Node
+    from rclpy.qos import qos_profile_sensor_data
+    from sensor_msgs.msg import Image
+    from std_msgs.msg import String
+except ImportError:  # Allows local non-ROS YOLO tests to import class mapping helpers.
+    rclpy = None
+    Node = object
+    qos_profile_sensor_data = 10
+    Image = object
+
+    class String:  # pragma: no cover - only used when ROS messages are unavailable.
+        def __init__(self):
+            self.data = ''
 
 try:
     import cv2
@@ -53,6 +63,24 @@ def _empty_detection(class_name='', stamp=0.0):
         'bbox_w': 0.0,
         'bbox_h': 0.0,
     }
+
+
+CLASS_NAME_ALIASES = {
+    'cone': 'traffic_cone',
+    'traffic cone': 'traffic_cone',
+    'traffic_cone': 'traffic_cone',
+    'yellow car': 'yellow_car',
+    'yellow-car': 'yellow_car',
+    'yellow_car': 'yellow_car',
+    'car_yellow': 'yellow_car',
+    'exit': 'exit',
+}
+
+
+def normalize_class_name(class_name):
+    key = str(class_name).strip().lower().replace('-', ' ').replace('_', ' ')
+    key = ' '.join(key.split())
+    return CLASS_NAME_ALIASES.get(key, str(class_name).strip())
 
 
 class DetectorNode(Node):
@@ -248,7 +276,8 @@ class DetectorNode(Node):
         return self._parse_yolo_result(results[0], stamp)
 
     def _load_model(self):
-        if not os.path.exists(self.model_path):
+        model_path = self._resolve_model_path()
+        if not model_path:
             self.get_logger().warn('YOLO model not found, publishing empty fallback detections: %s' % self.model_path)
             return None
         try:
@@ -257,12 +286,28 @@ class DetectorNode(Node):
             self.get_logger().warn('ultralytics is not installed, publishing empty fallback detections: %s' % exc)
             return None
         try:
-            model = YOLO(self.model_path)
+            model = YOLO(model_path)
         except Exception as exc:
-            self.get_logger().warn('failed to load YOLO model %s: %s' % (self.model_path, exc))
+            self.get_logger().warn('failed to load YOLO model %s: %s' % (model_path, exc))
             return None
+        self.model_path = model_path
         self.get_logger().info('loaded YOLO model: %s' % self.model_path)
         return model
+
+    def _resolve_model_path(self):
+        candidates = [self.model_path]
+        model_name = os.path.basename(self.model_path)
+        candidates.extend([
+            os.path.join('/home/jetauto/phantom_ws/models/yolo', model_name),
+            os.path.join('/home/ubuntu/phantom_ws/models/yolo', model_name),
+            os.path.join(os.getcwd(), 'models', 'yolo', model_name),
+            os.path.join(os.getcwd(), 'models', 'yolo', 'phantom_cone_yellow_random200_best.pt'),
+        ])
+        for path in candidates:
+            path = os.path.expanduser(str(path))
+            if os.path.exists(path):
+                return path
+        return None
 
     def _mask_to_detection(self, mask, frame_shape, class_name, confidence, stamp):
         kernel = np.ones((5, 5), dtype=np.uint8)
@@ -297,7 +342,7 @@ class DetectorNode(Node):
         image_height, image_width = result.orig_shape[:2]
         for box in boxes:
             class_id = int(box.cls[0])
-            class_name = str(names.get(class_id, class_id))
+            class_name = normalize_class_name(names.get(class_id, class_id))
             confidence = float(box.conf[0])
             x0, y0, x1, y1 = [float(value) for value in box.xyxy[0].tolist()]
             detections.append(
@@ -389,7 +434,7 @@ class DetectorNode(Node):
     def _select_detection(self, detections, class_names):
         matches = [
             detection for detection in detections
-            if detection.get('visible', True) and detection.get('class_name') in class_names
+            if detection.get('visible', True) and normalize_class_name(detection.get('class_name')) in class_names
         ]
         if not matches:
             default_class = 'yellow_car' if class_names == self.yellow_classes else ''
@@ -438,6 +483,8 @@ class DetectorNode(Node):
 
 
 def main(args=None):
+    if rclpy is None:
+        raise RuntimeError('rclpy is required to run detector_node as a ROS2 node')
     rclpy.init(args=args)
     node = DetectorNode()
     try:

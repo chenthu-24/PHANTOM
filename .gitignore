@@ -6,3 +6,16 @@ __pycache__/
 
 # Local HuggingFace model cache; files exceed GitHub's normal Git limit.
 models/hf/
+
+# ROS/colcon generated workspace output.
+build/
+install/
+log/
+
+# Local robot backups and ad-hoc experiment scratch data.
+backups/
+results/
+artifacts/
+*.tar.gz
+*.zip
+src/*.bak_codex_*/

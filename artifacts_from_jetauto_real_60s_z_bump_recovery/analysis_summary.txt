@@ -1,0 +1,27 @@
+/cmd_vel_raw.linear.x avg/max/min: 0.12728 / 0.32 / 0.0 (n=1198)
+/cmd_vel_raw.angular.z avg/max/min: -0.1249 / 0.75 / -0.75 (n=1198)
+/controller/cmd_vel.linear.x avg/max/min: 0.1451 / 0.32 / 0.0 (n=1164)
+/controller/cmd_vel.angular.z avg/max/min: -0.11575 / 0.75 / -0.75 (n=1164)
+front_min avg/max/min: 1.54147 / 5.992 / 0.15 (n=1628)
+front_blocked_soft/hard count: 137 / 20
+best_heading trend avg/max/min: -0.1199 / 1.25 / -1.25 (n=1628)
+rear_pressure avg/max/min: 0.40591 / 1.0 / 0.0 (n=599)
+YOLO detection count: 55 classes={'traffic_cone': 55}
+traffic_cone detection count: 55
+z_bump_detected count: 0
+z_bump_score avg/max/min: 0.0 / 0.0 / 0.0 (n=599)
+z_bump_depth_jump_m avg/max/min: None / None / None (n=0)
+CONE_BASE_RECOVER count: 0
+long_time_spin_detected: False (max_spin_seconds=0.806)
+normal_forward_detected: True
+avoidance_behavior_detected: True
+stop_success: True (source=stop_confirmed_json)
+dominant planner state: ESCAPE
+dominant safety reason: pass
+/odom.twist.linear.x avg/max/min: None / None / None (n=0)
+/odom.twist.angular.z avg/max/min: None / None / None (n=0)
+/odom displacement_xy: None
+/odom_raw.twist.linear.x avg/max/min: 0.07066 / 0.32 / 0.0 (n=5599)
+/odom_raw.twist.angular.z avg/max/min: -0.05625 / 0.75 / -0.75 (n=5599)
+/odom_raw displacement_xy: 1.19656
+sample counts: {'cmd_vel_raw': 1198, 'controller_cmd_vel': 1164, 'front_free_space': 1628, 'rear_risk': 599, 'detections_messages': 54, 'planner_state': 1198, 'safety_decision': 2398, 'odom': 0, 'odom_raw': 5599}
