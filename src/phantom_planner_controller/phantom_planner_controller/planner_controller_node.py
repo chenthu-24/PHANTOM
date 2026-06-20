@@ -83,6 +83,21 @@ def _front_scale_value(front_min, hard=0.22, soft=0.35, slowdown=0.50):
     return 1.0
 
 
+def _deg_to_rad(value):
+    return math.radians(float(value))
+
+
+def _smoothed_angular_z(previous, target, alpha, rate_limit, limit):
+    limit = abs(float(limit))
+    target = _clamp(target, -limit, limit)
+    alpha = _clamp(alpha, 0.0, 1.0)
+    blended = previous + alpha * (target - previous)
+    rate_limit = abs(float(rate_limit))
+    if rate_limit > 0.0:
+        blended = _clamp(blended, previous - rate_limit, previous + rate_limit)
+    return _clamp(blended, -limit, limit)
+
+
 def compute_planner_command(front, rear=None, detections=None, params=None):
     """Stateless local planner equivalent for debug chain injection tests."""
     values = {
@@ -90,16 +105,39 @@ def compute_planner_command(front, rear=None, detections=None, params=None):
         'escape_vx': 0.28,
         'avoid_front_vx': 0.06,
         'recover_reverse_vx': -0.06,
-        'recover_wz': 0.55,
-        'gap_escape_vx': 0.035,
-        'gap_escape_min_wz': 0.35,
+        'recover_wz': 0.30,
+        'gap_escape_vx': 0.06,
+        'gap_escape_min_wz': 0.12,
         'max_forward_vx': 0.32,
         'max_reverse_vx': -0.08,
-        'max_wz': 0.75,
+        'max_wz': 0.55,
         'k_heading': 1.15,
         'front_hard_stop_m': 0.22,
-        'front_soft_stop_m': 0.35,
-        'front_slowdown_m': 0.50,
+        'front_soft_stop_m': 0.34,
+        'front_slowdown_m': 0.72,
+        'max_probe_angle_deg': 22.0,
+        'max_probe_angular_z': 0.34,
+        'probe_angle_step_deg': 8.0,
+        'turn_rate_limit': 0.10,
+        'angular_smoothing_alpha': 0.35,
+        'direction_switch_margin': 0.24,
+        'min_direction_hold_time': 1.20,
+        'oscillation_penalty': 0.35,
+        'max_angular_z_near_obstacle': 0.34,
+        'min_safe_forward_speed': 0.025,
+        'obstacle_slowdown_distance': 0.72,
+        'forward_corridor_clearance_m': 0.62,
+        'center_forward_override_m': 0.80,
+        'balanced_side_score_margin': 0.12,
+        'robot_width_m': 0.25,
+        'robot_length_m': 0.30,
+        'safety_margin_m': 0.05,
+        'min_exit_corridor_width_m': 0.35,
+        'min_side_clearance_m': 0.175,
+        'inflation_radius_m': 0.245,
+        'cone_base_radius_m': 0.15,
+        'obstacle_extra_margin_m': 0.03,
+        'min_obstacle_clearance_m': 0.355,
         'rear_pressure_escape_enter': 0.55,
         'threat_confidence': 0.25,
         'cone_base_recover_score_enter': 0.65,
@@ -112,9 +150,17 @@ def compute_planner_command(front, rear=None, detections=None, params=None):
     front_unknown = bool(front.get('front_unknown', False))
     front_valid = bool(front.get('valid', False)) and not front_unknown
     front_min = _as_float(front, 'front_min', _as_float(front, 'front_clearance', 0.0))
+    front_path_safe = bool(front.get('front_path_safe', True))
+    side_corridor_clear = bool(front.get('side_corridor_clear', False))
+    min_exit_width = _as_float(front, 'min_exit_corridor_width_m', values['min_exit_corridor_width_m'])
+    gap_width = _as_float(front, 'best_gap_width_m', 0.0)
+    gap_escape_allowed = (
+        bool(front.get('gap_escape_allowed', False))
+        and gap_width >= min_exit_width
+    )
     front_soft = bool(front.get('front_blocked_soft', False)) or (
         front_valid and 0.0 < front_min < values['front_soft_stop_m']
-    )
+    ) or (front_valid and not front_path_safe and not side_corridor_clear and not gap_escape_allowed)
     front_hard = bool(front.get('front_blocked_hard', False)) or (
         front_valid and 0.0 < front_min < values['front_hard_stop_m']
     )
@@ -139,13 +185,17 @@ def compute_planner_command(front, rear=None, detections=None, params=None):
     )
     z_bump_detected = bool(rear.get('z_bump_detected', False))
     z_bump_score = _clamp(_as_float(rear, 'z_bump_score', 0.0), 0.0, 1.0)
-    best_heading = _clamp(_as_float(front, 'best_heading', 0.0), -1.25, 1.25)
-    gap_escape_allowed = bool(front.get('gap_escape_allowed', False))
-    gap_heading = _clamp(_as_float(front, 'best_gap_heading', best_heading), -1.25, 1.25)
+    max_probe_angle = _deg_to_rad(values['max_probe_angle_deg'])
+    probe_step = _deg_to_rad(values['probe_angle_step_deg'])
+    max_near_wz = min(values['max_wz'], values['max_probe_angular_z'], values['max_angular_z_near_obstacle'])
+    best_heading = _clamp(_as_float(front, 'best_heading', 0.0), -max_probe_angle, max_probe_angle)
+    if side_corridor_clear:
+        best_heading = _clamp(_as_float(front, 'side_corridor_heading', best_heading), -0.16, 0.16)
+    gap_heading = _clamp(_as_float(front, 'best_gap_heading', best_heading), -max_probe_angle, max_probe_angle)
     left_open = max(_as_float(front, 'left_front_min', 0.0), _as_float(front, 'left_min', 0.0))
     right_open = max(_as_float(front, 'right_front_min', 0.0), _as_float(front, 'right_min', 0.0))
     if abs(best_heading) < 0.05 and front_soft:
-        best_heading = 0.55 if left_open >= right_open else -0.55
+        best_heading = probe_step if left_open >= right_open else -probe_step
     turn_direction = 1.0 if (best_heading >= 0.0 or left_open >= right_open) else -1.0
 
     emergency_front_stop = front_hard and not (
@@ -169,7 +219,7 @@ def compute_planner_command(front, rear=None, detections=None, params=None):
             state = 'GAP_ESCAPE'
             vx = values['gap_escape_vx']
             direction = 1.0 if gap_heading >= 0.0 else -1.0
-            wz = direction * _clamp(abs(values['k_heading'] * gap_heading), values['gap_escape_min_wz'], values['max_wz'])
+            wz = direction * _clamp(abs(values['k_heading'] * gap_heading), values['gap_escape_min_wz'], max_near_wz)
         elif reverse_allowed:
             state = 'RECOVER'
             vx = values['recover_reverse_vx']
@@ -184,8 +234,19 @@ def compute_planner_command(front, rear=None, detections=None, params=None):
             wz = 0.0
     elif front_soft:
         state = 'AVOID_FRONT'
-        vx = min(values['avoid_front_vx'], 0.04 if front_min < values['front_soft_stop_m'] else values['avoid_front_vx'])
-        wz = turn_direction * _clamp(abs(values['k_heading'] * best_heading), 0.35, 0.65)
+        vx = min(values['avoid_front_vx'], 0.04 if front_min < values['obstacle_slowdown_distance'] else values['avoid_front_vx'])
+        if not front_hard:
+            vx = max(vx, values['min_safe_forward_speed'])
+        wz = turn_direction * _clamp(abs(values['k_heading'] * best_heading), 0.10, max_near_wz)
+    elif side_corridor_clear:
+        state = 'CRUISE'
+        wz = _clamp(values['k_heading'] * best_heading, -max_near_wz, max_near_wz)
+        vx = values['cruise_vx'] * _front_scale_value(
+            front_min,
+            values['front_hard_stop_m'],
+            values['front_soft_stop_m'],
+            values['front_slowdown_m'],
+        ) * max(0.55, 1.0 - abs(wz) / max(values['max_wz'], 0.01))
     elif rear_pressure >= values['rear_pressure_escape_enter'] or threat_visible:
         state = 'ESCAPE'
         wz = _clamp(values['k_heading'] * best_heading, -values['max_wz'], values['max_wz'])
@@ -237,26 +298,48 @@ class PlannerControllerNode(Node):
         self.declare_parameter('escape_vx', 0.28)
         self.declare_parameter('avoid_front_vx', 0.06)
         self.declare_parameter('recover_reverse_vx', -0.06)
-        self.declare_parameter('recover_wz', 0.55)
-        self.declare_parameter('gap_escape_vx', 0.035)
-        self.declare_parameter('gap_escape_min_wz', 0.35)
+        self.declare_parameter('recover_wz', 0.30)
+        self.declare_parameter('gap_escape_vx', 0.06)
+        self.declare_parameter('gap_escape_min_wz', 0.12)
         self.declare_parameter('max_forward_vx', 0.32)
         self.declare_parameter('max_reverse_vx', -0.08)
-        self.declare_parameter('max_wz', 0.75)
+        self.declare_parameter('max_wz', 0.55)
         self.declare_parameter('k_heading', 1.15)
         self.declare_parameter('front_hard_stop_m', 0.22)
-        self.declare_parameter('front_soft_stop_m', 0.35)
-        self.declare_parameter('front_slowdown_m', 0.50)
+        self.declare_parameter('front_soft_stop_m', 0.34)
+        self.declare_parameter('front_slowdown_m', 0.72)
+        self.declare_parameter('max_probe_angle_deg', 22.0)
+        self.declare_parameter('max_probe_angular_z', 0.34)
+        self.declare_parameter('probe_angle_step_deg', 8.0)
+        self.declare_parameter('turn_rate_limit', 0.10)
+        self.declare_parameter('angular_smoothing_alpha', 0.35)
+        self.declare_parameter('direction_switch_margin', 0.24)
+        self.declare_parameter('min_direction_hold_time', 1.20)
+        self.declare_parameter('max_angular_z_near_obstacle', 0.34)
+        self.declare_parameter('min_safe_forward_speed', 0.025)
+        self.declare_parameter('obstacle_slowdown_distance', 0.72)
+        self.declare_parameter('forward_corridor_clearance_m', 0.62)
+        self.declare_parameter('center_forward_override_m', 0.80)
+        self.declare_parameter('balanced_side_score_margin', 0.12)
+        self.declare_parameter('robot_width_m', 0.25)
+        self.declare_parameter('robot_length_m', 0.30)
+        self.declare_parameter('safety_margin_m', 0.05)
+        self.declare_parameter('min_side_clearance_m', 0.175)
+        self.declare_parameter('inflation_radius_m', 0.245)
+        self.declare_parameter('min_exit_corridor_width_m', 0.35)
+        self.declare_parameter('cone_base_radius_m', 0.15)
+        self.declare_parameter('obstacle_extra_margin_m', 0.03)
+        self.declare_parameter('min_obstacle_clearance_m', 0.355)
         self.declare_parameter('rear_pressure_escape_enter', 0.55)
         self.declare_parameter('rear_pressure_escape_exit', 0.35)
         self.declare_parameter('rear_pressure_cruise_max', 0.45)
-        self.declare_parameter('min_escape_duration_s', 1.20)
-        self.declare_parameter('escape_clear_duration_s', 1.00)
+        self.declare_parameter('min_escape_duration_s', 1.50)
+        self.declare_parameter('escape_clear_duration_s', 1.20)
         self.declare_parameter('threat_confidence', 0.25)
-        self.declare_parameter('direction_lock_duration_s', 0.90)
-        self.declare_parameter('switch_margin', 0.18)
-        self.declare_parameter('keep_bonus', 0.12)
-        self.declare_parameter('switch_penalty', 0.22)
+        self.declare_parameter('direction_lock_duration_s', 1.20)
+        self.declare_parameter('switch_margin', 0.24)
+        self.declare_parameter('keep_bonus', 0.18)
+        self.declare_parameter('switch_penalty', 0.28)
         self.declare_parameter('oscillation_penalty', 0.30)
         self.declare_parameter('oscillation_window_s', 2.0)
         self.declare_parameter('stuck_enter_threshold', 0.75)
@@ -297,6 +380,30 @@ class PlannerControllerNode(Node):
         self.front_hard_stop_m = float(self.get_parameter('front_hard_stop_m').value)
         self.front_soft_stop_m = float(self.get_parameter('front_soft_stop_m').value)
         self.front_slowdown_m = float(self.get_parameter('front_slowdown_m').value)
+        self.max_probe_angle_deg = float(self.get_parameter('max_probe_angle_deg').value)
+        self.max_probe_angle_rad = _deg_to_rad(self.max_probe_angle_deg)
+        self.max_probe_angular_z = float(self.get_parameter('max_probe_angular_z').value)
+        self.probe_angle_step_deg = float(self.get_parameter('probe_angle_step_deg').value)
+        self.probe_angle_step_rad = _deg_to_rad(self.probe_angle_step_deg)
+        self.turn_rate_limit = float(self.get_parameter('turn_rate_limit').value)
+        self.angular_smoothing_alpha = float(self.get_parameter('angular_smoothing_alpha').value)
+        self.direction_switch_margin = float(self.get_parameter('direction_switch_margin').value)
+        self.min_direction_hold_time = float(self.get_parameter('min_direction_hold_time').value)
+        self.max_angular_z_near_obstacle = float(self.get_parameter('max_angular_z_near_obstacle').value)
+        self.min_safe_forward_speed = float(self.get_parameter('min_safe_forward_speed').value)
+        self.obstacle_slowdown_distance = float(self.get_parameter('obstacle_slowdown_distance').value)
+        self.forward_corridor_clearance_m = float(self.get_parameter('forward_corridor_clearance_m').value)
+        self.center_forward_override_m = float(self.get_parameter('center_forward_override_m').value)
+        self.balanced_side_score_margin = float(self.get_parameter('balanced_side_score_margin').value)
+        self.robot_width_m = float(self.get_parameter('robot_width_m').value)
+        self.robot_length_m = float(self.get_parameter('robot_length_m').value)
+        self.safety_margin_m = float(self.get_parameter('safety_margin_m').value)
+        self.min_side_clearance_m = float(self.get_parameter('min_side_clearance_m').value)
+        self.inflation_radius_m = float(self.get_parameter('inflation_radius_m').value)
+        self.min_exit_corridor_width_m = float(self.get_parameter('min_exit_corridor_width_m').value)
+        self.cone_base_radius_m = float(self.get_parameter('cone_base_radius_m').value)
+        self.obstacle_extra_margin_m = float(self.get_parameter('obstacle_extra_margin_m').value)
+        self.min_obstacle_clearance_m = float(self.get_parameter('min_obstacle_clearance_m').value)
         self.rear_pressure_escape_enter = float(self.get_parameter('rear_pressure_escape_enter').value)
         self.rear_pressure_escape_exit = float(self.get_parameter('rear_pressure_escape_exit').value)
         self.rear_pressure_cruise_max = float(self.get_parameter('rear_pressure_cruise_max').value)
@@ -322,6 +429,10 @@ class PlannerControllerNode(Node):
         self.cone_base_recover_reverse_s = float(self.get_parameter('cone_base_recover_reverse_s').value)
         self.cone_base_recover_rotate_s = float(self.get_parameter('cone_base_recover_rotate_s').value)
         self.cone_base_recover_timeout_s = float(self.get_parameter('cone_base_recover_timeout_s').value)
+        self.switch_margin = max(self.switch_margin, self.direction_switch_margin)
+        self.direction_lock_duration_s = max(self.direction_lock_duration_s, self.min_direction_hold_time)
+        self.recover_wz = min(self.recover_wz, self.max_probe_angular_z)
+        self.gap_escape_min_wz = min(self.gap_escape_min_wz, self.max_probe_angular_z)
 
         self.cmd_pub = self.create_publisher(Twist, self.cmd_vel_topic, 10)
         self.state_pub = self.create_publisher(String, self.planner_state_topic, 10)
@@ -369,7 +480,9 @@ class PlannerControllerNode(Node):
         self.stuck_started_at = None
         self.stuck_score = 0.0
         self.last_cmd = Twist()
+        self.last_smoothed_wz = 0.0
         self.odom_history = deque()
+        self.last_debug_log_time = -999.0
 
         period = 1.0 / max(self.control_frequency_hz, 1.0)
         self.timer = self.create_timer(period, self.control_step)
@@ -449,6 +562,7 @@ class PlannerControllerNode(Node):
                 self._set_state(desired_state, now)
                 cmd = self._command_for_state(context, selected)
 
+        cmd = self._smooth_cmd_angular(cmd, context)
         self._record_angular_sign(now, cmd.angular.z)
         self.last_cmd = cmd
         self.cmd_pub.publish(cmd)
@@ -469,14 +583,15 @@ class PlannerControllerNode(Node):
             return 'RECOVER' if self._safe_turn_available(context) or context['reverse_allowed'] else 'STOP'
         if self._front_rear_soft_blocked(now):
             return 'RECOVER'
-        if self._oscillation_detected(now):
+        if self._oscillation_detected(now) and not context['forward_corridor_clear']:
             return 'RECOVER'
         if self._stuck_ready(now):
             return 'RECOVER'
-        if context['front_soft']:
-            return 'AVOID_FRONT'
 
         threat_recent = now - self.last_threat_time <= self.detection_timeout_sec
+        if context['front_soft'] and not context['forward_corridor_clear']:
+            return 'AVOID_FRONT'
+
         escape_trigger = context['rear_pressure'] >= self.rear_pressure_escape_enter or threat_recent
         if escape_trigger:
             self.escape_clear_since = None
@@ -513,14 +628,22 @@ class PlannerControllerNode(Node):
             vx = self.escape_vx * self._front_scale(context['front_min']) * self._turn_scale(wz) * escape_boost
         elif self.state == 'AVOID_FRONT':
             direction = self._turn_direction(context, selected)
-            wz = direction * _clamp(abs(self.k_heading * selected['heading']), 0.35, 0.65)
+            near_limit = self._angular_limit_for_context(context)
+            wz = direction * _clamp(abs(self.k_heading * selected['heading']), 0.10, near_limit)
             vx = self.avoid_front_vx
             if context['front_min'] < self.front_soft_stop_m:
-                vx = min(vx, 0.04)
+                vx = min(vx, 0.035)
+            elif context['front_min'] < self.forward_corridor_clearance_m:
+                vx = min(vx, 0.055)
+            elif context['front_min'] < self.obstacle_slowdown_distance:
+                vx = min(vx, 0.075)
+            if not context['front_hard']:
+                vx = max(vx, self.min_safe_forward_speed)
         elif self.state == 'GAP_ESCAPE':
             heading = context['gap_heading']
             direction = 1.0 if heading >= 0.0 else -1.0
-            wz = direction * _clamp(abs(self.k_heading * heading), self.gap_escape_min_wz, self.max_wz)
+            near_limit = self._angular_limit_for_context(context)
+            wz = direction * _clamp(abs(self.k_heading * heading), self.gap_escape_min_wz, near_limit)
             vx = self.gap_escape_vx
         else:
             return cmd
@@ -530,6 +653,33 @@ class PlannerControllerNode(Node):
         cmd.linear.x = _clamp(vx, self.max_reverse_vx, self.max_forward_vx)
         cmd.angular.z = _clamp(wz, -self.max_wz, self.max_wz)
         return cmd
+
+    def _smooth_cmd_angular(self, cmd, context):
+        if abs(float(cmd.angular.z)) <= 1e-6:
+            self.last_smoothed_wz = 0.0
+            cmd.angular.z = 0.0
+            return cmd
+        limit = self._angular_limit_for_context(context)
+        cmd.angular.z = _smoothed_angular_z(
+            self.last_smoothed_wz,
+            float(cmd.angular.z),
+            self.angular_smoothing_alpha,
+            self.turn_rate_limit,
+            limit,
+        )
+        self.last_smoothed_wz = float(cmd.angular.z)
+        return cmd
+
+    def _angular_limit_for_context(self, context):
+        limit = self.max_wz
+        if (
+            context.get('front_soft', False)
+            or context.get('front_hard', False)
+            or 0.0 < context.get('front_min', 0.0) < self.obstacle_slowdown_distance
+            or self.state in ('AVOID_FRONT', 'GAP_ESCAPE', 'RECOVER', 'CONE_BASE_RECOVER')
+        ):
+            limit = min(limit, self.max_angular_z_near_obstacle, self.max_probe_angular_z)
+        return max(0.08, abs(float(limit)))
 
     def _recover_cmd(self, context, selected, now):
         cmd = Twist()
@@ -548,13 +698,13 @@ class PlannerControllerNode(Node):
                 cmd.linear.x = _clamp(self.recover_reverse_vx, self.max_reverse_vx, -0.04)
                 return cmd
             if elapsed < 1.55:
-                cmd.angular.z = _clamp(self.recover_direction * self.recover_wz, -self.max_wz, self.max_wz)
+                cmd.angular.z = _clamp(self.recover_direction * self.recover_wz, -self.max_probe_angular_z, self.max_probe_angular_z)
                 return cmd
         else:
             if elapsed < 0.20:
                 return cmd
             if elapsed < 1.05:
-                cmd.angular.z = _clamp(self.recover_direction * self.recover_wz, -self.max_wz, self.max_wz)
+                cmd.angular.z = _clamp(self.recover_direction * self.recover_wz, -self.max_probe_angular_z, self.max_probe_angular_z)
                 return cmd
 
         next_state = 'AVOID_FRONT' if context['front_soft'] else 'CRUISE'
@@ -627,7 +777,7 @@ class PlannerControllerNode(Node):
                 return cmd
             if elapsed < rotate_end:
                 self.cone_recover_phase = 'rotate'
-                cmd.angular.z = _clamp(self.cone_recover_direction * self.recover_wz, -self.max_wz, self.max_wz)
+                cmd.angular.z = _clamp(self.cone_recover_direction * self.recover_wz, -self.max_probe_angular_z, self.max_probe_angular_z)
                 return cmd
         else:
             rotate_end = self.cone_base_recover_stop_s + self.cone_base_recover_rotate_s
@@ -636,7 +786,7 @@ class PlannerControllerNode(Node):
                 return cmd
             if elapsed < rotate_end:
                 self.cone_recover_phase = 'rotate'
-                cmd.angular.z = _clamp(self.cone_recover_direction * self.recover_wz, -self.max_wz, self.max_wz)
+                cmd.angular.z = _clamp(self.cone_recover_direction * self.recover_wz, -self.max_probe_angular_z, self.max_probe_angular_z)
                 return cmd
 
         return self._exit_cone_base_recover(context, selected, now, 'exit')
@@ -659,9 +809,8 @@ class PlannerControllerNode(Node):
         front_hard = bool(front_payload.get('front_blocked_hard', False)) or (
             front_valid and 0.0 < front_min < self.front_hard_stop_m
         )
-        front_soft = bool(front_payload.get('front_blocked_soft', False)) or (
-            front_valid and 0.0 < front_min < self.front_soft_stop_m
-        )
+        front_path_safe = bool(front_payload.get('front_path_safe', True))
+        side_corridor_clear = bool(front_payload.get('side_corridor_clear', False))
 
         rear_recent = self.rear is not None and now - self.last_rear_time <= self.rear_timeout_sec
         rear_payload = self.rear or {}
@@ -678,6 +827,25 @@ class PlannerControllerNode(Node):
         z_bump_detected = bool(rear_payload.get('z_bump_detected', False)) and rear_recent
         z_bump_score = _clamp(_as_float(rear_payload, 'z_bump_score', 0.0), 0.0, 1.0) if rear_recent else 0.0
         traffic_cone_recent = now - self.last_traffic_cone_time <= self.detection_timeout_sec
+        gap_width = _as_float(front_payload, 'best_gap_width_m', 0.0)
+        min_exit_width = _as_float(front_payload, 'min_exit_corridor_width_m', self.min_exit_corridor_width_m)
+        gap_escape_allowed = bool(front_payload.get('gap_escape_allowed', False)) and gap_width >= min_exit_width
+        front_soft = bool(front_payload.get('front_blocked_soft', False)) or (
+            front_valid and 0.0 < front_min < self.front_soft_stop_m
+        ) or (front_valid and not front_path_safe and not side_corridor_clear and not gap_escape_allowed)
+        forward_corridor_clear = (
+            front_valid
+            and not front_hard
+            and (
+                side_corridor_clear
+                or
+                (
+                    front_min >= self.forward_corridor_clearance_m
+                    and (front_path_safe or gap_escape_allowed)
+                )
+                or front_min >= self.center_forward_override_m
+            )
+        )
 
         return {
             'front': front_payload,
@@ -700,24 +868,71 @@ class PlannerControllerNode(Node):
             'z_bump_score': z_bump_score,
             'z_bump_side': str(rear_payload.get('z_bump_side', 'none')),
             'z_bump_reason': str(rear_payload.get('z_bump_reason', '')),
-            'gap_escape_allowed': bool(front_payload.get('gap_escape_allowed', False)),
-            'gap_heading': _clamp(_as_float(front_payload, 'best_gap_heading', _as_float(front_payload, 'best_heading', 0.0)), -1.25, 1.25),
-            'gap_width_m': _as_float(front_payload, 'best_gap_width_m', 0.0),
+            'gap_escape_allowed': gap_escape_allowed,
+            'gap_heading': _clamp(
+                _as_float(front_payload, 'best_gap_heading', _as_float(front_payload, 'best_heading', 0.0)),
+                -self.max_probe_angle_rad,
+                self.max_probe_angle_rad,
+            ),
+            'gap_width_m': gap_width,
+            'front_path_safe': front_path_safe,
+            'side_corridor_clear': side_corridor_clear,
+            'side_corridor_heading': _as_float(front_payload, 'side_corridor_heading', 0.0),
+            'side_corridor_left_m': _as_float(front_payload, 'side_corridor_left_m', 0.0),
+            'side_corridor_right_m': _as_float(front_payload, 'side_corridor_right_m', 0.0),
+            'forward_corridor_clear': forward_corridor_clear,
+            'min_exit_corridor_width_m': min_exit_width,
+            'min_side_clearance_m': _as_float(front_payload, 'min_side_clearance_m', self.min_side_clearance_m),
+            'inflation_radius_m': _as_float(front_payload, 'inflation_radius_m', self.inflation_radius_m),
+            'min_obstacle_clearance_m': _as_float(front_payload, 'min_obstacle_clearance_m', self.min_obstacle_clearance_m),
             'dead_end_score': _as_float(front_payload, 'dead_end_score', 0.0),
             'corner_trap_score': _as_float(front_payload, 'corner_trap_score', 0.0),
         }
 
     def _choose_direction(self, context, now):
         front = context['front']
-        best_heading = _clamp(_as_float(front, 'best_heading', 0.0), -1.25, 1.25)
+        best_heading = _clamp(_as_float(front, 'best_heading', 0.0), -self.max_probe_angle_rad, self.max_probe_angle_rad)
         raw_scores = self._direction_scores(context)
+        raw_best = max(raw_scores, key=raw_scores.get)
+
+        if context.get('side_corridor_clear', False):
+            if self.last_direction != 'front':
+                self.last_direction_switch_time = now
+            self.last_direction = 'front'
+            self.prev_direction_scores = raw_scores
+            heading = _clamp(
+                context.get('side_corridor_heading', best_heading),
+                -min(self.max_probe_angle_rad, 0.16),
+                min(self.max_probe_angle_rad, 0.16),
+            )
+            return {
+                'direction': 'front',
+                'heading': heading,
+                'score': raw_scores.get('front', 0.0),
+                'scores': raw_scores,
+                'raw_scores': raw_scores,
+                'selection_reason': 'side_corridor',
+                'direction_hold_active': False,
+                'score_margin_hold': False,
+                'switch_penalty_active': False,
+                'score_delta': 0.0,
+                'side_score_delta': abs(raw_scores.get('left', 0.0) - raw_scores.get('right', 0.0)),
+                'raw_best_direction': raw_best,
+            }
 
         if (
             context['front_valid']
-            and not context['front_soft']
             and not context['front_hard']
-            and context['front_min'] >= self.front_slowdown_m
+            and (
+                (
+                    not context['front_soft']
+                    and context['front_min'] >= self.front_slowdown_m
+                )
+                or context['forward_corridor_clear']
+            )
         ):
+            if self.last_direction != 'front':
+                self.last_direction_switch_time = now
             self.last_direction = 'front'
             self.prev_direction_scores = raw_scores
             return {
@@ -726,6 +941,12 @@ class PlannerControllerNode(Node):
                 'score': raw_scores.get('front', 0.0),
                 'scores': raw_scores,
                 'raw_scores': raw_scores,
+                'selection_reason': 'forward_corridor',
+                'direction_hold_active': False,
+                'score_margin_hold': False,
+                'switch_penalty_active': False,
+                'score_delta': 0.0,
+                'raw_best_direction': raw_best,
             }
 
         final_scores = {}
@@ -744,13 +965,33 @@ class PlannerControllerNode(Node):
             final_scores[name] = adjusted
 
         current = self.last_direction if self.last_direction in final_scores else 'front'
-        best = max(final_scores, key=final_scores.get)
+        candidate = max(final_scores, key=final_scores.get)
+        best = candidate
         current_safe = self._direction_safe(current, context)
+        score_delta = final_scores[candidate] - final_scores.get(current, final_scores[candidate])
+        side_score_delta = abs(raw_scores.get('left', 0.0) - raw_scores.get('right', 0.0))
+        direction_hold_active = False
+        score_margin_hold = False
+        selection_reason = 'best_score'
         if current_safe and now - self.last_direction_switch_time < self.direction_lock_duration_s:
-            if final_scores[best] <= final_scores[current] + self.switch_margin:
+            if score_delta <= self.switch_margin:
                 best = current
-        elif final_scores[best] <= final_scores[current] + self.switch_margin and current_safe:
+                direction_hold_active = True
+                selection_reason = 'direction_hold'
+        elif (
+            current_safe
+            and {candidate, current} == {'left', 'right'}
+            and side_score_delta <= self.balanced_side_score_margin
+        ):
             best = current
+            score_margin_hold = True
+            selection_reason = 'balanced_side_margin'
+        elif score_delta <= self.switch_margin and current_safe:
+            best = current
+            score_margin_hold = True
+            selection_reason = 'score_margin'
+        elif candidate != raw_best:
+            selection_reason = 'switch_penalty'
 
         if best != self.last_direction:
             if {best, self.last_direction} == {'left', 'right'}:
@@ -767,6 +1008,13 @@ class PlannerControllerNode(Node):
             'score': final_scores[best],
             'scores': final_scores,
             'raw_scores': raw_scores,
+            'selection_reason': selection_reason,
+            'direction_hold_active': direction_hold_active,
+            'score_margin_hold': score_margin_hold,
+            'switch_penalty_active': candidate != raw_best,
+            'score_delta': score_delta,
+            'side_score_delta': side_score_delta,
+            'raw_best_direction': raw_best,
         }
 
     def _direction_scores(self, context):
@@ -789,27 +1037,31 @@ class PlannerControllerNode(Node):
 
     def _direction_safe(self, direction, context):
         front = context['front']
+        side_clearance = max(context.get('min_side_clearance_m', self.min_side_clearance_m), self.front_hard_stop_m)
         if direction == 'front':
-            return not context['front_soft']
+            return (
+                (not context['front_soft'] and context.get('front_path_safe', True))
+                or context.get('forward_corridor_clear', False)
+                or context.get('side_corridor_clear', False)
+            )
         if direction == 'left':
             return (
-                _as_float(front, 'left_front_min', 0.0) >= self.front_hard_stop_m
-                or _as_float(front, 'left_min', 0.0) >= self.front_soft_stop_m
+                _as_float(front, 'left_front_min', 0.0) >= side_clearance
+                and _as_float(front, 'left_min', 0.0) >= side_clearance
             )
         if direction == 'right':
             return (
-                _as_float(front, 'right_front_min', 0.0) >= self.front_hard_stop_m
-                or _as_float(front, 'right_min', 0.0) >= self.front_soft_stop_m
+                _as_float(front, 'right_front_min', 0.0) >= side_clearance
+                and _as_float(front, 'right_min', 0.0) >= side_clearance
             )
         return False
 
-    @staticmethod
-    def _heading_for_direction(direction, best_heading):
+    def _heading_for_direction(self, direction, best_heading):
         if direction == 'front':
-            return _clamp(best_heading, -0.25, 0.25)
+            return _clamp(best_heading, -self.max_probe_angle_rad, self.max_probe_angle_rad)
         if direction == 'left':
-            return _clamp(abs(best_heading), 0.45, 0.75)
-        return -_clamp(abs(best_heading), 0.45, 0.75)
+            return _clamp(abs(best_heading), self.probe_angle_step_rad, self.max_probe_angle_rad)
+        return -_clamp(abs(best_heading), self.probe_angle_step_rad, self.max_probe_angle_rad)
 
     def _front_scale(self, front_min):
         if front_min <= 0.0:
@@ -839,12 +1091,13 @@ class PlannerControllerNode(Node):
 
     def _safe_turn_available(self, context):
         front = context['front']
+        side_clearance = max(context.get('min_side_clearance_m', self.min_side_clearance_m), self.front_soft_stop_m)
         return max(
             _as_float(front, 'left_front_min', 0.0),
             _as_float(front, 'right_front_min', 0.0),
             _as_float(front, 'left_min', 0.0),
             _as_float(front, 'right_min', 0.0),
-        ) >= self.front_soft_stop_m
+        ) >= side_clearance
 
     def _update_soft_block_timer(self, context, now):
         if context['front_soft'] and context['rear_soft']:
@@ -931,17 +1184,32 @@ class PlannerControllerNode(Node):
         payload = {
             'stamp': round(now, 6),
             'state': self.state,
+            'motion_state': self._motion_state_label(selected),
             'reason': self._state_reason(context),
             'selected_direction': selected['direction'],
+            'raw_best_direction': selected.get('raw_best_direction', selected['direction']),
+            'selection_reason': selected.get('selection_reason', 'unknown'),
+            'direction_hold_active': bool(selected.get('direction_hold_active', False)),
+            'score_margin_hold': bool(selected.get('score_margin_hold', False)),
+            'switch_penalty_active': bool(selected.get('switch_penalty_active', False)),
+            'score_delta': round(float(selected.get('score_delta', 0.0)), 3),
             'selected_heading': round(selected['heading'], 3),
             'best_heading': round(selected['heading'], 3),
             'front_min': round(context['front_min'], 3),
+            'left_front_min': round(_as_float(context['front'], 'left_front_min', 0.0), 3),
+            'right_front_min': round(_as_float(context['front'], 'right_front_min', 0.0), 3),
+            'left_min': round(_as_float(context['front'], 'left_min', 0.0), 3),
+            'right_min': round(_as_float(context['front'], 'right_min', 0.0), 3),
             'front_valid': context['front_valid'],
             'front_soft': context['front_soft'],
             'front_hard': context['front_hard'],
             'front_blocked_soft': context['front_soft'],
             'front_blocked_hard': context['front_hard'],
             'front_unknown': context['front_unknown'],
+            'forward_corridor_clear': context['forward_corridor_clear'],
+            'side_corridor_clear': context.get('side_corridor_clear', False),
+            'side_corridor_left_m': round(context.get('side_corridor_left_m', 0.0), 3),
+            'side_corridor_right_m': round(context.get('side_corridor_right_m', 0.0), 3),
             'rear_valid': context['rear_valid'],
             'rear_pressure': round(context['rear_pressure'], 3),
             'threat_visible': self._threat_recent(now),
@@ -956,6 +1224,11 @@ class PlannerControllerNode(Node):
             ),
             'gap_escape_allowed': context['gap_escape_allowed'],
             'gap_width_m': round(context['gap_width_m'], 3),
+            'front_path_safe': context['front_path_safe'],
+            'min_exit_corridor_width_m': round(context['min_exit_corridor_width_m'], 3),
+            'min_side_clearance_m': round(context['min_side_clearance_m'], 3),
+            'inflation_radius_m': round(context['inflation_radius_m'], 3),
+            'min_obstacle_clearance_m': round(context['min_obstacle_clearance_m'], 3),
             'stuck_score': round(self.stuck_score, 3),
             'cmd_raw_vx': round(float(self.last_cmd.linear.x), 4),
             'cmd_raw_wz': round(float(self.last_cmd.angular.z), 4),
@@ -963,6 +1236,44 @@ class PlannerControllerNode(Node):
         message = String()
         message.data = json.dumps(payload, sort_keys=True)
         self.state_pub.publish(message)
+        self._log_control_debug(payload, now)
+
+    def _motion_state_label(self, selected):
+        if self.state in ('STOP',):
+            return 'STOP'
+        if self.state == 'RECOVER':
+            return 'BACKUP' if self.recover_mode == 'reverse' else 'RECOVERY'
+        if self.state == 'CONE_BASE_RECOVER':
+            return 'BACKUP' if self.cone_recover_mode == 'reverse' else 'RECOVERY'
+        direction = selected.get('direction', 'front')
+        if direction == 'left':
+            return 'AVOID_LEFT'
+        if direction == 'right':
+            return 'AVOID_RIGHT'
+        return 'FORWARD'
+
+    def _log_control_debug(self, payload, now):
+        if now - self.last_debug_log_time < 1.0:
+            return
+        self.last_debug_log_time = now
+        self.get_logger().info(
+            'avoid_debug state=%s motion=%s front=%.3f left_front=%.3f right_front=%.3f '
+            'dir=%s reason=%s hold=%s margin=%s penalty=%s vx=%.4f wz=%.4f'
+            % (
+                payload['state'],
+                payload['motion_state'],
+                payload['front_min'],
+                payload['left_front_min'],
+                payload['right_front_min'],
+                payload['selected_direction'],
+                payload['selection_reason'],
+                payload['direction_hold_active'],
+                payload['score_margin_hold'],
+                payload['switch_penalty_active'],
+                payload['cmd_raw_vx'],
+                payload['cmd_raw_wz'],
+            )
+        )
 
     def _state_reason(self, context):
         if context['front_timeout']:

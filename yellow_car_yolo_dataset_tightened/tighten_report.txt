@@ -1,0 +1,25 @@
+Yellow-car YOLO box tightening report
+input_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_yolo_dataset
+output_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_yolo_dataset_tightened
+total_images: 11
+total_label_files: 11
+total_boxes: 11
+tightened_boxes: 11
+fallback_boxes: 0
+train_images: 9
+val_images: 2
+fallback_files: none
+suggested_manual_review: images\train\微信图片_20260611112650_737_88.jpg, images\train\微信图片_20260611112652_739_88.jpg, images\train\微信图片_20260611112653_740_88.jpg, images\train\微信图片_20260611112654_741_88.jpg, images\train\微信图片_20260611112655_742_88.jpg, images\train\微信图片_20260611112656_743_88.jpg, images\train\微信图片_20260611112657_744_88.jpg, images\train\微信图片_20260611112658_745_88.jpg, images\val\微信图片_20260611112651_738_88.jpg, images\val\微信图片_20260611112701_747_88.jpg
+
+records:
+- images\train\微信图片_20260611112650_737_88.jpg box=0 status=tightened ratio=0.9357 reason=ok orig={'x0': 100, 'y0': 61, 'x1': 1420, 'y1': 1009} tight={'x0': 100, 'y0': 61, 'x1': 1420, 'y1': 948}
+- images\train\微信图片_20260611112652_739_88.jpg box=0 status=tightened ratio=1.0 reason=ok orig={'x0': 111, 'y0': 5, 'x1': 1446, 'y1': 824} tight={'x0': 111, 'y0': 5, 'x1': 1446, 'y1': 824}
+- images\train\微信图片_20260611112653_740_88.jpg box=0 status=tightened ratio=0.9669 reason=ok orig={'x0': 220, 'y0': 60, 'x1': 1249, 'y1': 694} tight={'x0': 220, 'y0': 60, 'x1': 1249, 'y1': 673}
+- images\train\微信图片_20260611112654_741_88.jpg box=0 status=tightened ratio=1.0 reason=ok orig={'x0': 22, 'y0': 76, 'x1': 1155, 'y1': 956} tight={'x0': 22, 'y0': 76, 'x1': 1155, 'y1': 956}
+- images\train\微信图片_20260611112655_742_88.jpg box=0 status=tightened ratio=0.9928 reason=ok orig={'x0': 104, 'y0': 75, 'x1': 1276, 'y1': 914} tight={'x0': 104, 'y0': 75, 'x1': 1276, 'y1': 908}
+- images\train\微信图片_20260611112656_743_88.jpg box=0 status=tightened ratio=1.0 reason=ok orig={'x0': 4, 'y0': 4, 'x1': 1276, 'y1': 902} tight={'x0': 4, 'y0': 4, 'x1': 1276, 'y1': 902}
+- images\train\微信图片_20260611112657_744_88.jpg box=0 status=tightened ratio=1.0 reason=ok orig={'x0': 4, 'y0': 4, 'x1': 1276, 'y1': 879} tight={'x0': 4, 'y0': 4, 'x1': 1276, 'y1': 879}
+- images\train\微信图片_20260611112658_745_88.jpg box=0 status=tightened ratio=1.0 reason=ok orig={'x0': 20, 'y0': 76, 'x1': 1191, 'y1': 723} tight={'x0': 20, 'y0': 76, 'x1': 1191, 'y1': 723}
+- images\train\微信图片_20260611112700_746_88.jpg box=0 status=tightened ratio=0.9097 reason=ok orig={'x0': 42, 'y0': 4, 'x1': 1276, 'y1': 956} tight={'x0': 42, 'y0': 4, 'x1': 1276, 'y1': 870}
+- images\val\微信图片_20260611112651_738_88.jpg box=0 status=tightened ratio=0.9584 reason=ok orig={'x0': 4, 'y0': 31, 'x1': 1276, 'y1': 956} tight={'x0': 4, 'y0': 31, 'x1': 1271, 'y1': 921}
+- images\val\微信图片_20260611112701_747_88.jpg box=0 status=tightened ratio=1.0 reason=ok orig={'x0': 4, 'y0': 4, 'x1': 1276, 'y1': 837} tight={'x0': 4, 'y0': 4, 'x1': 1276, 'y1': 837}

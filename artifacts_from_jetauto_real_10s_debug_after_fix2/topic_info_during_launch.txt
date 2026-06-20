@@ -1,0 +1,271 @@
+=== /scan ===
+Type: sensor_msgs/msg/LaserScan
+
+Publisher count: 1
+
+Node name: sllidar_node
+Node namespace: /
+Topic type: sensor_msgs/msg/LaserScan
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.d2.19.c9.03.00.00.00.00.00.00.12.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 2
+
+Node name: phantom_debug_topic_recorder
+Node namespace: /
+Topic type: sensor_msgs/msg/LaserScan
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.73.1a.94.8d.00.00.00.00.00.00.11.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: free_space_node
+Node namespace: /
+Topic type: sensor_msgs/msg/LaserScan
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.dd.19.a5.a2.00.00.00.00.00.00.13.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== /nav/front_free_space ===
+Type: std_msgs/msg/String
+
+Publisher count: 1
+
+Node name: free_space_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.dd.19.a5.a2.00.00.00.00.00.00.11.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 3
+
+Node name: phantom_debug_topic_recorder
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.73.1a.94.8d.00.00.00.00.00.00.12.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: planner_controller_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.e9.19.4f.f4.00.00.00.00.00.00.14.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: safety_shield_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.ec.19.e3.6d.00.00.00.00.00.00.14.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== /nav/rear_risk ===
+Type: std_msgs/msg/String
+
+Publisher count: 1
+
+Node name: rear_perception_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.e6.19.bb.f3.00.00.00.00.00.00.11.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 3
+
+Node name: phantom_debug_topic_recorder
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.73.1a.94.8d.00.00.00.00.00.00.13.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: planner_controller_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.e9.19.4f.f4.00.00.00.00.00.00.15.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: safety_shield_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.ec.19.e3.6d.00.00.00.00.00.00.15.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== /det/detections ===
+Type: std_msgs/msg/String
+
+Publisher count: 1
+
+Node name: detector_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.da.19.97.e8.00.00.00.00.00.00.13.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 2
+
+Node name: rear_perception_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.e6.19.bb.f3.00.00.00.00.00.00.13.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: planner_controller_node
+Node namespace: /
+Topic type: std_msgs/msg/String
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.e9.19.4f.f4.00.00.00.00.00.00.16.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== /cmd_vel_raw ===
+Type: geometry_msgs/msg/Twist
+
+Publisher count: 1
+
+Node name: planner_controller_node
+Node namespace: /
+Topic type: geometry_msgs/msg/Twist
+Endpoint type: PUBLISHER
+GID: 01.0f.37.30.e9.19.4f.f4.00.00.00.00.00.00.11.03.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 1
+
+Node name: safety_shield_node
+Node namespace: /
+Topic type: geometry_msgs/msg/Twist
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.37.30.ec.19.e3.6d.00.00.00.00.00.00.13.04.00.00.00.00.00.00.00.00
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+=== /phantom/disabled_cmd_vel ===
+Unknown topic '/phantom/disabled_cmd_vel'
+=== /controller/cmd_vel ===
+Unknown topic '/controller/cmd_vel'
+=== /odom ===
+Unknown topic '/odom'
+=== /odom_raw ===
+Unknown topic '/odom_raw'
+=== /debug/planner_state ===
+Unknown topic '/debug/planner_state'
+=== /debug/safety_decision ===
+Unknown topic '/debug/safety_decision'

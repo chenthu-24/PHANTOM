@@ -45,14 +45,30 @@ def apply_safety_shield(raw_cmd, front, rear=None, params=None):
     """Stateless local safety filter equivalent for debug chain injection tests."""
     values = {
         'front_hard_stop_m': 0.22,
-        'front_soft_stop_m': 0.35,
-        'front_slowdown_m': 0.50,
+        'front_soft_stop_m': 0.34,
+        'front_slowdown_m': 0.72,
+        'robot_width_m': 0.25,
+        'robot_length_m': 0.30,
+        'safety_margin_m': 0.05,
+        'min_side_clearance_m': 0.175,
+        'inflation_radius_m': 0.245,
+        'min_exit_corridor_width_m': 0.35,
+        'cone_base_radius_m': 0.15,
+        'obstacle_extra_margin_m': 0.03,
+        'min_obstacle_clearance_m': 0.355,
         'rear_hard_stop_m': 0.30,
         'rear_soft_stop_m': 0.55,
         'max_forward_vx': 0.32,
         'max_reverse_vx': -0.08,
-        'max_wz': 0.75,
-        'gap_escape_max_vx': 0.04,
+        'max_wz': 0.55,
+        'gap_escape_max_vx': 0.07,
+        'turn_rate_limit': 0.05,
+        'angular_smoothing_alpha': 0.35,
+        'max_angular_z_near_obstacle': 0.34,
+        'min_safe_forward_speed': 0.025,
+        'obstacle_slowdown_distance': 0.72,
+        'center_forward_override_m': 0.80,
+        'side_corridor_max_vx': 0.14,
     }
     if params:
         values.update(params)
@@ -65,22 +81,41 @@ def apply_safety_shield(raw_cmd, front, rear=None, params=None):
 
     front_min = _as_float(front, 'front_min', _as_float(front, 'front_clearance', 0.0))
     front_unknown = bool(front.get('front_unknown', False))
-    gap_escape_allowed = bool(front.get('gap_escape_allowed', False))
+    front_path_safe = bool(front.get('front_path_safe', True))
+    side_corridor_clear = bool(front.get('side_corridor_clear', False))
+    min_exit_width = _as_float(front, 'min_exit_corridor_width_m', values['min_exit_corridor_width_m'])
+    gap_width = _as_float(front, 'best_gap_width_m', 0.0)
+    gap_escape_allowed = bool(front.get('gap_escape_allowed', False)) and gap_width >= min_exit_width
+    center_forward_allowed = front_min >= values['center_forward_override_m']
+    near_limit = min(values['max_wz'], values['max_angular_z_near_obstacle'])
     if vx > 0.0 and front_unknown:
         vx = 0.0
-        wz = _clamp(wz, -0.55, 0.55)
+        wz = _clamp(wz, -near_limit, near_limit)
+    elif vx > 0.0 and not front_path_safe:
+        if side_corridor_clear and front_min >= values['front_soft_stop_m']:
+            vx = min(vx, values['side_corridor_max_vx'])
+            wz = _clamp(wz, -near_limit, near_limit)
+        elif gap_escape_allowed:
+            vx = min(vx, values['gap_escape_max_vx'])
+        elif center_forward_allowed:
+            vx = min(vx, 0.09)
+            wz = _clamp(wz, -near_limit, near_limit)
+        else:
+            vx = 0.0
+            wz = _clamp(wz, -near_limit, near_limit)
     elif vx > 0.0 and front_min > 0.0 and front_min < values['front_hard_stop_m']:
         if gap_escape_allowed:
             vx = min(vx, values['gap_escape_max_vx'])
-            wz = _clamp(wz, -values['max_wz'], values['max_wz'])
+            wz = _clamp(wz, -near_limit, near_limit)
         else:
             vx = 0.0
-            wz = _clamp(wz, -0.55, 0.55)
+            wz = _clamp(wz, -near_limit, near_limit)
     elif vx > 0.0 and values['front_hard_stop_m'] <= front_min < values['front_soft_stop_m']:
         vx = min(vx, 0.05)
-        wz = _clamp(wz, -0.65, 0.65)
-    elif vx > 0.0 and values['front_soft_stop_m'] <= front_min < values['front_slowdown_m']:
+        wz = _clamp(wz, -near_limit, near_limit)
+    elif vx > 0.0 and values['front_soft_stop_m'] <= front_min < values['obstacle_slowdown_distance']:
         vx = min(vx, 0.12)
+        wz = _clamp(wz, -near_limit, near_limit)
 
     rear_valid = bool(rear.get('valid', False))
     if vx < 0.0:
@@ -118,16 +153,32 @@ class SafetyShieldNode(Node):
         self.declare_parameter('front_timeout_s', 0.70)
         self.declare_parameter('rear_timeout_s', 0.80)
         self.declare_parameter('front_hard_stop_m', 0.22)
-        self.declare_parameter('front_soft_stop_m', 0.35)
-        self.declare_parameter('front_slowdown_m', 0.50)
+        self.declare_parameter('front_soft_stop_m', 0.34)
+        self.declare_parameter('front_slowdown_m', 0.72)
+        self.declare_parameter('robot_width_m', 0.25)
+        self.declare_parameter('robot_length_m', 0.30)
+        self.declare_parameter('safety_margin_m', 0.05)
+        self.declare_parameter('min_side_clearance_m', 0.175)
+        self.declare_parameter('inflation_radius_m', 0.245)
+        self.declare_parameter('min_exit_corridor_width_m', 0.35)
+        self.declare_parameter('cone_base_radius_m', 0.15)
+        self.declare_parameter('obstacle_extra_margin_m', 0.03)
+        self.declare_parameter('min_obstacle_clearance_m', 0.355)
         self.declare_parameter('rear_hard_stop_m', 0.30)
         self.declare_parameter('rear_soft_stop_m', 0.55)
         self.declare_parameter('max_forward_vx', 0.32)
         self.declare_parameter('max_reverse_vx', -0.08)
-        self.declare_parameter('max_wz', 0.75)
-        self.declare_parameter('gap_escape_max_vx', 0.04)
+        self.declare_parameter('max_wz', 0.55)
+        self.declare_parameter('gap_escape_max_vx', 0.07)
         self.declare_parameter('max_delta_vx_per_cycle', 0.03)
-        self.declare_parameter('max_delta_wz_per_cycle', 0.10)
+        self.declare_parameter('max_delta_wz_per_cycle', 0.05)
+        self.declare_parameter('turn_rate_limit', 0.05)
+        self.declare_parameter('angular_smoothing_alpha', 0.35)
+        self.declare_parameter('max_angular_z_near_obstacle', 0.34)
+        self.declare_parameter('min_safe_forward_speed', 0.025)
+        self.declare_parameter('obstacle_slowdown_distance', 0.72)
+        self.declare_parameter('center_forward_override_m', 0.80)
+        self.declare_parameter('side_corridor_max_vx', 0.14)
 
         self.raw_cmd_topic = str(self.get_parameter('raw_cmd_topic').value)
         self.front_topic = str(self.get_parameter('front_free_space_topic').value)
@@ -141,6 +192,15 @@ class SafetyShieldNode(Node):
         self.front_hard_stop_m = float(self.get_parameter('front_hard_stop_m').value)
         self.front_soft_stop_m = float(self.get_parameter('front_soft_stop_m').value)
         self.front_slowdown_m = float(self.get_parameter('front_slowdown_m').value)
+        self.robot_width_m = float(self.get_parameter('robot_width_m').value)
+        self.robot_length_m = float(self.get_parameter('robot_length_m').value)
+        self.safety_margin_m = float(self.get_parameter('safety_margin_m').value)
+        self.min_side_clearance_m = float(self.get_parameter('min_side_clearance_m').value)
+        self.inflation_radius_m = float(self.get_parameter('inflation_radius_m').value)
+        self.min_exit_corridor_width_m = float(self.get_parameter('min_exit_corridor_width_m').value)
+        self.cone_base_radius_m = float(self.get_parameter('cone_base_radius_m').value)
+        self.obstacle_extra_margin_m = float(self.get_parameter('obstacle_extra_margin_m').value)
+        self.min_obstacle_clearance_m = float(self.get_parameter('min_obstacle_clearance_m').value)
         self.rear_hard_stop_m = float(self.get_parameter('rear_hard_stop_m').value)
         self.rear_soft_stop_m = float(self.get_parameter('rear_soft_stop_m').value)
         self.max_forward_vx = float(self.get_parameter('max_forward_vx').value)
@@ -149,6 +209,14 @@ class SafetyShieldNode(Node):
         self.gap_escape_max_vx = float(self.get_parameter('gap_escape_max_vx').value)
         self.max_delta_vx = float(self.get_parameter('max_delta_vx_per_cycle').value)
         self.max_delta_wz = float(self.get_parameter('max_delta_wz_per_cycle').value)
+        self.turn_rate_limit = float(self.get_parameter('turn_rate_limit').value)
+        self.angular_smoothing_alpha = float(self.get_parameter('angular_smoothing_alpha').value)
+        self.max_angular_z_near_obstacle = float(self.get_parameter('max_angular_z_near_obstacle').value)
+        self.min_safe_forward_speed = float(self.get_parameter('min_safe_forward_speed').value)
+        self.obstacle_slowdown_distance = float(self.get_parameter('obstacle_slowdown_distance').value)
+        self.center_forward_override_m = float(self.get_parameter('center_forward_override_m').value)
+        self.side_corridor_max_vx = float(self.get_parameter('side_corridor_max_vx').value)
+        self.max_delta_wz = min(self.max_delta_wz, self.turn_rate_limit)
 
         self.raw_cmd = None
         self.front = None
@@ -210,28 +278,53 @@ class SafetyShieldNode(Node):
 
         front_min = _as_float(self.front, 'front_min', _as_float(self.front, 'front_clearance', 0.0))
         front_unknown = bool(self.front.get('front_unknown', False))
-        gap_escape_allowed = bool(self.front.get('gap_escape_allowed', False))
+        front_path_safe = bool(self.front.get('front_path_safe', True))
+        side_corridor_clear = bool(self.front.get('side_corridor_clear', False))
+        min_exit_width = _as_float(self.front, 'min_exit_corridor_width_m', self.min_exit_corridor_width_m)
+        gap_width = _as_float(self.front, 'best_gap_width_m', 0.0)
+        gap_escape_allowed = bool(self.front.get('gap_escape_allowed', False)) and gap_width >= min_exit_width
+        center_forward_allowed = front_min >= self.center_forward_override_m
+        near_limit = min(self.max_wz, self.max_angular_z_near_obstacle)
         if vx > 0.0 and front_unknown:
             vx = 0.0
-            wz = _clamp(wz, -0.55, 0.55)
+            wz = _clamp(wz, -near_limit, near_limit)
             force_immediate_vx = True
             reason = 'front_unknown_stop'
+        elif vx > 0.0 and not front_path_safe:
+            if side_corridor_clear and front_min >= self.front_soft_stop_m:
+                vx = min(vx, self.side_corridor_max_vx)
+                wz = _clamp(wz, -near_limit, near_limit)
+                reason = 'side_corridor_limit'
+            elif gap_escape_allowed:
+                vx = min(vx, self.gap_escape_max_vx)
+                wz = _clamp(wz, -near_limit, near_limit)
+                reason = 'front_path_gap_limit'
+            elif center_forward_allowed:
+                vx = min(vx, 0.09)
+                wz = _clamp(wz, -near_limit, near_limit)
+                reason = 'front_center_forward_limit'
+            else:
+                vx = 0.0
+                wz = _clamp(wz, -near_limit, near_limit)
+                force_immediate_vx = True
+                reason = 'front_path_footprint_stop'
         elif vx > 0.0 and front_min > 0.0 and front_min < self.front_hard_stop_m:
             if gap_escape_allowed:
                 vx = min(vx, self.gap_escape_max_vx)
-                wz = _clamp(wz, -self.max_wz, self.max_wz)
+                wz = _clamp(wz, -near_limit, near_limit)
                 reason = 'front_hard_gap_limit'
             else:
                 vx = 0.0
-                wz = _clamp(wz, -0.55, 0.55)
+                wz = _clamp(wz, -near_limit, near_limit)
                 force_immediate_vx = True
                 reason = 'front_hard_stop'
         elif vx > 0.0 and self.front_hard_stop_m <= front_min < self.front_soft_stop_m:
             vx = min(vx, 0.05)
-            wz = _clamp(wz, -0.65, 0.65)
+            wz = _clamp(wz, -near_limit, near_limit)
             reason = 'front_soft_limit'
-        elif vx > 0.0 and self.front_soft_stop_m <= front_min < self.front_slowdown_m:
+        elif vx > 0.0 and self.front_soft_stop_m <= front_min < self.obstacle_slowdown_distance:
             vx = min(vx, 0.12)
+            wz = _clamp(wz, -near_limit, near_limit)
             reason = 'front_slowdown_limit'
 
         rear_recent = self.rear is not None and now - self.last_rear_time <= self.rear_timeout_s
@@ -269,7 +362,8 @@ class SafetyShieldNode(Node):
 
     def _smooth(self, target_vx, target_wz):
         vx = _clamp(target_vx, self.last_safe_vx - self.max_delta_vx, self.last_safe_vx + self.max_delta_vx)
-        wz = _clamp(target_wz, self.last_safe_wz - self.max_delta_wz, self.last_safe_wz + self.max_delta_wz)
+        smoothed_wz = self.last_safe_wz + self.angular_smoothing_alpha * (target_wz - self.last_safe_wz)
+        wz = _clamp(smoothed_wz, self.last_safe_wz - self.max_delta_wz, self.last_safe_wz + self.max_delta_wz)
         self.last_safe_vx = vx
         self.last_safe_wz = wz
         return vx, wz
@@ -299,6 +393,14 @@ class SafetyShieldNode(Node):
             'stamp': round(self._now(), 6),
             'reason': reason,
             'front_min': round(_as_float(front, 'front_min', _as_float(front, 'front_clearance', 0.0)), 3),
+            'front_path_safe': bool(front.get('front_path_safe', True)),
+            'side_corridor_clear': bool(front.get('side_corridor_clear', False)),
+            'side_corridor_left_m': round(_as_float(front, 'side_corridor_left_m', 0.0), 3),
+            'side_corridor_right_m': round(_as_float(front, 'side_corridor_right_m', 0.0), 3),
+            'min_side_clearance_m': round(_as_float(front, 'min_side_clearance_m', self.min_side_clearance_m), 3),
+            'inflation_radius_m': round(_as_float(front, 'inflation_radius_m', self.inflation_radius_m), 3),
+            'min_exit_corridor_width_m': round(_as_float(front, 'min_exit_corridor_width_m', self.min_exit_corridor_width_m), 3),
+            'min_obstacle_clearance_m': round(_as_float(front, 'min_obstacle_clearance_m', self.min_obstacle_clearance_m), 3),
             'rear_center_min': round(_as_float(rear, 'rear_center_min', 0.0), 3),
             'reverse_allowed': bool(rear.get('reverse_allowed', False)),
             'raw_vx': round(float(raw_vx), 4),

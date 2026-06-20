@@ -1,0 +1,97 @@
+[
+  {
+    "image": "微信图片_20260611111538_727_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.5664
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.3305
+      }
+    ]
+  },
+  {
+    "image": "微信图片_20260611111539_728_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.4112
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.3727
+      }
+    ]
+  },
+  {
+    "image": "微信图片_20260611111540_729_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.6144
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.3389
+      }
+    ]
+  },
+  {
+    "image": "微信图片_20260611111541_730_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.7956
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.596
+      }
+    ]
+  },
+  {
+    "image": "微信图片_20260611111543_731_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.5737
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.5071
+      }
+    ]
+  },
+  {
+    "image": "微信图片_20260611111545_734_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.7141
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.64
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.3855
+      }
+    ]
+  },
+  {
+    "image": "微信图片_20260611111548_736_88.jpg",
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.3162
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.2931
+      }
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+path: ./dataset_yellow_car_photos_next
+train: images/train
+val: images/val
+
+names:
+  0: traffic_cone
+  1: yellow_car

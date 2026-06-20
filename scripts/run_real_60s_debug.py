@@ -106,6 +106,62 @@ def _publish_zero(count, interval_s, log):
     return ok_count
 
 
+def _cleanup_known_nodes(log):
+    patterns = [
+        'relay_cmd_vel_10s',
+        'record_debug_topics.py',
+        'ros2 launch phantom_bringup integrated_escape_test.launch.py',
+        'ros_robot_controller',
+        'odom_publisher',
+        'usb_cam_node_exe',
+        'detector_node',
+        'free_space_node',
+        'rear_perception_node',
+        'planner_controller_node',
+        'safety_shield_node',
+        'sllidar_node',
+        'ydlidar_ros2_driver_node',
+        'ldlidar_stl_ros2_node',
+    ]
+    try:
+        ps_text = subprocess.check_output(['ps', '-eo', 'pid=,args='], text=True, errors='replace')
+    except Exception as exc:
+        log.append({'cleanup_error': repr(exc)})
+        return
+    own_pid = os.getpid()
+    pids = []
+    for line in ps_text.splitlines():
+        parts = line.strip().split(None, 1)
+        if len(parts) != 2:
+            continue
+        try:
+            pid = int(parts[0])
+        except ValueError:
+            continue
+        if pid == own_pid:
+            continue
+        args = parts[1]
+        if any(pattern in args for pattern in patterns):
+            pids.append(pid)
+    log.append({'cleanup_pids': pids})
+    for sig, label in ((signal.SIGINT, 'SIGINT'), (signal.SIGTERM, 'SIGTERM'), (signal.SIGKILL, 'SIGKILL')):
+        alive = []
+        for pid in pids:
+            try:
+                os.kill(pid, 0)
+            except ProcessLookupError:
+                continue
+            alive.append(pid)
+            try:
+                os.kill(pid, sig)
+            except ProcessLookupError:
+                pass
+        log.append({'cleanup_signal': label, 'pids': alive})
+        if not alive:
+            break
+        time.sleep(0.8)
+
+
 def _topic_list():
     result = _run('timeout 12 ros2 topic list 2>/dev/null || true', timeout=20)
     return set((result.stdout or '').splitlines()), result.stdout or ''
@@ -152,7 +208,7 @@ def _record_topic_info(root):
     ]
     for topic in topics:
         lines.append('=== %s ===' % topic)
-        result = _run('timeout 12 ros2 topic info %s -v 2>&1 || true' % shlex.quote(topic), timeout=20)
+        result = _run('timeout 3 ros2 topic info %s -v 2>&1 || true' % shlex.quote(topic), timeout=6)
         lines.append(result.stdout or '')
     (root / 'topic_info_during_launch.txt').write_text('\n'.join(lines), encoding='utf-8', errors='replace')
 
@@ -164,6 +220,7 @@ def main(argv):
     parser.add_argument('--lidar-driver', default='sllidar')
     parser.add_argument('--camera-device', default='/dev/video2')
     parser.add_argument('--ready-timeout', type=float, default=120.0)
+    parser.add_argument('--drive-mode', choices=['relay', 'direct'], default='relay')
     args = parser.parse_args(argv)
 
     root = Path(args.artifact_dir)
@@ -178,6 +235,7 @@ def main(argv):
     success = False
     try:
         _publish_zero(3, 0.15, zero_log)
+        safe_cmd_topic = '/controller/cmd_vel' if args.drive_mode == 'direct' else '/phantom/disabled_cmd_vel'
         launch_cmd = _ros_args([
             'ros2',
             'launch',
@@ -185,7 +243,7 @@ def main(argv):
             'integrated_escape_test.launch.py',
             'lidar_driver:=%s' % args.lidar_driver,
             'camera_device:=%s' % args.camera_device,
-            'cmd_vel_topic:=/phantom/disabled_cmd_vel',
+            'cmd_vel_topic:=%s' % safe_cmd_topic,
             'artifacts_dir:=/home/ubuntu/phantom_ws/%s' % args.artifact_dir,
         ])
         launch_proc, launch_handle = _popen(launch_cmd, root / 'launch.log')
@@ -193,50 +251,60 @@ def main(argv):
         handles.append(launch_handle)
         events.append({'event': 'launch_started', 'pid': launch_proc.pid, 'time': time.time()})
 
-        if not _wait_ready(root, args.ready_timeout):
-            events.append({'event': 'ready_timeout', 'time': time.time()})
-            return 2
-        _record_topic_info(root)
-
         recorder_proc, recorder_handle = _popen(
-            _ros_args(['python3', 'scripts/record_debug_topics.py', args.artifact_dir, '--duration', str(args.duration + 60.0)]),
+            _ros_args(['python3', 'scripts/record_debug_topics.py', args.artifact_dir, '--duration', str(args.duration + args.ready_timeout + 90.0)]),
             root / 'recorder_stdout.txt',
         )
         procs.append(('recorder', recorder_proc))
         handles.append(recorder_handle)
         events.append({'event': 'recorder_started', 'pid': recorder_proc.pid, 'time': time.time()})
+
+        if not _wait_ready(root, args.ready_timeout):
+            events.append({'event': 'ready_timeout', 'time': time.time()})
+            return 2
+        _record_topic_info(root)
         time.sleep(1.0)
 
-        relay_proc, relay_handle = _popen(
-            _ros_args([
-                'python3',
-                'scripts/relay_cmd_vel_10s.py',
-                '--source',
-                '/phantom/disabled_cmd_vel',
-                '--dest',
-                '/controller/cmd_vel',
-                '--duration',
-                str(args.duration),
-            ]),
-            root / 'relay_60s_stdout.txt',
-        )
-        procs.append(('relay', relay_proc))
-        handles.append(relay_handle)
         motion_start = time.time()
-        events.append({'event': 'continuous_motion_started', 'pid': relay_proc.pid, 'time': motion_start})
-        try:
-            relay_rc = relay_proc.wait(timeout=args.duration + 35.0)
-        except subprocess.TimeoutExpired:
-            motion_end = time.time()
-            events.append({
-                'event': 'relay_wait_timeout',
-                'duration_s': round(motion_end - motion_start, 3),
-                'time': motion_end,
-            })
-            _terminate_group(relay_proc, 'relay', events)
-            relay_rc = 0 if motion_end - motion_start >= args.duration else 1
+        if args.drive_mode == 'direct':
+            events.append({'event': 'continuous_motion_started', 'drive_mode': args.drive_mode, 'time': motion_start})
+            deadline = time.monotonic() + max(args.duration, 0.0)
+            relay_rc = 0
+            while time.monotonic() < deadline:
+                if launch_proc.poll() is not None:
+                    events.append({'event': 'launch_exited_during_motion', 'returncode': launch_proc.returncode, 'time': time.time()})
+                    relay_rc = 4
+                    break
+                time.sleep(0.2)
         else:
-            motion_end = time.time()
+            relay_proc, relay_handle = _popen(
+                _ros_args([
+                    'python3',
+                    'scripts/relay_cmd_vel_10s.py',
+                    '--source',
+                    '/phantom/disabled_cmd_vel',
+                    '--dest',
+                    '/controller/cmd_vel',
+                    '--duration',
+                    str(args.duration),
+                ]),
+                root / 'relay_60s_stdout.txt',
+            )
+            procs.append(('relay', relay_proc))
+            handles.append(relay_handle)
+            events.append({'event': 'continuous_motion_started', 'drive_mode': args.drive_mode, 'pid': relay_proc.pid, 'time': motion_start})
+            try:
+                relay_rc = relay_proc.wait(timeout=args.duration + 35.0)
+            except subprocess.TimeoutExpired:
+                motion_end = time.time()
+                events.append({
+                    'event': 'relay_wait_timeout',
+                    'duration_s': round(motion_end - motion_start, 3),
+                    'time': motion_end,
+                })
+                _terminate_group(relay_proc, 'relay', events)
+                relay_rc = 0 if motion_end - motion_start >= args.duration else 1
+        motion_end = time.time()
         events.append({
             'event': 'continuous_motion_finished',
             'returncode': relay_rc,
@@ -263,6 +331,8 @@ def main(argv):
         for name, proc in reversed(procs):
             if proc.poll() is None:
                 _terminate_group(proc, name, events)
+        _publish_zero(5, 0.2, zero_log)
+        _cleanup_known_nodes(events)
         _publish_zero(5, 0.2, zero_log)
         for handle in handles:
             try:

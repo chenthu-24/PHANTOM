@@ -1,0 +1,118 @@
+{
+  "avoidance_behavior_detected": false,
+  "best_heading": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  },
+  "cmd_vel_raw": {
+    "angular_z": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "linear_x": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    }
+  },
+  "cone_base_recover_count": 0,
+  "controller_cmd_vel": {
+    "angular_z": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "linear_x": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    }
+  },
+  "dominant_planner_state": null,
+  "dominant_safety_reason": null,
+  "front_blocked_hard_count": 0,
+  "front_blocked_soft_count": 0,
+  "front_min": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  },
+  "long_spin_seconds": 0.0,
+  "long_time_spin_detected": false,
+  "normal_forward_detected": false,
+  "odom": {
+    "angular_z": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "displacement_xy": null,
+    "linear_x": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "sample_count": 0
+  },
+  "odom_raw": {
+    "angular_z": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "displacement_xy": null,
+    "linear_x": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "sample_count": 0
+  },
+  "rear_pressure": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  },
+  "root": "artifacts_from_jetauto_real_60s_debug",
+  "sample_counts": {
+    "cmd_vel_raw": 0,
+    "controller_cmd_vel": 0,
+    "detections_messages": 0,
+    "front_free_space": 0,
+    "odom": 0,
+    "odom_raw": 0,
+    "planner_state": 0,
+    "rear_risk": 0,
+    "safety_decision": 0
+  },
+  "stop_success": false,
+  "traffic_cone_detection_count": 0,
+  "yolo_classes": {},
+  "yolo_detection_count": 0,
+  "z_bump_depth_jump_m": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  },
+  "z_bump_detected_count": 0,
+  "z_bump_score": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  }
+}

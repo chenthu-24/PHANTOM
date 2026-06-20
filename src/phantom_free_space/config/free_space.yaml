@@ -1,16 +1,32 @@
 scan_topic: "/scan"
 num_sectors: 36
 safety_distance: 0.45
+robot_width_m: 0.25
+robot_length_m: 0.30
+safety_margin_m: 0.05
+min_side_clearance_m: 0.175
+inflation_radius_m: 0.245
+min_exit_corridor_width_m: 0.35
+cone_base_radius_m: 0.15
+obstacle_extra_margin_m: 0.03
+cone_cluster_max_width_m: 0.25
+cone_cluster_min_points: 4
+min_obstacle_clearance_m: 0.355
+side_corridor_forward_min_m: 0.34
+side_corridor_obstacle_m: 0.75
+side_corridor_balance_deadband_m: 0.04
+side_corridor_heading_limit_rad: 0.16
 # Extra LiDAR obstacle inflation in meters. Tune from real robot width, wheel overhang,
 # control tracking error, and desired safety margin.
 obstacle_inflation_m: 0.22
-front_stop_clearance_m: 0.30
+front_stop_clearance_m: 0.34
+front_path_soft_check_m: 0.48
 side_stop_clearance_m: 0.24
 front_sector_half_angle_rad: 0.28
 front_side_sector_min_rad: 0.28
 front_side_sector_max_rad: 0.95
-direction_lock_time_sec: 0.45
-direction_switch_margin: 0.18
+direction_lock_time_sec: 0.60
+direction_switch_margin: 0.24
 heading_change_penalty: 0.08
 max_range: 6.0
 min_valid_points_per_sector: 3

@@ -1,0 +1,7 @@
+path: C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/datasets/cone_yellow_combined_v3_20260620_143800
+train: images/train
+val: images/val
+nc: 2
+names:
+  0: traffic_cone
+  1: yellow_car

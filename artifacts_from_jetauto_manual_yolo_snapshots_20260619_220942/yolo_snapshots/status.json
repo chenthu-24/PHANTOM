@@ -1,0 +1,13 @@
+{
+  "age_s": 112.7,
+  "record_elapsed_s": 21.87,
+  "saved": [
+    "/home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_start.png",
+    "/home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_010s.png",
+    "/home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_020s.png",
+    "/home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_stop.png"
+  ],
+  "saved_count": 4,
+  "started": true,
+  "state": "complete"
+}

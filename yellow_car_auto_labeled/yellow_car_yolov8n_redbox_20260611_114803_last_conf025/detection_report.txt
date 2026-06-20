@@ -1,0 +1,32 @@
+Yellow-car detection report
+model_path: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_yolo_runs\yellow_car_yolov8n_redbox_20260611_114803\weights\last.pt
+source_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_photos
+output_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_auto_labeled\yellow_car_yolov8n_redbox_20260611_114803_last_conf025
+confidence_threshold: 0.25
+inference_images: 10
+detected_yellow_car_images: 10
+not_detected_images: none
+
+per_image:
+- 微信图片_20260611111538_727_88.jpg
+    conf=0.653649 bbox_xyxy=[52.08, 48.37, 1426.56, 991.24] class_id=0
+    conf=0.390938 bbox_xyxy=[671.90, 0.34, 1707.00, 964.27] class_id=0
+- 微信图片_20260611111539_728_88.jpg
+    conf=0.632406 bbox_xyxy=[0.00, 89.12, 1229.90, 960.00] class_id=0
+- 微信图片_20260611111540_729_88.jpg
+    conf=0.855563 bbox_xyxy=[0.00, 6.35, 1469.09, 788.90] class_id=0
+- 微信图片_20260611111541_730_88.jpg
+    conf=0.888555 bbox_xyxy=[228.27, 18.69, 1271.95, 721.40] class_id=0
+- 微信图片_20260611111543_731_88.jpg
+    conf=0.746238 bbox_xyxy=[0.00, 33.52, 1213.05, 928.39] class_id=0
+- 微信图片_20260611111544_732_88.jpg
+    conf=0.909642 bbox_xyxy=[0.00, 32.91, 1268.27, 960.00] class_id=0
+- 微信图片_20260611111544_733_88.jpg
+    conf=0.918867 bbox_xyxy=[0.00, 0.00, 1280.00, 960.00] class_id=0
+- 微信图片_20260611111545_734_88.jpg
+    conf=0.857479 bbox_xyxy=[9.06, 38.04, 1262.28, 781.01] class_id=0
+    conf=0.512189 bbox_xyxy=[369.64, 191.42, 1227.02, 726.91] class_id=0
+- 微信图片_20260611111546_735_88.jpg
+    conf=0.814156 bbox_xyxy=[0.00, 0.00, 1262.07, 960.00] class_id=0
+- 微信图片_20260611111548_736_88.jpg
+    conf=0.633824 bbox_xyxy=[0.00, 16.49, 1227.29, 871.75] class_id=0

@@ -1,0 +1,314 @@
+{
+  "summary": {
+    "input_dir": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\yellow_car_yolo_dataset",
+    "output_dir": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\yellow_car_yolo_dataset_tightened",
+    "total_images": 11,
+    "total_label_files": 11,
+    "total_boxes": 11,
+    "tightened_boxes": 11,
+    "fallback_boxes": 0,
+    "fallback_files": [],
+    "train_images": 9,
+    "val_images": 2,
+    "suggested_manual_review": [
+      "images\\train\\微信图片_20260611112650_737_88.jpg",
+      "images\\train\\微信图片_20260611112652_739_88.jpg",
+      "images\\train\\微信图片_20260611112653_740_88.jpg",
+      "images\\train\\微信图片_20260611112654_741_88.jpg",
+      "images\\train\\微信图片_20260611112655_742_88.jpg",
+      "images\\train\\微信图片_20260611112656_743_88.jpg",
+      "images\\train\\微信图片_20260611112657_744_88.jpg",
+      "images\\train\\微信图片_20260611112658_745_88.jpg",
+      "images\\val\\微信图片_20260611112651_738_88.jpg",
+      "images\\val\\微信图片_20260611112701_747_88.jpg"
+    ]
+  },
+  "records": [
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112650_737_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112650_737_88.txt",
+      "preview": "previews\\微信图片_20260611112650_737_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 100,
+            "y0": 61,
+            "x1": 1420,
+            "y1": 1009
+          },
+          "tightened_xyxy": {
+            "x0": 100,
+            "y0": 61,
+            "x1": 1420,
+            "y1": 948
+          },
+          "status": "tightened",
+          "area_ratio": 0.9357,
+          "yellow_pixels": 152813,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112652_739_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112652_739_88.txt",
+      "preview": "previews\\微信图片_20260611112652_739_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 111,
+            "y0": 5,
+            "x1": 1446,
+            "y1": 824
+          },
+          "tightened_xyxy": {
+            "x0": 111,
+            "y0": 5,
+            "x1": 1446,
+            "y1": 824
+          },
+          "status": "tightened",
+          "area_ratio": 1.0,
+          "yellow_pixels": 139497,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112653_740_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112653_740_88.txt",
+      "preview": "previews\\微信图片_20260611112653_740_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 220,
+            "y0": 60,
+            "x1": 1249,
+            "y1": 694
+          },
+          "tightened_xyxy": {
+            "x0": 220,
+            "y0": 60,
+            "x1": 1249,
+            "y1": 673
+          },
+          "status": "tightened",
+          "area_ratio": 0.9669,
+          "yellow_pixels": 71067,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112654_741_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112654_741_88.txt",
+      "preview": "previews\\微信图片_20260611112654_741_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 22,
+            "y0": 76,
+            "x1": 1155,
+            "y1": 956
+          },
+          "tightened_xyxy": {
+            "x0": 22,
+            "y0": 76,
+            "x1": 1155,
+            "y1": 956
+          },
+          "status": "tightened",
+          "area_ratio": 1.0,
+          "yellow_pixels": 204868,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112655_742_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112655_742_88.txt",
+      "preview": "previews\\微信图片_20260611112655_742_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 104,
+            "y0": 75,
+            "x1": 1276,
+            "y1": 914
+          },
+          "tightened_xyxy": {
+            "x0": 104,
+            "y0": 75,
+            "x1": 1276,
+            "y1": 908
+          },
+          "status": "tightened",
+          "area_ratio": 0.9928,
+          "yellow_pixels": 157168,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112656_743_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112656_743_88.txt",
+      "preview": "previews\\微信图片_20260611112656_743_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 4,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 902
+          },
+          "tightened_xyxy": {
+            "x0": 4,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 902
+          },
+          "status": "tightened",
+          "area_ratio": 1.0,
+          "yellow_pixels": 574502,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112657_744_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112657_744_88.txt",
+      "preview": "previews\\微信图片_20260611112657_744_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 4,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 879
+          },
+          "tightened_xyxy": {
+            "x0": 4,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 879
+          },
+          "status": "tightened",
+          "area_ratio": 1.0,
+          "yellow_pixels": 665270,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112658_745_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112658_745_88.txt",
+      "preview": "previews\\微信图片_20260611112658_745_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 20,
+            "y0": 76,
+            "x1": 1191,
+            "y1": 723
+          },
+          "tightened_xyxy": {
+            "x0": 20,
+            "y0": 76,
+            "x1": 1191,
+            "y1": 723
+          },
+          "status": "tightened",
+          "area_ratio": 1.0,
+          "yellow_pixels": 84328,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "image": "images\\train\\微信图片_20260611112700_746_88.jpg",
+      "label": "labels\\train\\微信图片_20260611112700_746_88.txt",
+      "preview": "previews\\微信图片_20260611112700_746_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 42,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 956
+          },
+          "tightened_xyxy": {
+            "x0": 42,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 870
+          },
+          "status": "tightened",
+          "area_ratio": 0.9097,
+          "yellow_pixels": 234822,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "image": "images\\val\\微信图片_20260611112651_738_88.jpg",
+      "label": "labels\\val\\微信图片_20260611112651_738_88.txt",
+      "preview": "previews\\微信图片_20260611112651_738_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 4,
+            "y0": 31,
+            "x1": 1276,
+            "y1": 956
+          },
+          "tightened_xyxy": {
+            "x0": 4,
+            "y0": 31,
+            "x1": 1271,
+            "y1": 921
+          },
+          "status": "tightened",
+          "area_ratio": 0.9584,
+          "yellow_pixels": 173722,
+          "reason": "ok"
+        }
+      ]
+    },
+    {
+      "split": "val",
+      "image": "images\\val\\微信图片_20260611112701_747_88.jpg",
+      "label": "labels\\val\\微信图片_20260611112701_747_88.txt",
+      "preview": "previews\\微信图片_20260611112701_747_88_tightened_preview.jpg",
+      "boxes": [
+        {
+          "original_xyxy": {
+            "x0": 4,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 837
+          },
+          "tightened_xyxy": {
+            "x0": 4,
+            "y0": 4,
+            "x1": 1276,
+            "y1": 837
+          },
+          "status": "tightened",
+          "area_ratio": 1.0,
+          "yellow_pixels": 308361,
+          "reason": "ok"
+        }
+      ]
+    }
+  ]
+}

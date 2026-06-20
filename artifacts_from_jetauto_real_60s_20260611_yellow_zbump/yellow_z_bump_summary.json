@@ -1,0 +1,36 @@
+{
+  "classes": {
+    "traffic_cone": 14,
+    "yellow_car": 1
+  },
+  "cone_base_recover_count": 0,
+  "visible_detection_count": 15,
+  "yellow_car_count": 1,
+  "yellow_car_max_conf": 0.36,
+  "yellow_car_samples": [
+    {
+      "bbox_center_x": 0.8569,
+      "bbox_center_y": 0.5382,
+      "bbox_h": 0.9236,
+      "bbox_w": 0.2862,
+      "class_name": "yellow_car",
+      "conf": 0.36,
+      "cx": 0.8569,
+      "cy": 0.5382,
+      "depth": null,
+      "h": 0.9236,
+      "stamp": 1781145605.87377,
+      "visible": true,
+      "w": 0.2862,
+      "x0": 0.7138,
+      "x1": 1.0,
+      "y0": 0.0764,
+      "y1": 1.0
+    }
+  ],
+  "z_bump_detected_count": 0,
+  "z_bump_score_max": 0.0,
+  "z_bump_side_counts": {
+    "none": 600
+  }
+}

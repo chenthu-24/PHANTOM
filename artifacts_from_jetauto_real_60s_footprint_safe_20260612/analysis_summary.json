@@ -1,0 +1,121 @@
+{
+  "avoidance_behavior_detected": true,
+  "best_heading": {
+    "avg": 0.69305,
+    "count": 826,
+    "max": 1.25,
+    "min": -1.25
+  },
+  "cmd_vel_raw": {
+    "angular_z": {
+      "avg": -0.2964,
+      "count": 1187,
+      "max": 0.65,
+      "min": -0.65
+    },
+    "linear_x": {
+      "avg": 0.07087,
+      "count": 1187,
+      "max": 0.32,
+      "min": 0.0
+    }
+  },
+  "cone_base_recover_count": 0,
+  "controller_cmd_vel": {
+    "angular_z": {
+      "avg": 0.03249,
+      "count": 1206,
+      "max": 0.65,
+      "min": -0.6325
+    },
+    "linear_x": {
+      "avg": 0.03461,
+      "count": 1206,
+      "max": 0.32,
+      "min": 0.0
+    }
+  },
+  "dominant_planner_state": "AVOID_FRONT",
+  "dominant_safety_reason": "front_path_footprint_stop",
+  "front_blocked_hard_count": 2,
+  "front_blocked_soft_count": 721,
+  "front_min": {
+    "avg": 0.64731,
+    "count": 826,
+    "max": 1.416,
+    "min": 0.206
+  },
+  "long_spin_seconds": 5.003,
+  "long_time_spin_detected": true,
+  "normal_forward_detected": true,
+  "odom": {
+    "angular_z": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "displacement_xy": null,
+    "linear_x": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "sample_count": 0
+  },
+  "odom_raw": {
+    "angular_z": {
+      "avg": 0.01537,
+      "count": 5461,
+      "max": 0.65,
+      "min": -0.6325
+    },
+    "displacement_xy": 1.16343,
+    "linear_x": {
+      "avg": 0.01736,
+      "count": 5461,
+      "max": 0.32,
+      "min": 0.0
+    },
+    "sample_count": 5461
+  },
+  "rear_pressure": {
+    "avg": 0.41911,
+    "count": 593,
+    "max": 1.0,
+    "min": 0.0
+  },
+  "root": "artifacts/real_60s_footprint_safe_20260612",
+  "sample_counts": {
+    "cmd_vel_raw": 1187,
+    "controller_cmd_vel": 1206,
+    "detections_messages": 40,
+    "front_free_space": 826,
+    "odom": 0,
+    "odom_raw": 5461,
+    "planner_state": 1187,
+    "rear_risk": 593,
+    "safety_decision": 2379
+  },
+  "stop_success": false,
+  "stop_success_source": "missing",
+  "traffic_cone_detection_count": 27,
+  "yolo_classes": {
+    "traffic_cone": 27
+  },
+  "yolo_detection_count": 27,
+  "z_bump_depth_jump_m": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  },
+  "z_bump_detected_count": 0,
+  "z_bump_score": {
+    "avg": 0.0,
+    "count": 593,
+    "max": 0.0,
+    "min": 0.0
+  }
+}

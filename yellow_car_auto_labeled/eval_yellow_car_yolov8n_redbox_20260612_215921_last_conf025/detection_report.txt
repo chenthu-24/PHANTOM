@@ -1,0 +1,172 @@
+Yellow-car eval detection report
+model_path: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_yolo_runs\yellow_car_yolov8n_redbox_20260611_114803\weights\last.pt
+source_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\data\eval
+output_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\yellow_car_auto_labeled\eval_yellow_car_yolov8n_redbox_20260612_215921_last_conf025
+confidence_threshold: 0.25
+inference_images: 44
+detected_yellow_car_images: 44
+total_yellow_car_boxes: 73
+not_detected_images: none
+
+per_image:
+- 1778730571111.jpg
+    output: 1778730571111.jpg
+    conf=0.530154 bbox_xyxy=[4.06, 0.00, 640.00, 480.00] class_id=0
+    conf=0.320649 bbox_xyxy=[265.26, 86.99, 640.00, 480.00] class_id=0
+- 1778730574784.jpg
+    output: 1778730574784.jpg
+    conf=0.394088 bbox_xyxy=[95.64, 17.94, 640.00, 480.00] class_id=0
+    conf=0.290837 bbox_xyxy=[357.10, 40.51, 640.00, 480.00] class_id=0
+    conf=0.272992 bbox_xyxy=[520.38, 70.56, 639.06, 477.87] class_id=0
+- 1778730576885.jpg
+    output: 1778730576885.jpg
+    conf=0.726594 bbox_xyxy=[2.08, 0.00, 528.43, 480.00] class_id=0
+- 1778730578420.jpg
+    output: 1778730578420.jpg
+    conf=0.701576 bbox_xyxy=[0.00, 12.29, 506.54, 480.00] class_id=0
+- 1778730580989.jpg
+    output: 1778730580989.jpg
+    conf=0.796991 bbox_xyxy=[4.92, 0.00, 638.27, 480.00] class_id=0
+- 1778730587190.jpg
+    output: 1778730587190.jpg
+    conf=0.347372 bbox_xyxy=[0.00, 3.87, 348.50, 480.00] class_id=0
+- 1778730595500.jpg
+    output: 1778730595500.jpg
+    conf=0.948411 bbox_xyxy=[0.00, 0.00, 625.53, 480.00] class_id=0
+- 1778730602769.jpg
+    output: 1778730602769.jpg
+    conf=0.722917 bbox_xyxy=[0.00, 0.03, 447.81, 480.00] class_id=0
+- 1778730610075.jpg
+    output: 1778730610075.jpg
+    conf=0.543686 bbox_xyxy=[0.00, 2.59, 609.18, 462.16] class_id=0
+    conf=0.378206 bbox_xyxy=[0.00, 27.42, 218.69, 480.00] class_id=0
+    conf=0.256981 bbox_xyxy=[234.04, 116.73, 640.00, 480.00] class_id=0
+- 1778730611110.jpg
+    output: 1778730611110.jpg
+    conf=0.400987 bbox_xyxy=[298.98, 117.87, 640.00, 480.00] class_id=0
+    conf=0.309264 bbox_xyxy=[17.83, 5.15, 615.73, 480.00] class_id=0
+- 1778730613675.jpg
+    output: 1778730613675.jpg
+    conf=0.689637 bbox_xyxy=[0.00, 1.03, 631.09, 470.88] class_id=0
+- 1778730814151.jpg
+    output: 1778730814151.jpg
+    conf=0.885503 bbox_xyxy=[0.00, 0.00, 640.00, 480.00] class_id=0
+- 1778730817187.jpg
+    output: 1778730817187.jpg
+    conf=0.652140 bbox_xyxy=[1.36, 3.09, 640.00, 462.35] class_id=0
+- 1778730819256.jpg
+    output: 1778730819256.jpg
+    conf=0.542767 bbox_xyxy=[0.00, 0.00, 358.31, 480.00] class_id=0
+    conf=0.319901 bbox_xyxy=[7.80, 3.76, 639.49, 402.72] class_id=0
+- 1778730820824.jpg
+    output: 1778730820824.jpg
+    conf=0.842104 bbox_xyxy=[0.00, 4.01, 608.54, 446.36] class_id=0
+- 1778730822424.jpg
+    output: 1778730822424.jpg
+    conf=0.602242 bbox_xyxy=[272.75, 0.00, 640.00, 474.29] class_id=0
+    conf=0.598856 bbox_xyxy=[9.93, 3.83, 543.74, 448.66] class_id=0
+- 1778730827628.jpg
+    output: 1778730827628.jpg
+    conf=0.696098 bbox_xyxy=[14.26, 3.72, 564.18, 465.82] class_id=0
+    conf=0.381725 bbox_xyxy=[0.00, 34.53, 184.96, 416.91] class_id=0
+    conf=0.296726 bbox_xyxy=[236.12, 1.46, 640.00, 420.02] class_id=0
+- 1778730830289.jpg
+    output: 1778730830289.jpg
+    conf=0.663547 bbox_xyxy=[14.13, 0.00, 640.00, 432.39] class_id=0
+    conf=0.464883 bbox_xyxy=[303.44, 13.33, 640.00, 480.00] class_id=0
+    conf=0.292821 bbox_xyxy=[185.53, 1.26, 633.86, 296.83] class_id=0
+- 1778730835967.jpg
+    output: 1778730835967.jpg
+    conf=0.773179 bbox_xyxy=[100.37, 0.00, 640.00, 480.00] class_id=0
+    conf=0.287063 bbox_xyxy=[0.00, 10.30, 385.23, 480.00] class_id=0
+    conf=0.257424 bbox_xyxy=[238.98, 1.94, 640.00, 355.96] class_id=0
+- 1778730837001.jpg
+    output: 1778730837001.jpg
+    conf=0.646835 bbox_xyxy=[114.65, 3.61, 632.65, 440.69] class_id=0
+- 1778730850079.jpg
+    output: 1778730850079.jpg
+    conf=0.642233 bbox_xyxy=[13.06, 0.00, 640.00, 480.00] class_id=0
+- 1778730852146.jpg
+    output: 1778730852146.jpg
+    conf=0.707756 bbox_xyxy=[2.55, 0.00, 640.00, 480.00] class_id=0
+- 1778730866121.jpg
+    output: 1778730866121.jpg
+    conf=0.798928 bbox_xyxy=[0.00, 0.00, 555.54, 480.00] class_id=0
+- 1778730869158.jpg
+    output: 1778730869158.jpg
+    conf=0.587451 bbox_xyxy=[170.98, 0.00, 636.87, 480.00] class_id=0
+    conf=0.422198 bbox_xyxy=[2.13, 2.23, 282.16, 480.00] class_id=0
+- 1778730872260.jpg
+    output: 1778730872260.jpg
+    conf=0.660624 bbox_xyxy=[0.00, 0.00, 633.19, 480.00] class_id=0
+    conf=0.307172 bbox_xyxy=[332.70, 0.00, 639.70, 345.37] class_id=0
+- 1778730885236.jpg
+    output: 1778730885236.jpg
+    conf=0.739332 bbox_xyxy=[75.87, 0.00, 638.92, 480.00] class_id=0
+    conf=0.267159 bbox_xyxy=[9.45, 26.60, 413.14, 480.00] class_id=0
+- 1778730887305.jpg
+    output: 1778730887305.jpg
+    conf=0.615461 bbox_xyxy=[55.02, 9.39, 638.07, 480.00] class_id=0
+- 1778730913156.jpg
+    output: 1778730913156.jpg
+    conf=0.328236 bbox_xyxy=[0.00, 7.75, 627.81, 480.00] class_id=0
+- 1778730913684.jpg
+    output: 1778730913684.jpg
+    conf=0.493850 bbox_xyxy=[2.30, 8.13, 560.60, 480.00] class_id=0
+    conf=0.453073 bbox_xyxy=[331.35, 69.65, 640.00, 480.00] class_id=0
+- 1778730917260.jpg
+    output: 1778730917260.jpg
+    conf=0.824974 bbox_xyxy=[0.00, 3.79, 616.35, 480.00] class_id=0
+    conf=0.358249 bbox_xyxy=[461.09, 69.78, 639.87, 478.10] class_id=0
+    conf=0.288386 bbox_xyxy=[4.95, 82.62, 350.68, 480.00] class_id=0
+- 1778730922865.jpg
+    output: 1778730922865.jpg
+    conf=0.569705 bbox_xyxy=[63.84, 5.77, 640.00, 474.80] class_id=0
+    conf=0.348269 bbox_xyxy=[14.53, 2.83, 299.68, 480.00] class_id=0
+- 1778730924958.jpg
+    output: 1778730924958.jpg
+    conf=0.349243 bbox_xyxy=[14.09, 39.12, 597.18, 480.00] class_id=0
+    conf=0.275491 bbox_xyxy=[0.98, 21.10, 257.58, 480.00] class_id=0
+- 1778730938441.jpg
+    output: 1778730938441.jpg
+    conf=0.738514 bbox_xyxy=[0.00, 0.00, 620.92, 480.00] class_id=0
+- 1778730939442.jpg
+    output: 1778730939442.jpg
+    conf=0.860646 bbox_xyxy=[3.62, 0.00, 633.86, 480.00] class_id=0
+    conf=0.337853 bbox_xyxy=[0.00, 78.85, 403.85, 480.00] class_id=0
+- 1778730941009.jpg
+    output: 1778730941009.jpg
+    conf=0.655273 bbox_xyxy=[0.00, 0.37, 626.85, 480.00] class_id=0
+- 1778730943042.jpg
+    output: 1778730943042.jpg
+    conf=0.572659 bbox_xyxy=[23.13, 0.00, 637.91, 417.56] class_id=0
+- 1778730944579.jpg
+    output: 1778730944579.jpg
+    conf=0.521755 bbox_xyxy=[0.00, 0.00, 639.13, 329.05] class_id=0
+- 1778730950250.jpg
+    output: 1778730950250.jpg
+    conf=0.607571 bbox_xyxy=[127.95, 0.00, 640.00, 431.83] class_id=0
+    conf=0.472732 bbox_xyxy=[314.88, 106.71, 640.00, 480.00] class_id=0
+- 1778730955522.jpg
+    output: 1778730955522.jpg
+    conf=0.819293 bbox_xyxy=[0.00, 0.00, 586.57, 480.00] class_id=0
+    conf=0.594618 bbox_xyxy=[254.41, 19.63, 639.57, 480.00] class_id=0
+- 1778730960725.jpg
+    output: 1778730960725.jpg
+    conf=0.575734 bbox_xyxy=[0.29, 5.38, 628.45, 435.44] class_id=0
+    conf=0.317274 bbox_xyxy=[341.38, 50.03, 639.18, 480.00] class_id=0
+- 1778730962258.jpg
+    output: 1778730962258.jpg
+    conf=0.582459 bbox_xyxy=[3.82, 10.81, 452.71, 480.00] class_id=0
+    conf=0.532758 bbox_xyxy=[235.76, 76.87, 637.61, 480.00] class_id=0
+- 微信图片_20260517190827_162_16.jpg
+    output: 微信图片_20260517190827_162_16.jpg
+    conf=0.753491 bbox_xyxy=[64.67, 0.00, 4219.89, 3048.60] class_id=0
+    conf=0.373300 bbox_xyxy=[308.00, 2007.23, 3827.65, 4439.47] class_id=0
+- 微信图片_20260517190831_164_16.jpg
+    output: 微信图片_20260517190831_164_16.jpg
+    conf=0.524029 bbox_xyxy=[1792.58, 14.17, 5712.00, 3077.31] class_id=0
+- 微信图片_20260517190837_167_16.jpg
+    output: 微信图片_20260517190837_167_16.jpg
+    conf=0.622438 bbox_xyxy=[0.00, 3.75, 1398.77, 4227.13] class_id=0
+    conf=0.407038 bbox_xyxy=[3359.75, 5.37, 5707.46, 2767.10] class_id=0

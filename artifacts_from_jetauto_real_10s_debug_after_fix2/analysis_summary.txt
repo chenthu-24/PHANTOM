@@ -1,0 +1,18 @@
+/cmd_vel_raw.linear.x avg/max/min: 0.08595 / 0.16 / 0.0 (n=108)
+/cmd_vel_raw.angular.z avg/max/min: 0.15845 / 0.55 / -0.2875 (n=108)
+/controller/cmd_vel.linear.x avg/max/min: 0.08257 / 0.16 / 0.0 (n=203)
+/controller/cmd_vel.angular.z avg/max/min: 0.15696 / 0.55 / -0.2875 (n=203)
+front_min avg/max/min: 1.75 / 6.704 / 0.52 (n=151)
+front_blocked_soft/hard count: 0 / 0
+best_heading trend avg/max/min: -0.05728 / 1.25 / -1.25 (n=151)
+rear_pressure avg/max/min: 0.0 / 0.0 / 0.0 (n=54)
+YOLO detection count: 0 classes={}
+dominant planner state: CRUISE
+dominant safety reason: pass
+/odom.twist.linear.x avg/max/min: None / None / None (n=0)
+/odom.twist.angular.z avg/max/min: None / None / None (n=0)
+/odom displacement_xy: None
+/odom_raw.twist.linear.x avg/max/min: 0.07846 / 0.16 / 0.0 (n=496)
+/odom_raw.twist.angular.z avg/max/min: 0.14899 / 0.55 / -0.2875 (n=496)
+/odom_raw displacement_xy: 0.77237
+sample counts: {'cmd_vel_raw': 108, 'controller_cmd_vel': 203, 'front_free_space': 151, 'rear_risk': 54, 'detections_messages': 0, 'planner_state': 109, 'safety_decision': 217, 'odom': 0, 'odom_raw': 496}

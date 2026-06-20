@@ -1,0 +1,122 @@
+{
+  "avoidance_behavior_detected": true,
+  "best_heading": {
+    "avg": -0.18531,
+    "count": 1627,
+    "max": 1.25,
+    "min": -1.25
+  },
+  "cmd_vel_raw": {
+    "angular_z": {
+      "avg": 0.16809,
+      "count": 1201,
+      "max": 0.75,
+      "min": -0.75
+    },
+    "linear_x": {
+      "avg": 0.10221,
+      "count": 1201,
+      "max": 0.32,
+      "min": 0.0
+    }
+  },
+  "cone_base_recover_count": 0,
+  "controller_cmd_vel": {
+    "angular_z": {
+      "avg": -0.06093,
+      "count": 1202,
+      "max": 0.75,
+      "min": -0.65
+    },
+    "linear_x": {
+      "avg": 0.1493,
+      "count": 1202,
+      "max": 0.32,
+      "min": 0.0
+    }
+  },
+  "dominant_planner_state": "CRUISE",
+  "dominant_safety_reason": "pass",
+  "front_blocked_hard_count": 22,
+  "front_blocked_soft_count": 85,
+  "front_min": {
+    "avg": 2.39038,
+    "count": 1627,
+    "max": 12.0,
+    "min": 0.15
+  },
+  "long_spin_seconds": 2.026,
+  "long_time_spin_detected": false,
+  "normal_forward_detected": true,
+  "odom": {
+    "angular_z": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "displacement_xy": null,
+    "linear_x": {
+      "avg": null,
+      "count": 0,
+      "max": null,
+      "min": null
+    },
+    "sample_count": 0
+  },
+  "odom_raw": {
+    "angular_z": {
+      "avg": -0.02495,
+      "count": 5488,
+      "max": 0.75,
+      "min": -0.65
+    },
+    "displacement_xy": 3.82706,
+    "linear_x": {
+      "avg": 0.07356,
+      "count": 5488,
+      "max": 0.32,
+      "min": 0.0
+    },
+    "sample_count": 5488
+  },
+  "rear_pressure": {
+    "avg": 0.16898,
+    "count": 600,
+    "max": 1.0,
+    "min": 0.0
+  },
+  "root": "artifacts/real_60s_debug_20260611_rerun",
+  "sample_counts": {
+    "cmd_vel_raw": 1201,
+    "controller_cmd_vel": 1202,
+    "detections_messages": 44,
+    "front_free_space": 1627,
+    "odom": 0,
+    "odom_raw": 5488,
+    "planner_state": 1201,
+    "rear_risk": 600,
+    "safety_decision": 2402
+  },
+  "stop_success": true,
+  "stop_success_source": "stop_confirmed_json",
+  "traffic_cone_detection_count": 16,
+  "yolo_classes": {
+    "traffic_cone": 16,
+    "yellow_car": 1
+  },
+  "yolo_detection_count": 17,
+  "z_bump_depth_jump_m": {
+    "avg": null,
+    "count": 0,
+    "max": null,
+    "min": null
+  },
+  "z_bump_detected_count": 0,
+  "z_bump_score": {
+    "avg": 0.0,
+    "count": 600,
+    "max": 0.0,
+    "min": 0.0
+  }
+}

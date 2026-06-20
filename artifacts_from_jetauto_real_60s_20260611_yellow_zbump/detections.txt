@@ -1,0 +1,39 @@
+{"data": [], "record_time": 1781145568.282558}
+{"data": [], "record_time": 1781145570.733031}
+{"data": [{"bbox_center_x": 0.9773, "bbox_center_y": 0.642, "bbox_h": 0.6466, "bbox_w": 0.0453, "class_name": "traffic_cone", "conf": 0.399, "cx": 0.9773, "cy": 0.642, "depth": null, "h": 0.6466, "stamp": 1781145570.048057, "visible": true, "w": 0.0453, "x0": 0.9547, "x1": 1.0, "y0": 0.3187, "y1": 0.9653}], "record_time": 1781145573.135362}
+{"data": [], "record_time": 1781145575.817364}
+{"data": [{"bbox_center_x": 0.8318, "bbox_center_y": 0.3574, "bbox_h": 0.7147, "bbox_w": 0.3122, "class_name": "traffic_cone", "conf": 0.944, "cx": 0.8318, "cy": 0.3574, "depth": null, "h": 0.7147, "stamp": 1781145575.21844, "visible": true, "w": 0.3122, "x0": 0.6756, "x1": 0.9879, "y0": 0.0, "y1": 0.7147}, {"bbox_center_x": 0.516, "bbox_center_y": 0.323, "bbox_h": 0.6372, "bbox_w": 0.3045, "class_name": "traffic_cone", "conf": 0.928, "cx": 0.516, "cy": 0.323, "depth": null, "h": 0.6372, "stamp": 1781145575.21844, "visible": true, "w": 0.3045, "x0": 0.3638, "x1": 0.6683, "y0": 0.0044, "y1": 0.6416}], "record_time": 1781145578.507737}
+{"data": [{"bbox_center_x": 0.2958, "bbox_center_y": 0.3517, "bbox_h": 0.6962, "bbox_w": 0.3162, "class_name": "traffic_cone", "conf": 0.949, "cx": 0.2958, "cy": 0.3517, "depth": null, "h": 0.6962, "stamp": 1781145577.953732, "visible": true, "w": 0.3162, "x0": 0.1377, "x1": 0.454, "y0": 0.0036, "y1": 0.6998}, {"bbox_center_x": 0.0699, "bbox_center_y": 0.3169, "bbox_h": 0.6273, "bbox_w": 0.1396, "class_name": "traffic_cone", "conf": 0.895, "cx": 0.0699, "cy": 0.3169, "depth": null, "h": 0.6273, "stamp": 1781145577.953732, "visible": true, "w": 0.1396, "x0": 0.0001, "x1": 0.1397, "y0": 0.0033, "y1": 0.6306}], "record_time": 1781145583.018992}
+{"data": [], "record_time": 1781145587.535438}
+{"data": [{"bbox_center_x": 0.0255, "bbox_center_y": 0.5005, "bbox_h": 0.8168, "bbox_w": 0.0509, "class_name": "traffic_cone", "conf": 0.446, "cx": 0.0255, "cy": 0.5005, "depth": null, "h": 0.8168, "stamp": 1781145587.126981, "visible": true, "w": 0.0509, "x0": 0.0, "x1": 0.0509, "y0": 0.092, "y1": 0.9089}], "record_time": 1781145590.29046}
+{"data": [], "record_time": 1781145593.610055}
+{"data": [{"bbox_center_x": 0.0891, "bbox_center_y": 0.5297, "bbox_h": 0.9406, "bbox_w": 0.1777, "class_name": "traffic_cone", "conf": 0.72, "cx": 0.0891, "cy": 0.5297, "depth": null, "h": 0.9406, "stamp": 1781145593.164641, "visible": true, "w": 0.1777, "x0": 0.0003, "x1": 0.178, "y0": 0.0594, "y1": 1.0}], "record_time": 1781145596.249668}
+{"data": [{"bbox_center_x": 0.1827, "bbox_center_y": 0.5025, "bbox_h": 0.9949, "bbox_w": 0.3654, "class_name": "traffic_cone", "conf": 0.75, "cx": 0.1827, "cy": 0.5025, "depth": null, "h": 0.9949, "stamp": 1781145595.733177, "visible": true, "w": 0.3654, "x0": 0.0, "x1": 0.3654, "y0": 0.0051, "y1": 1.0}], "record_time": 1781145598.68299}
+{"data": [{"bbox_center_x": 0.2715, "bbox_center_y": 0.4987, "bbox_h": 0.9974, "bbox_w": 0.5329, "class_name": "traffic_cone", "conf": 0.828, "cx": 0.2715, "cy": 0.4987, "depth": null, "h": 0.9974, "stamp": 1781145598.034808, "visible": true, "w": 0.5329, "x0": 0.005, "x1": 0.5379, "y0": 0.0, "y1": 0.9974}], "record_time": 1781145601.33969}
+{"data": [], "record_time": 1781145603.752644}
+{"data": [{"bbox_center_x": 0.1738, "bbox_center_y": 0.334, "bbox_h": 0.6672, "bbox_w": 0.3476, "class_name": "traffic_cone", "conf": 0.739, "cx": 0.1738, "cy": 0.334, "depth": null, "h": 0.6672, "stamp": 1781145603.371972, "visible": true, "w": 0.3476, "x0": 0.0, "x1": 0.3476, "y0": 0.0004, "y1": 0.6676}], "record_time": 1781145606.371361}
+{"data": [{"bbox_center_x": 0.8569, "bbox_center_y": 0.5382, "bbox_h": 0.9236, "bbox_w": 0.2862, "class_name": "yellow_car", "conf": 0.36, "cx": 0.8569, "cy": 0.5382, "depth": null, "h": 0.9236, "stamp": 1781145605.87377, "visible": true, "w": 0.2862, "x0": 0.7138, "x1": 1.0, "y0": 0.0764, "y1": 1.0}], "record_time": 1781145608.707092}
+{"data": [{"bbox_center_x": 0.4348, "bbox_center_y": 0.3072, "bbox_h": 0.5837, "bbox_w": 0.2604, "class_name": "traffic_cone", "conf": 0.883, "cx": 0.4348, "cy": 0.3072, "depth": null, "h": 0.5837, "stamp": 1781145608.342206, "visible": true, "w": 0.2604, "x0": 0.3046, "x1": 0.565, "y0": 0.0153, "y1": 0.599}], "record_time": 1781145611.032195}
+{"data": [{"bbox_center_x": 0.4364, "bbox_center_y": 0.305, "bbox_h": 0.5882, "bbox_w": 0.2643, "class_name": "traffic_cone", "conf": 0.875, "cx": 0.4364, "cy": 0.305, "depth": null, "h": 0.5882, "stamp": 1781145610.310295, "visible": true, "w": 0.2643, "x0": 0.3042, "x1": 0.5685, "y0": 0.011, "y1": 0.5991}], "record_time": 1781145613.371943}
+{"data": [], "record_time": 1781145615.989246}
+{"data": [{"bbox_center_x": 0.8, "bbox_center_y": 0.259, "bbox_h": 0.5155, "bbox_w": 0.2047, "class_name": "traffic_cone", "conf": 0.968, "cx": 0.8, "cy": 0.259, "depth": null, "h": 0.5155, "stamp": 1781145615.547382, "visible": true, "w": 0.2047, "x0": 0.6976, "x1": 0.9023, "y0": 0.0013, "y1": 0.5168}], "record_time": 1781145618.3774}
+{"data": [], "record_time": 1781145622.263162}
+{"data": [{"bbox_center_x": 0.2105, "bbox_center_y": 0.4994, "bbox_h": 0.9988, "bbox_w": 0.4195, "class_name": "traffic_cone", "conf": 0.864, "cx": 0.2105, "cy": 0.4994, "depth": null, "h": 0.9988, "stamp": 1781145621.618414, "visible": true, "w": 0.4195, "x0": 0.0007, "x1": 0.4203, "y0": 0.0, "y1": 0.9988}], "record_time": 1781145627.837948}
+{"data": [], "record_time": 1781145631.42214}
+{"data": [], "record_time": 1781145634.979258}
+{"data": [], "record_time": 1781145638.631305}
+{"data": [], "record_time": 1781145642.025699}
+{"data": [], "record_time": 1781145645.100602}
+{"data": [], "record_time": 1781145648.685736}
+{"data": [], "record_time": 1781145651.962162}
+{"data": [], "record_time": 1781145654.947583}
+{"data": [], "record_time": 1781145657.857029}
+{"data": [], "record_time": 1781145661.105874}
+{"data": [], "record_time": 1781145664.175788}
+{"data": [], "record_time": 1781145667.222555}
+{"data": [], "record_time": 1781145670.489894}
+{"data": [], "record_time": 1781145673.771748}
+{"data": [], "record_time": 1781145676.87555}
+{"data": [], "record_time": 1781145680.359701}
+{"data": [], "record_time": 1781145683.440674}
+{"data": [], "record_time": 1781145686.531947}

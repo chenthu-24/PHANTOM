@@ -1,0 +1,111 @@
+[INFO] [launch]: All log files can be found below /home/ubuntu/.ros/log/2026-06-12-14-52-08-742767-jetauto-1001
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sllidar_node-1]: process started with pid [1066]
+[INFO] [ros_robot_controller-2]: process started with pid [1068]
+[INFO] [odom_publisher-3]: process started with pid [1070]
+[INFO] [usb_cam_node_exe-4]: process started with pid [1072]
+[INFO] [detector_node-5]: process started with pid [1074]
+[INFO] [free_space_node-6]: process started with pid [1076]
+[INFO] [rear_perception_node-7]: process started with pid [1085]
+[INFO] [planner_controller_node-8]: process started with pid [1088]
+[INFO] [safety_shield_node-9]: process started with pid [1091]
+[sllidar_node-1] [INFO] [1781275930.395137436] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.1.0
+[sllidar_node-1] [INFO] [1781275930.418886375] [sllidar_node]: SLLidar S/N: 9DC4FA89C7E19EC8BCE499F016135670
+[sllidar_node-1] [INFO] [1781275930.419011171] [sllidar_node]: Firmware Ver: 1.29
+[sllidar_node-1] [INFO] [1781275930.419053255] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-1] [INFO] [1781275930.422168147] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-1] [INFO] [1781275930.422277161] [sllidar_node]: SLLidar health status : OK.
+[sllidar_node-1] [INFO] [1781275930.658769277] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz, 
+[usb_cam_node_exe-4] [INFO] [1781275932.520225177] [usb_cam]: camera_name value: rear_camera
+[usb_cam_node_exe-4] [WARN] [1781275932.522249304] [usb_cam]: framerate: 30.000000
+[usb_cam_node_exe-4] [INFO] [1781275932.559096267] [usb_cam]: using default calibration URL
+[usb_cam_node_exe-4] [INFO] [1781275932.559219084] [usb_cam]: camera calibration URL: file:///home/ubuntu/.ros/camera_info/rear_camera.yaml
+[usb_cam_node_exe-4] [ERROR] [1781275932.559436174] [camera_calibration_parsers]: Unable to open camera calibration file [/home/ubuntu/.ros/camera_info/rear_camera.yaml]
+[usb_cam_node_exe-4] [WARN] [1781275932.559478154] [usb_cam]: Camera calibration file /home/ubuntu/.ros/camera_info/rear_camera.yaml not found
+[usb_cam_node_exe-4] [INFO] [1781275932.560647307] [usb_cam]: Starting 'rear_camera' (/dev/video2) at 640x480 via mmap (yuyv) at 30 FPS
+[usb_cam_node_exe-4] [swscaler @ 0x55ad2d3d10] No accelerated colorspace conversion found from yuv422p to rgb24.
+[usb_cam_node_exe-4] This device supports the following formats:
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (6 Hz)
+[usb_cam_node_exe-4] 	16-bit Bayer BGBG/GRGR (Exp.) 1920 x 1080 (30 Hz)
+[usb_cam_node_exe-4] [INFO] [1781275932.578810493] [usb_cam]: Setting 'brightness' to 50
+[usb_cam_node_exe-4] [INFO] [1781275932.748098110] [usb_cam]: Setting 'white_balance_temperature_auto' to 1
+[usb_cam_node_exe-4] [INFO] [1781275932.748222749] [usb_cam]: Setting 'exposure_auto' to 3
+[usb_cam_node_exe-4] [INFO] [1781275932.824985524] [usb_cam]: Setting 'focus_auto' to 0
+[usb_cam_node_exe-4] unknown control 'focus_auto'
+[usb_cam_node_exe-4] 
+[usb_cam_node_exe-4] [INFO] [1781275932.908938164] [usb_cam]: Timer triggering every 33 ms
+[safety_shield_node-9] [INFO] [1781275934.419472025] [safety_shield_node]: safety_shield_node subscribed to /cmd_vel_raw, /nav/front_free_space, /nav/rear_risk; publishing /phantom/disabled_cmd_vel
+[free_space_node-6] [INFO] [1781275934.537509560] [free_space_node]: free_space_node subscribed to /scan, publishing /nav/front_free_space
+[free_space_node-6] [INFO] [1781275934.540467103] [free_space_node]: free_space_node also publishing legacy /nav/local_obstacle_features
+[rear_perception_node-7] [INFO] [1781275934.691273502] [rear_perception_node]: rear_perception_node subscribed to depth /camera/depth/image_raw and detections /det/detections, publishing /nav/rear_risk
+[planner_controller_node-8] [INFO] [1781275934.761971133] [planner_controller_node]: planner_controller_node subscribed to /nav/front_free_space, /nav/rear_risk, /det/detections, /odom//odom_raw; publishing /cmd_vel_raw
+[odom_publisher-3] [INFO] [1781275934.868904042] [odom_publisher]: [1;32m1.000000 1.000000[0m
+[odom_publisher-3] [INFO] [1781275934.922864731] [odom_publisher]: [1;32mstart[0m
+[ros_robot_controller-2] [INFO] [1781275935.382245192] [ros_robot_controller]: [1;32mstart[0m
+[rear_perception_node-7] [INFO] [1781275936.347564481] [rear_perception_node]: visible camera/depth topics: /camera/depth/image_raw [sensor_msgs/msg/Image]; /camera_info [sensor_msgs/msg/CameraInfo]; /image_raw/compressedDepth [sensor_msgs/msg/CompressedImage]
+[detector_node-5] /home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+[detector_node-5]   warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+[detector_node-5] [INFO] [1781275951.000654323] [detector_node]: loaded YOLO model: /home/ubuntu/phantom_ws/models/yolo/phantom_cone_yellow_random200_best.pt
+[detector_node-5] [INFO] [1781275951.095492415] [detector_node]: detector_node started in YOLO mode: image /usb_cam/image_raw -> /det/detections, depth /camera/depth/image_rect_raw
+[detector_node-5] [INFO] [1781275953.787130719] [detector_node]: saved first YOLO detection visualization: /home/ubuntu/phantom_ws/artifacts/real_60s_footprint_safe_20260612/first_yolo_detection.png
+[planner_controller_node-8] [WARN] [1781276173.160409960] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1781276207.762945867] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1781276217.760050869] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [safety_shield_node-9]: sending signal 'SIGINT' to process[safety_shield_node-9]
+[INFO] [planner_controller_node-8]: sending signal 'SIGINT' to process[planner_controller_node-8]
+[INFO] [rear_perception_node-7]: sending signal 'SIGINT' to process[rear_perception_node-7]
+[ERROR] [planner_controller_node-8]: process has died [pid 1088, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_planner_controller/lib/phantom_planner_controller/planner_controller_node --ros-args -r __node:=planner_controller_node --params-file /tmp/launch_params_veuy4egr'].
+[INFO] [free_space_node-6]: sending signal 'SIGINT' to process[free_space_node-6]
+[ERROR] [rear_perception_node-7]: process has died [pid 1085, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_detector/lib/phantom_detector/rear_perception_node --ros-args -r __node:=rear_perception_node --params-file /tmp/launch_params_ictxuby6'].
+[INFO] [detector_node-5]: sending signal 'SIGINT' to process[detector_node-5]
+[INFO] [sllidar_node-1]: process has finished cleanly [pid 1066]
+[ERROR] [free_space_node-6]: process has died [pid 1076, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_free_space/lib/phantom_free_space/free_space_node --ros-args -r __node:=free_space_node --params-file /tmp/launch_params_se4vapl_'].
+[INFO] [usb_cam_node_exe-4]: sending signal 'SIGINT' to process[usb_cam_node_exe-4]
+[INFO] [odom_publisher-3]: sending signal 'SIGINT' to process[odom_publisher-3]
+[INFO] [ros_robot_controller-2]: sending signal 'SIGINT' to process[ros_robot_controller-2]
+[usb_cam_node_exe-4] [INFO] [1781276284.055710779] [rclcpp]: signal_handler(signum=2)
+[usb_cam_node_exe-4] [WARN] [1781276284.058287372] [usb_cam]: Shutting down
+[ERROR] [usb_cam_node_exe-4]: process has died [pid 1072, exit code -2, cmd '/opt/ros/humble/lib/usb_cam/usb_cam_node_exe --ros-args -r __node:=usb_cam --params-file /tmp/launch_params_9z6tgk8v -r image_raw:=/usb_cam/image_raw'].
+[sllidar_node-1] [INFO] [1781276284.257057394] [sllidar_node]: Stop motor
+[safety_shield_node-9] Traceback (most recent call last):
+[safety_shield_node-9]   File "/home/ubuntu/phantom_ws/install/phantom_safety_shield/lib/phantom_safety_shield/safety_shield_node", line 33, in <module>
+[safety_shield_node-9]     sys.exit(load_entry_point('phantom-safety-shield', 'console_scripts', 'safety_shield_node')())
+[safety_shield_node-9]   File "/home/ubuntu/phantom_ws/build/phantom_safety_shield/phantom_safety_shield/safety_shield_node.py", line 407, in main
+[safety_shield_node-9]     node.destroy_node()
+[safety_shield_node-9]   File "/home/ubuntu/phantom_ws/build/phantom_safety_shield/phantom_safety_shield/safety_shield_node.py", line 385, in destroy_node
+[safety_shield_node-9]     time.sleep(0.05)
+[safety_shield_node-9] KeyboardInterrupt
+[ERROR] [detector_node-5]: process has died [pid 1074, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_detector/lib/phantom_detector/detector_node --ros-args -r __node:=detector_node --params-file /tmp/launch_params_z458e_2j'].
+[ERROR] [safety_shield_node-9]: process has died [pid 1091, exit code -2, cmd '/home/ubuntu/phantom_ws/install/phantom_safety_shield/lib/phantom_safety_shield/safety_shield_node --ros-args -r __node:=safety_shield_node --params-file /tmp/launch_params_d1v4fath'].

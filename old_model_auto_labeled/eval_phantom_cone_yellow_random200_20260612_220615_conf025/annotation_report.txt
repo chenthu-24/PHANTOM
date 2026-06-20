@@ -1,0 +1,264 @@
+Old JetAuto YOLO eval annotation report
+model_path: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\models\yolo\phantom_cone_yellow_random200_best.pt
+model_names: {0: 'traffic_cone', 1: 'yellow_car'}
+source_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\data\eval
+output_dir: C:\Users\Cao Jingxing\OneDrive\Desktop\phantom_ws\old_model_auto_labeled\eval_phantom_cone_yellow_random200_20260612_220615_conf025
+confidence_threshold: 0.25
+inference_images: 44
+total_boxes: 117
+traffic_cone_boxes: 113
+yellow_car_boxes: 4
+images_with_traffic_cone: 44
+images_with_yellow_car: 3
+not_detected_images: none
+
+per_image:
+- 1778730571111.jpg
+    annotated_image: images_annotated\1778730571111.jpg
+    yolo_label: labels_yolo\1778730571111.txt
+    class=traffic_cone id=0 conf=0.850606 bbox_xyxy=[119.50, 194.08, 339.44, 480.00]
+    class=traffic_cone id=0 conf=0.714857 bbox_xyxy=[483.26, 317.55, 593.43, 479.59]
+- 1778730574784.jpg
+    annotated_image: images_annotated\1778730574784.jpg
+    yolo_label: labels_yolo\1778730574784.txt
+    class=traffic_cone id=0 conf=0.965840 bbox_xyxy=[516.16, 210.21, 639.05, 410.45]
+    class=traffic_cone id=0 conf=0.961855 bbox_xyxy=[210.71, 162.40, 343.90, 395.58]
+    class=traffic_cone id=0 conf=0.882367 bbox_xyxy=[7.58, 108.95, 194.96, 480.00]
+- 1778730576885.jpg
+    annotated_image: images_annotated\1778730576885.jpg
+    yolo_label: labels_yolo\1778730576885.txt
+    class=traffic_cone id=0 conf=0.946591 bbox_xyxy=[0.33, 173.97, 92.57, 479.99]
+    class=traffic_cone id=0 conf=0.731294 bbox_xyxy=[253.68, 248.69, 357.41, 474.06]
+    class=traffic_cone id=0 conf=0.625733 bbox_xyxy=[251.75, 68.95, 563.26, 479.65]
+    class=traffic_cone id=0 conf=0.359455 bbox_xyxy=[545.84, 351.19, 639.99, 480.00]
+- 1778730578420.jpg
+    annotated_image: images_annotated\1778730578420.jpg
+    yolo_label: labels_yolo\1778730578420.txt
+    class=traffic_cone id=0 conf=0.968042 bbox_xyxy=[400.66, 69.10, 506.50, 271.94]
+    class=traffic_cone id=0 conf=0.942375 bbox_xyxy=[128.61, 44.56, 220.11, 324.84]
+    class=traffic_cone id=0 conf=0.752147 bbox_xyxy=[126.90, 0.00, 454.41, 480.00]
+- 1778730580989.jpg
+    annotated_image: images_annotated\1778730580989.jpg
+    yolo_label: labels_yolo\1778730580989.txt
+    class=traffic_cone id=0 conf=0.958758 bbox_xyxy=[255.68, 174.02, 359.82, 443.84]
+    class=traffic_cone id=0 conf=0.798194 bbox_xyxy=[4.95, 65.27, 311.33, 480.00]
+    class=traffic_cone id=0 conf=0.635054 bbox_xyxy=[615.16, 135.34, 639.96, 428.20]
+- 1778730587190.jpg
+    annotated_image: images_annotated\1778730587190.jpg
+    yolo_label: labels_yolo\1778730587190.txt
+    class=traffic_cone id=0 conf=0.911187 bbox_xyxy=[65.28, 0.00, 322.24, 480.00]
+- 1778730595500.jpg
+    annotated_image: images_annotated\1778730595500.jpg
+    yolo_label: labels_yolo\1778730595500.txt
+    class=traffic_cone id=0 conf=0.860337 bbox_xyxy=[0.00, 353.32, 82.83, 480.00]
+    class=traffic_cone id=0 conf=0.713164 bbox_xyxy=[325.23, 343.97, 462.52, 480.00]
+- 1778730602769.jpg
+    annotated_image: images_annotated\1778730602769.jpg
+    yolo_label: labels_yolo\1778730602769.txt
+    class=traffic_cone id=0 conf=0.901834 bbox_xyxy=[230.69, 26.23, 329.21, 225.45]
+    class=traffic_cone id=0 conf=0.864349 bbox_xyxy=[488.50, 25.37, 640.00, 467.07]
+    class=traffic_cone id=0 conf=0.841458 bbox_xyxy=[41.88, 144.20, 313.30, 480.00]
+    class=traffic_cone id=0 conf=0.771968 bbox_xyxy=[0.06, 0.00, 81.01, 206.30]
+- 1778730610075.jpg
+    annotated_image: images_annotated\1778730610075.jpg
+    yolo_label: labels_yolo\1778730610075.txt
+    class=traffic_cone id=0 conf=0.962532 bbox_xyxy=[69.61, 66.15, 211.30, 299.44]
+    class=traffic_cone id=0 conf=0.869964 bbox_xyxy=[225.01, 101.88, 331.65, 261.99]
+- 1778730611110.jpg
+    annotated_image: images_annotated\1778730611110.jpg
+    yolo_label: labels_yolo\1778730611110.txt
+    class=traffic_cone id=0 conf=0.971443 bbox_xyxy=[337.19, 280.36, 420.13, 404.35]
+    class=traffic_cone id=0 conf=0.948167 bbox_xyxy=[47.08, 156.43, 201.43, 408.46]
+- 1778730613675.jpg
+    annotated_image: images_annotated\1778730613675.jpg
+    yolo_label: labels_yolo\1778730613675.txt
+    class=traffic_cone id=0 conf=0.936483 bbox_xyxy=[21.86, 148.43, 196.70, 443.51]
+    class=traffic_cone id=0 conf=0.784378 bbox_xyxy=[55.12, 124.16, 137.09, 252.22]
+- 1778730814151.jpg
+    annotated_image: images_annotated\1778730814151.jpg
+    yolo_label: labels_yolo\1778730814151.txt
+    class=traffic_cone id=0 conf=0.976985 bbox_xyxy=[186.30, 70.33, 340.43, 343.00]
+    class=traffic_cone id=0 conf=0.940392 bbox_xyxy=[36.34, 0.00, 111.43, 135.62]
+- 1778730817187.jpg
+    annotated_image: images_annotated\1778730817187.jpg
+    yolo_label: labels_yolo\1778730817187.txt
+    class=traffic_cone id=0 conf=0.964544 bbox_xyxy=[61.10, 7.54, 141.75, 174.27]
+    class=traffic_cone id=0 conf=0.955884 bbox_xyxy=[349.46, 97.35, 519.36, 409.33]
+- 1778730819256.jpg
+    annotated_image: images_annotated\1778730819256.jpg
+    yolo_label: labels_yolo\1778730819256.txt
+    class=traffic_cone id=0 conf=0.938209 bbox_xyxy=[54.47, 0.00, 326.88, 476.46]
+    class=traffic_cone id=0 conf=0.769961 bbox_xyxy=[294.05, 23.97, 337.82, 208.79]
+    class=traffic_cone id=0 conf=0.557196 bbox_xyxy=[588.12, 68.17, 640.00, 328.89]
+- 1778730820824.jpg
+    annotated_image: images_annotated\1778730820824.jpg
+    yolo_label: labels_yolo\1778730820824.txt
+    class=traffic_cone id=0 conf=0.954430 bbox_xyxy=[264.41, 24.08, 405.28, 226.95]
+    class=traffic_cone id=0 conf=0.732391 bbox_xyxy=[243.49, 84.04, 629.33, 480.00]
+- 1778730822424.jpg
+    annotated_image: images_annotated\1778730822424.jpg
+    yolo_label: labels_yolo\1778730822424.txt
+    class=traffic_cone id=0 conf=0.953027 bbox_xyxy=[292.85, 1.78, 404.63, 162.34]
+    class=traffic_cone id=0 conf=0.936873 bbox_xyxy=[71.33, 0.00, 183.14, 164.84]
+    class=traffic_cone id=0 conf=0.928173 bbox_xyxy=[241.43, 70.28, 478.87, 391.02]
+    class=traffic_cone id=0 conf=0.924760 bbox_xyxy=[425.24, 99.09, 551.40, 264.52]
+- 1778730827628.jpg
+    annotated_image: images_annotated\1778730827628.jpg
+    yolo_label: labels_yolo\1778730827628.txt
+    class=traffic_cone id=0 conf=0.985108 bbox_xyxy=[19.63, 114.96, 172.57, 399.98]
+    class=traffic_cone id=0 conf=0.964741 bbox_xyxy=[306.96, 11.80, 401.19, 195.40]
+    class=traffic_cone id=0 conf=0.897643 bbox_xyxy=[406.78, 128.69, 638.75, 469.66]
+    class=traffic_cone id=0 conf=0.793541 bbox_xyxy=[65.31, 0.00, 186.20, 141.69]
+- 1778730830289.jpg
+    annotated_image: images_annotated\1778730830289.jpg
+    yolo_label: labels_yolo\1778730830289.txt
+    class=traffic_cone id=0 conf=0.945062 bbox_xyxy=[71.24, 160.11, 290.26, 456.20]
+- 1778730835967.jpg
+    annotated_image: images_annotated\1778730835967.jpg
+    yolo_label: labels_yolo\1778730835967.txt
+    class=traffic_cone id=0 conf=0.956420 bbox_xyxy=[115.68, 96.52, 318.69, 432.24]
+    class=traffic_cone id=0 conf=0.895861 bbox_xyxy=[461.19, 94.86, 597.27, 275.16]
+    class=traffic_cone id=0 conf=0.864540 bbox_xyxy=[565.50, 240.18, 639.89, 438.54]
+    class=traffic_cone id=0 conf=0.856388 bbox_xyxy=[219.12, 26.43, 325.92, 203.45]
+- 1778730837001.jpg
+    annotated_image: images_annotated\1778730837001.jpg
+    yolo_label: labels_yolo\1778730837001.txt
+    class=traffic_cone id=0 conf=0.980582 bbox_xyxy=[145.09, 0.00, 237.13, 139.96]
+    class=traffic_cone id=0 conf=0.972839 bbox_xyxy=[495.90, 111.33, 601.60, 253.26]
+    class=traffic_cone id=0 conf=0.964201 bbox_xyxy=[151.85, 20.08, 340.62, 352.33]
+    class=traffic_cone id=0 conf=0.313035 bbox_xyxy=[362.44, 0.23, 472.51, 133.02]
+- 1778730850079.jpg
+    annotated_image: images_annotated\1778730850079.jpg
+    yolo_label: labels_yolo\1778730850079.txt
+    class=traffic_cone id=0 conf=0.955399 bbox_xyxy=[117.58, 138.48, 301.93, 471.03]
+    class=traffic_cone id=0 conf=0.931238 bbox_xyxy=[201.84, 49.66, 282.14, 190.84]
+    class=traffic_cone id=0 conf=0.628118 bbox_xyxy=[0.13, 0.86, 54.00, 194.57]
+- 1778730852146.jpg
+    annotated_image: images_annotated\1778730852146.jpg
+    yolo_label: labels_yolo\1778730852146.txt
+    class=traffic_cone id=0 conf=0.955581 bbox_xyxy=[54.83, 46.79, 130.63, 183.90]
+- 1778730866121.jpg
+    annotated_image: images_annotated\1778730866121.jpg
+    yolo_label: labels_yolo\1778730866121.txt
+    class=traffic_cone id=0 conf=0.868786 bbox_xyxy=[0.29, 0.00, 55.93, 207.11]
+    class=traffic_cone id=0 conf=0.860700 bbox_xyxy=[131.44, 184.60, 379.01, 480.00]
+- 1778730869158.jpg
+    annotated_image: images_annotated\1778730869158.jpg
+    yolo_label: labels_yolo\1778730869158.txt
+    class=traffic_cone id=0 conf=0.921688 bbox_xyxy=[169.48, 114.60, 396.33, 449.81]
+    class=traffic_cone id=0 conf=0.730404 bbox_xyxy=[0.00, 0.00, 25.99, 163.92]
+- 1778730872260.jpg
+    annotated_image: images_annotated\1778730872260.jpg
+    yolo_label: labels_yolo\1778730872260.txt
+    class=traffic_cone id=0 conf=0.959684 bbox_xyxy=[0.62, 0.33, 135.92, 231.73]
+    class=traffic_cone id=0 conf=0.901837 bbox_xyxy=[520.99, 132.08, 639.78, 368.64]
+    class=traffic_cone id=0 conf=0.659479 bbox_xyxy=[27.96, 94.68, 349.29, 480.00]
+    class=traffic_cone id=0 conf=0.378972 bbox_xyxy=[378.14, 0.00, 526.15, 202.35]
+- 1778730885236.jpg
+    annotated_image: images_annotated\1778730885236.jpg
+    yolo_label: labels_yolo\1778730885236.txt
+    class=traffic_cone id=0 conf=0.867256 bbox_xyxy=[320.40, 38.77, 455.14, 377.98]
+    class=traffic_cone id=0 conf=0.585425 bbox_xyxy=[586.23, 24.47, 639.70, 340.68]
+    class=traffic_cone id=0 conf=0.493695 bbox_xyxy=[55.05, 24.44, 179.68, 255.38]
+- 1778730887305.jpg
+    annotated_image: images_annotated\1778730887305.jpg
+    yolo_label: labels_yolo\1778730887305.txt
+    class=traffic_cone id=0 conf=0.910172 bbox_xyxy=[113.04, 62.57, 264.07, 417.61]
+    class=traffic_cone id=0 conf=0.871966 bbox_xyxy=[0.00, 40.11, 66.81, 272.23]
+    class=traffic_cone id=0 conf=0.504938 bbox_xyxy=[435.39, 7.37, 596.59, 438.81]
+- 1778730913156.jpg
+    annotated_image: images_annotated\1778730913156.jpg
+    yolo_label: labels_yolo\1778730913156.txt
+    class=traffic_cone id=0 conf=0.965214 bbox_xyxy=[380.36, 316.93, 451.98, 457.63]
+    class=traffic_cone id=0 conf=0.921702 bbox_xyxy=[0.08, 267.10, 89.54, 480.00]
+    class=traffic_cone id=0 conf=0.852520 bbox_xyxy=[152.58, 214.77, 340.88, 480.00]
+- 1778730913684.jpg
+    annotated_image: images_annotated\1778730913684.jpg
+    yolo_label: labels_yolo\1778730913684.txt
+    class=traffic_cone id=0 conf=0.961666 bbox_xyxy=[136.28, 109.29, 331.96, 470.89]
+    class=traffic_cone id=0 conf=0.946772 bbox_xyxy=[7.41, 133.58, 114.54, 352.03]
+    class=traffic_cone id=0 conf=0.372986 bbox_xyxy=[559.16, 0.00, 640.00, 331.53]
+- 1778730917260.jpg
+    annotated_image: images_annotated\1778730917260.jpg
+    yolo_label: labels_yolo\1778730917260.txt
+    class=traffic_cone id=0 conf=0.983982 bbox_xyxy=[441.72, 210.09, 519.60, 362.04]
+    class=traffic_cone id=0 conf=0.955702 bbox_xyxy=[6.55, 143.85, 116.19, 379.47]
+    class=traffic_cone id=0 conf=0.928658 bbox_xyxy=[254.96, 176.76, 344.43, 336.53]
+    class=traffic_cone id=0 conf=0.900299 bbox_xyxy=[56.93, 45.74, 313.79, 479.62]
+- 1778730922865.jpg
+    annotated_image: images_annotated\1778730922865.jpg
+    yolo_label: labels_yolo\1778730922865.txt
+    class=traffic_cone id=0 conf=0.966572 bbox_xyxy=[366.68, 193.61, 463.62, 412.11]
+    class=traffic_cone id=0 conf=0.846655 bbox_xyxy=[137.20, 96.88, 374.37, 480.00]
+- 1778730924958.jpg
+    annotated_image: images_annotated\1778730924958.jpg
+    yolo_label: labels_yolo\1778730924958.txt
+    class=traffic_cone id=0 conf=0.985681 bbox_xyxy=[169.24, 30.06, 388.48, 458.43]
+    class=traffic_cone id=0 conf=0.978703 bbox_xyxy=[432.75, 105.66, 538.32, 337.91]
+- 1778730938441.jpg
+    annotated_image: images_annotated\1778730938441.jpg
+    yolo_label: labels_yolo\1778730938441.txt
+    class=traffic_cone id=0 conf=0.977341 bbox_xyxy=[372.25, 145.89, 546.13, 458.16]
+    class=traffic_cone id=0 conf=0.722164 bbox_xyxy=[572.23, 122.28, 640.00, 479.92]
+- 1778730939442.jpg
+    annotated_image: images_annotated\1778730939442.jpg
+    yolo_label: labels_yolo\1778730939442.txt
+    class=traffic_cone id=0 conf=0.951625 bbox_xyxy=[482.68, 92.15, 640.00, 414.26]
+    class=traffic_cone id=0 conf=0.877065 bbox_xyxy=[291.11, 83.45, 524.41, 480.00]
+    class=traffic_cone id=0 conf=0.852867 bbox_xyxy=[0.00, 164.05, 62.36, 479.12]
+- 1778730941009.jpg
+    annotated_image: images_annotated\1778730941009.jpg
+    yolo_label: labels_yolo\1778730941009.txt
+    class=traffic_cone id=0 conf=0.955048 bbox_xyxy=[44.74, 194.62, 178.70, 479.40]
+    class=traffic_cone id=0 conf=0.920781 bbox_xyxy=[514.88, 137.70, 640.00, 439.15]
+    class=traffic_cone id=0 conf=0.881898 bbox_xyxy=[202.57, 210.21, 384.77, 480.00]
+- 1778730943042.jpg
+    annotated_image: images_annotated\1778730943042.jpg
+    yolo_label: labels_yolo\1778730943042.txt
+    class=traffic_cone id=0 conf=0.970137 bbox_xyxy=[118.61, 64.24, 300.90, 403.61]
+    class=traffic_cone id=0 conf=0.960309 bbox_xyxy=[58.26, 55.36, 172.59, 318.53]
+    class=traffic_cone id=0 conf=0.894869 bbox_xyxy=[488.57, 47.84, 640.00, 366.33]
+- 1778730944579.jpg
+    annotated_image: images_annotated\1778730944579.jpg
+    yolo_label: labels_yolo\1778730944579.txt
+    class=traffic_cone id=0 conf=0.715124 bbox_xyxy=[277.66, 156.73, 456.01, 476.41]
+- 1778730950250.jpg
+    annotated_image: images_annotated\1778730950250.jpg
+    yolo_label: labels_yolo\1778730950250.txt
+    class=traffic_cone id=0 conf=0.946195 bbox_xyxy=[329.61, 133.75, 532.02, 476.70]
+    class=traffic_cone id=0 conf=0.922466 bbox_xyxy=[0.07, 16.44, 79.06, 407.36]
+- 1778730955522.jpg
+    annotated_image: images_annotated\1778730955522.jpg
+    yolo_label: labels_yolo\1778730955522.txt
+    class=traffic_cone id=0 conf=0.970738 bbox_xyxy=[331.71, 48.33, 456.98, 302.86]
+    class=traffic_cone id=0 conf=0.965238 bbox_xyxy=[440.80, 107.97, 629.64, 445.02]
+    class=traffic_cone id=0 conf=0.934469 bbox_xyxy=[0.00, 1.52, 218.54, 336.98]
+- 1778730960725.jpg
+    annotated_image: images_annotated\1778730960725.jpg
+    yolo_label: labels_yolo\1778730960725.txt
+    class=traffic_cone id=0 conf=0.973886 bbox_xyxy=[41.92, 19.75, 277.34, 444.54]
+    class=traffic_cone id=0 conf=0.959733 bbox_xyxy=[396.57, 126.02, 501.29, 375.94]
+    class=traffic_cone id=0 conf=0.958794 bbox_xyxy=[493.88, 160.89, 639.72, 479.85]
+- 1778730962258.jpg
+    annotated_image: images_annotated\1778730962258.jpg
+    yolo_label: labels_yolo\1778730962258.txt
+    class=traffic_cone id=0 conf=0.977154 bbox_xyxy=[398.72, 146.18, 563.35, 472.41]
+    class=traffic_cone id=0 conf=0.969324 bbox_xyxy=[302.90, 102.10, 403.86, 344.56]
+    class=traffic_cone id=0 conf=0.875700 bbox_xyxy=[0.77, 0.00, 180.82, 412.64]
+- 微信图片_20260517190827_162_16.jpg
+    annotated_image: images_annotated\微信图片_20260517190827_162_16.jpg
+    yolo_label: labels_yolo\微信图片_20260517190827_162_16.txt
+    class=yellow_car id=1 conf=0.663702 bbox_xyxy=[966.80, 744.00, 3783.61, 4314.56]
+    class=yellow_car id=1 conf=0.493248 bbox_xyxy=[1542.91, 698.09, 2485.12, 4187.81]
+    class=traffic_cone id=0 conf=0.254765 bbox_xyxy=[836.81, 737.07, 1920.05, 1354.01]
+- 微信图片_20260517190831_164_16.jpg
+    annotated_image: images_annotated\微信图片_20260517190831_164_16.jpg
+    yolo_label: labels_yolo\微信图片_20260517190831_164_16.txt
+    class=traffic_cone id=0 conf=0.925758 bbox_xyxy=[464.74, 0.00, 2778.97, 4275.32]
+    class=yellow_car id=1 conf=0.891050 bbox_xyxy=[2434.78, 1047.32, 5118.36, 2658.56]
+- 微信图片_20260517190837_167_16.jpg
+    annotated_image: images_annotated\微信图片_20260517190837_167_16.jpg
+    yolo_label: labels_yolo\微信图片_20260517190837_167_16.txt
+    class=traffic_cone id=0 conf=0.944019 bbox_xyxy=[1240.79, 0.00, 2326.90, 2358.52]
+    class=traffic_cone id=0 conf=0.928993 bbox_xyxy=[2393.77, 0.00, 4023.96, 3570.89]
+    class=yellow_car id=1 conf=0.524345 bbox_xyxy=[3631.89, 997.41, 4324.20, 2117.59]

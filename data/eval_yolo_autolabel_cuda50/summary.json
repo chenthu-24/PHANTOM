@@ -1,0 +1,455 @@
+{
+  "model_path": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\models\\yolo\\phantom_cone_yellow_autolabel_cuda50_best.pt",
+  "input_dir": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\data\\eval",
+  "output_dir": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\data\\eval_yolo_autolabel_cuda50",
+  "imgsz": 640,
+  "conf": 0.25,
+  "images": [
+    {
+      "image": "1778730571111.jpg",
+      "output": "1778730571111_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730574784.jpg",
+      "output": "1778730574784_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730576885.jpg",
+      "output": "1778730576885_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730578420.jpg",
+      "output": "1778730578420_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730580989.jpg",
+      "output": "1778730580989_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730587190.jpg",
+      "output": "1778730587190_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730595500.jpg",
+      "output": "1778730595500_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730602769.jpg",
+      "output": "1778730602769_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730610075.jpg",
+      "output": "1778730610075_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730611110.jpg",
+      "output": "1778730611110_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730613675.jpg",
+      "output": "1778730613675_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730814151.jpg",
+      "output": "1778730814151_yolo.jpg",
+      "detection_count": 1,
+      "detections": [
+        {
+          "class_id": 0,
+          "class_name": "traffic_cone",
+          "conf": 0.3547,
+          "xyxy": [
+            0.09,
+            0.21,
+            98.78,
+            129.74
+          ]
+        }
+      ]
+    },
+    {
+      "image": "1778730817187.jpg",
+      "output": "1778730817187_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730819256.jpg",
+      "output": "1778730819256_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730820824.jpg",
+      "output": "1778730820824_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730822424.jpg",
+      "output": "1778730822424_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730827628.jpg",
+      "output": "1778730827628_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730830289.jpg",
+      "output": "1778730830289_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730835967.jpg",
+      "output": "1778730835967_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730837001.jpg",
+      "output": "1778730837001_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730850079.jpg",
+      "output": "1778730850079_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730852146.jpg",
+      "output": "1778730852146_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730866121.jpg",
+      "output": "1778730866121_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730869158.jpg",
+      "output": "1778730869158_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730872260.jpg",
+      "output": "1778730872260_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730885236.jpg",
+      "output": "1778730885236_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730887305.jpg",
+      "output": "1778730887305_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730913156.jpg",
+      "output": "1778730913156_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730913684.jpg",
+      "output": "1778730913684_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730917260.jpg",
+      "output": "1778730917260_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730922865.jpg",
+      "output": "1778730922865_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730924958.jpg",
+      "output": "1778730924958_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730938441.jpg",
+      "output": "1778730938441_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730939442.jpg",
+      "output": "1778730939442_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730941009.jpg",
+      "output": "1778730941009_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730943042.jpg",
+      "output": "1778730943042_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730944579.jpg",
+      "output": "1778730944579_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730950250.jpg",
+      "output": "1778730950250_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730955522.jpg",
+      "output": "1778730955522_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730960725.jpg",
+      "output": "1778730960725_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "1778730962258.jpg",
+      "output": "1778730962258_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260517190827_162_16.jpg",
+      "output": "微信图片_20260517190827_162_16_yolo.jpg",
+      "detection_count": 3,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.9357,
+          "xyxy": [
+            0.0,
+            0.0,
+            4200.53,
+            4241.83
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.4526,
+          "xyxy": [
+            0.0,
+            1436.96,
+            4240.2,
+            5031.95
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.271,
+          "xyxy": [
+            700.43,
+            614.96,
+            4284.0,
+            4082.88
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260517190831_164_16.jpg",
+      "output": "微信图片_20260517190831_164_16_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260517190837_167_16.jpg",
+      "output": "微信图片_20260517190837_167_16_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260611111538_727_88.jpg",
+      "output": "微信图片_20260611111538_727_88_yolo.jpg",
+      "detection_count": 1,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.9744,
+          "xyxy": [
+            0.0,
+            13.99,
+            1391.49,
+            1280.0
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111539_728_88.jpg",
+      "output": "微信图片_20260611111539_728_88_yolo.jpg",
+      "detection_count": 2,
+      "detections": [
+        {
+          "class_id": 0,
+          "class_name": "traffic_cone",
+          "conf": 0.94,
+          "xyxy": [
+            278.02,
+            0.0,
+            434.89,
+            200.2
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.8248,
+          "xyxy": [
+            2.08,
+            0.0,
+            1163.16,
+            960.0
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111540_729_88.jpg",
+      "output": "微信图片_20260611111540_729_88_yolo.jpg",
+      "detection_count": 1,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.7125,
+          "xyxy": [
+            28.71,
+            0.0,
+            1630.3,
+            1277.8
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111541_730_88.jpg",
+      "output": "微信图片_20260611111541_730_88_yolo.jpg",
+      "detection_count": 1,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.9342,
+          "xyxy": [
+            24.01,
+            0.0,
+            1217.01,
+            954.17
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111543_731_88.jpg",
+      "output": "微信图片_20260611111543_731_88_yolo.jpg",
+      "detection_count": 1,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.7161,
+          "xyxy": [
+            0.49,
+            0.0,
+            1172.0,
+            960.0
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111545_734_88.jpg",
+      "output": "微信图片_20260611111545_734_88_yolo.jpg",
+      "detection_count": 2,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.9271,
+          "xyxy": [
+            1.33,
+            0.0,
+            1160.8,
+            957.91
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.371,
+          "xyxy": [
+            15.76,
+            0.0,
+            1107.82,
+            708.85
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111548_736_88.jpg",
+      "output": "微信图片_20260611111548_736_88_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    }
+  ]
+}

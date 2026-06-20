@@ -1,0 +1,5 @@
+path: C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/yellow_car_yolo_dataset_tightened
+train: images/train
+val: images/val
+names:
+  0: yellow_car

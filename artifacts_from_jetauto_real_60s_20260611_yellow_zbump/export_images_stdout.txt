@@ -1,0 +1,3 @@
+artifacts/real_60s_debug_20260611_yellow_zbump/lidar_debug.png
+artifacts/real_60s_debug_20260611_yellow_zbump/yolo_debug.png
+artifacts/real_60s_debug_20260611_yellow_zbump/z_bump_debug.png

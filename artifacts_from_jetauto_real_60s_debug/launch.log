@@ -1,0 +1,90 @@
+[INFO] [launch]: All log files can be found below /home/ubuntu/.ros/log/2026-06-04-03-30-03-815298-jetauto-7873
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sllidar_node-1]: process started with pid [7884]
+[INFO] [ros_robot_controller-2]: process started with pid [7886]
+[INFO] [odom_publisher-3]: process started with pid [7888]
+[INFO] [usb_cam_node_exe-4]: process started with pid [7890]
+[INFO] [detector_node-5]: process started with pid [7892]
+[INFO] [free_space_node-6]: process started with pid [7902]
+[INFO] [rear_perception_node-7]: process started with pid [7905]
+[INFO] [planner_controller_node-8]: process started with pid [7907]
+[INFO] [safety_shield_node-9]: process started with pid [7912]
+[sllidar_node-1] [INFO] [1780543805.035981148] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.1.0
+[sllidar_node-1] [INFO] [1780543805.150318239] [sllidar_node]: SLLidar S/N: 9DC4FA89C7E19EC8BCE499F016135670
+[sllidar_node-1] [INFO] [1780543805.150429552] [sllidar_node]: Firmware Ver: 1.29
+[sllidar_node-1] [INFO] [1780543805.150466170] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-1] [INFO] [1780543805.153189864] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-1] [INFO] [1780543805.153297843] [sllidar_node]: SLLidar health status : OK.
+[sllidar_node-1] [INFO] [1780543805.381968847] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz, 
+[usb_cam_node_exe-4] [INFO] [1780543806.508859661] [usb_cam]: camera_name value: rear_camera
+[usb_cam_node_exe-4] [WARN] [1780543806.512319466] [usb_cam]: framerate: 30.000000
+[usb_cam_node_exe-4] [INFO] [1780543806.537128471] [usb_cam]: using default calibration URL
+[usb_cam_node_exe-4] [INFO] [1780543806.538974531] [usb_cam]: camera calibration URL: file:///home/ubuntu/.ros/camera_info/rear_camera.yaml
+[usb_cam_node_exe-4] [ERROR] [1780543806.540948623] [camera_calibration_parsers]: Unable to open camera calibration file [/home/ubuntu/.ros/camera_info/rear_camera.yaml]
+[usb_cam_node_exe-4] [WARN] [1780543806.543061739] [usb_cam]: Camera calibration file /home/ubuntu/.ros/camera_info/rear_camera.yaml not found
+[usb_cam_node_exe-4] [INFO] [1780543806.548716334] [usb_cam]: Starting 'rear_camera' (/dev/video2) at 640x480 via mmap (yuyv) at 30 FPS
+[usb_cam_node_exe-4] [swscaler @ 0x55b060c8c0] No accelerated colorspace conversion found from yuv422p to rgb24.
+[usb_cam_node_exe-4] This device supports the following formats:
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 180 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 320 x 240 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 424 x 240 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 360 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 640 x 480 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 848 x 480 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (60 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 960 x 540 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1280 x 720 (6 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (30 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (15 Hz)
+[usb_cam_node_exe-4] 	YUYV 4:2:2 1920 x 1080 (6 Hz)
+[usb_cam_node_exe-4] 	16-bit Bayer BGBG/GRGR (Exp.) 1920 x 1080 (30 Hz)
+[usb_cam_node_exe-4] [INFO] [1780543806.571560363] [usb_cam]: Setting 'brightness' to 50
+[usb_cam_node_exe-4] [INFO] [1780543806.741158276] [usb_cam]: Setting 'white_balance_temperature_auto' to 1
+[usb_cam_node_exe-4] [INFO] [1780543806.741279537] [usb_cam]: Setting 'exposure_auto' to 3
+[usb_cam_node_exe-4] [INFO] [1780543806.814320641] [usb_cam]: Setting 'focus_auto' to 0
+[usb_cam_node_exe-4] unknown control 'focus_auto'
+[usb_cam_node_exe-4] 
+[usb_cam_node_exe-4] [INFO] [1780543806.867625561] [usb_cam]: Timer triggering every 33 ms
+[free_space_node-6] [INFO] [1780543808.544587857] [free_space_node]: free_space_node subscribed to /scan, publishing /nav/front_free_space
+[free_space_node-6] [INFO] [1780543808.558298365] [free_space_node]: free_space_node also publishing legacy /nav/local_obstacle_features
+[rear_perception_node-7] [INFO] [1780543808.584595266] [rear_perception_node]: rear_perception_node subscribed to depth /camera/depth/image_raw and detections /det/detections, publishing /nav/rear_risk
+[odom_publisher-3] [INFO] [1780543808.615812577] [odom_publisher]: [1;32m1.000000 1.000000[0m
+[odom_publisher-3] [INFO] [1780543808.701178524] [odom_publisher]: [1;32mstart[0m
+[safety_shield_node-9] [INFO] [1780543808.795516461] [safety_shield_node]: safety_shield_node subscribed to /cmd_vel_raw, /nav/front_free_space, /nav/rear_risk; publishing /phantom/disabled_cmd_vel
+[planner_controller_node-8] [INFO] [1780543808.815381923] [planner_controller_node]: planner_controller_node subscribed to /nav/front_free_space, /nav/rear_risk, /det/detections, /odom//odom_raw; publishing /cmd_vel_raw
+[ros_robot_controller-2] [INFO] [1780543809.002546195] [ros_robot_controller]: [1;32mstart[0m
+[rear_perception_node-7] [INFO] [1780543810.343027752] [rear_perception_node]: visible camera/depth topics: /camera/depth/image_raw [sensor_msgs/msg/Image]; /camera_info [sensor_msgs/msg/CameraInfo]; /image_raw/compressedDepth [sensor_msgs/msg/CompressedImage]
+[detector_node-5] /home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+[detector_node-5]   warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+[detector_node-5] [INFO] [1780543819.425998541] [detector_node]: loaded YOLO model: /home/ubuntu/phantom_ws/models/yolo/phantom_cone_yellow_random200_best.pt
+[detector_node-5] [INFO] [1780543819.479216148] [detector_node]: detector_node started in YOLO mode: image /usb_cam/image_raw -> /det/detections, depth /camera/depth/image_rect_raw
+[detector_node-5] [INFO] [1780543821.917306850] [detector_node]: saved first YOLO detection visualization: /home/ubuntu/phantom_ws/artifacts/real_60s_debug/first_yolo_detection.png
+[planner_controller_node-8] [WARN] [1780543855.600095041] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780543891.600075407] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780543918.802325698] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780543920.406856160] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780543946.699784617] [planner_controller_node]: entering RECOVER mode=turn direction=1
+[planner_controller_node-8] [WARN] [1780543962.400453124] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780543964.000186714] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780543966.700859032] [planner_controller_node]: entering RECOVER mode=turn direction=-1
+[planner_controller_node-8] [WARN] [1780543968.400374918] [planner_controller_node]: entering RECOVER mode=turn direction=-1

@@ -1,0 +1,280 @@
+{
+  "counts": {
+    "red_box_images_read": 11,
+    "training_images_generated": 11,
+    "label_files_generated": 11,
+    "yellow_car_boxes_extracted": 11,
+    "failed_images": [],
+    "train_images": 9,
+    "val_images": 2,
+    "used_raw_match": 10,
+    "used_inpaint": 1,
+    "match_threshold": 80.0
+  },
+  "records": [
+    {
+      "labeled": "微信图片_20260611112650_737_88.jpg",
+      "output_image": "微信图片_20260611112650_737_88.jpg",
+      "raw_match": "微信图片_20260611111538_727_88.jpg",
+      "match_score": 1.001,
+      "image_source": "raw_match:微信图片_20260611111538_727_88.jpg",
+      "width": 1706,
+      "height": 1280,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112650_737_88.txt",
+      "image": "images\\train\\微信图片_20260611112650_737_88.jpg",
+      "preview": "previews\\微信图片_20260611112650_737_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          100,
+          61,
+          1420,
+          1009
+        ]
+      ],
+      "yolo": [
+        "0 0.445487 0.417969 0.773740 0.740625"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112651_738_88.jpg",
+      "output_image": "微信图片_20260611112651_738_88.jpg",
+      "raw_match": "微信图片_20260611111543_731_88.jpg",
+      "match_score": 1.448,
+      "image_source": "raw_match:微信图片_20260611111543_731_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "label": "labels\\val\\微信图片_20260611112651_738_88.txt",
+      "image": "images\\val\\微信图片_20260611112651_738_88.jpg",
+      "preview": "previews\\微信图片_20260611112651_738_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          4,
+          31,
+          1276,
+          956
+        ]
+      ],
+      "yolo": [
+        "0 0.500000 0.514062 0.993750 0.963542"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112652_739_88.jpg",
+      "output_image": "微信图片_20260611112652_739_88.jpg",
+      "raw_match": "微信图片_20260611111540_729_88.jpg",
+      "match_score": 0.879,
+      "image_source": "raw_match:微信图片_20260611111540_729_88.jpg",
+      "width": 1706,
+      "height": 1280,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112652_739_88.txt",
+      "image": "images\\train\\微信图片_20260611112652_739_88.jpg",
+      "preview": "previews\\微信图片_20260611112652_739_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          111,
+          5,
+          1446,
+          824
+        ]
+      ],
+      "yolo": [
+        "0 0.456331 0.323828 0.782532 0.639844"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112653_740_88.jpg",
+      "output_image": "微信图片_20260611112653_740_88.jpg",
+      "raw_match": "微信图片_20260611111541_730_88.jpg",
+      "match_score": 1.195,
+      "image_source": "raw_match:微信图片_20260611111541_730_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112653_740_88.txt",
+      "image": "images\\train\\微信图片_20260611112653_740_88.jpg",
+      "preview": "previews\\微信图片_20260611112653_740_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          220,
+          60,
+          1249,
+          694
+        ]
+      ],
+      "yolo": [
+        "0 0.573828 0.392708 0.803906 0.660417"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112654_741_88.jpg",
+      "output_image": "微信图片_20260611112654_741_88.jpg",
+      "raw_match": "微信图片_20260611111539_728_88.jpg",
+      "match_score": 1.221,
+      "image_source": "raw_match:微信图片_20260611111539_728_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112654_741_88.txt",
+      "image": "images\\train\\微信图片_20260611112654_741_88.jpg",
+      "preview": "previews\\微信图片_20260611112654_741_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          22,
+          76,
+          1155,
+          956
+        ]
+      ],
+      "yolo": [
+        "0 0.459766 0.537500 0.885156 0.916667"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112655_742_88.jpg",
+      "output_image": "微信图片_20260611112655_742_88.jpg",
+      "raw_match": null,
+      "match_score": 1195.84,
+      "image_source": "inpainted_labeled_image",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112655_742_88.txt",
+      "image": "images\\train\\微信图片_20260611112655_742_88.jpg",
+      "preview": "previews\\微信图片_20260611112655_742_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          104,
+          75,
+          1276,
+          914
+        ]
+      ],
+      "yolo": [
+        "0 0.539062 0.515104 0.915625 0.873958"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112656_743_88.jpg",
+      "output_image": "微信图片_20260611112656_743_88.jpg",
+      "raw_match": "微信图片_20260611111544_732_88.jpg",
+      "match_score": 1.17,
+      "image_source": "raw_match:微信图片_20260611111544_732_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112656_743_88.txt",
+      "image": "images\\train\\微信图片_20260611112656_743_88.jpg",
+      "preview": "previews\\微信图片_20260611112656_743_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          4,
+          4,
+          1276,
+          902
+        ]
+      ],
+      "yolo": [
+        "0 0.500000 0.471875 0.993750 0.935417"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112657_744_88.jpg",
+      "output_image": "微信图片_20260611112657_744_88.jpg",
+      "raw_match": "微信图片_20260611111544_733_88.jpg",
+      "match_score": 0.997,
+      "image_source": "raw_match:微信图片_20260611111544_733_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112657_744_88.txt",
+      "image": "images\\train\\微信图片_20260611112657_744_88.jpg",
+      "preview": "previews\\微信图片_20260611112657_744_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          4,
+          4,
+          1276,
+          879
+        ]
+      ],
+      "yolo": [
+        "0 0.500000 0.459896 0.993750 0.911458"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112658_745_88.jpg",
+      "output_image": "微信图片_20260611112658_745_88.jpg",
+      "raw_match": "微信图片_20260611111545_734_88.jpg",
+      "match_score": 1.244,
+      "image_source": "raw_match:微信图片_20260611111545_734_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112658_745_88.txt",
+      "image": "images\\train\\微信图片_20260611112658_745_88.jpg",
+      "preview": "previews\\微信图片_20260611112658_745_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          20,
+          76,
+          1191,
+          723
+        ]
+      ],
+      "yolo": [
+        "0 0.473047 0.416146 0.914844 0.673958"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112700_746_88.jpg",
+      "output_image": "微信图片_20260611112700_746_88.jpg",
+      "raw_match": "微信图片_20260611111546_735_88.jpg",
+      "match_score": 1.394,
+      "image_source": "raw_match:微信图片_20260611111546_735_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "train",
+      "label": "labels\\train\\微信图片_20260611112700_746_88.txt",
+      "image": "images\\train\\微信图片_20260611112700_746_88.jpg",
+      "preview": "previews\\微信图片_20260611112700_746_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          42,
+          4,
+          1276,
+          956
+        ]
+      ],
+      "yolo": [
+        "0 0.514844 0.500000 0.964063 0.991667"
+      ]
+    },
+    {
+      "labeled": "微信图片_20260611112701_747_88.jpg",
+      "output_image": "微信图片_20260611112701_747_88.jpg",
+      "raw_match": "微信图片_20260611111548_736_88.jpg",
+      "match_score": 1.338,
+      "image_source": "raw_match:微信图片_20260611111548_736_88.jpg",
+      "width": 1280,
+      "height": 960,
+      "split": "val",
+      "label": "labels\\val\\微信图片_20260611112701_747_88.txt",
+      "image": "images\\val\\微信图片_20260611112701_747_88.jpg",
+      "preview": "previews\\微信图片_20260611112701_747_88_preview.jpg",
+      "boxes_xyxy": [
+        [
+          4,
+          4,
+          1276,
+          837
+        ]
+      ],
+      "yolo": [
+        "0 0.500000 0.438021 0.993750 0.867708"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+path: C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/datasets/yellow_car_labelme_yolo
+train: images/train
+val: images/val
+nc: 2
+names:
+  0: traffic_cone
+  1: yellow_car

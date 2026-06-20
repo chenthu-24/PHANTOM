@@ -1,0 +1,7 @@
+path: C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/datasets/cone_yellow_autolabel_yolo_cuda50
+train: images/train
+val: images/val
+nc: 2
+names:
+  0: traffic_cone
+  1: yellow_car

@@ -1,0 +1,5 @@
+[INFO] [1781878278.202475319] [manual_yolo_wait_recorder]: motion detected; will save first YOLO snapshot
+[INFO] [1781878278.293478060] [manual_yolo_wait_recorder]: saved /home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_start.png
+[INFO] [1781878288.297892847] [manual_yolo_wait_recorder]: saved /home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_010s.png
+[INFO] [1781878298.282610292] [manual_yolo_wait_recorder]: saved /home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_020s.png
+[INFO] [1781878299.907775519] [manual_yolo_wait_recorder]: saved /home/ubuntu/phantom_ws/artifacts/manual_yolo_snapshots_20260619_220942/yolo_snapshots/yolo_stop.png

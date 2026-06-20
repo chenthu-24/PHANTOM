@@ -1,0 +1,113 @@
+[
+  {
+    "image": "yolo_005s.jpg",
+    "elapsed_s": 8.13,
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.9489,
+        "xyxy": [
+          0.67,
+          118.08,
+          276.13,
+          354.93
+        ]
+      },
+      {
+        "class_name": "yellow_car",
+        "conf": 0.3016,
+        "xyxy": [
+          267.98,
+          135.0,
+          484.44,
+          218.63
+        ]
+      }
+    ]
+  },
+  {
+    "image": "yolo_010s.jpg",
+    "elapsed_s": 12.9,
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.7845,
+        "xyxy": [
+          233.24,
+          161.36,
+          459.65,
+          273.77
+        ]
+      }
+    ]
+  },
+  {
+    "image": "yolo_015s.jpg",
+    "elapsed_s": 16.73,
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.8392,
+        "xyxy": [
+          150.51,
+          169.19,
+          324.66,
+          250.76
+        ]
+      }
+    ]
+  },
+  {
+    "image": "yolo_020s.jpg",
+    "elapsed_s": 22.2,
+    "detections": [
+      {
+        "class_name": "traffic_cone",
+        "conf": 0.9415,
+        "xyxy": [
+          349.78,
+          79.49,
+          421.48,
+          247.54
+        ]
+      }
+    ]
+  },
+  {
+    "image": "yolo_025s.jpg",
+    "elapsed_s": 26.99,
+    "detections": []
+  },
+  {
+    "image": "yolo_030s.jpg",
+    "elapsed_s": 31.36,
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.9723,
+        "xyxy": [
+          253.73,
+          132.78,
+          594.61,
+          325.31
+        ]
+      }
+    ]
+  },
+  {
+    "image": "yolo_stop_032s.jpg",
+    "elapsed_s": 33.59,
+    "detections": [
+      {
+        "class_name": "yellow_car",
+        "conf": 0.9661,
+        "xyxy": [
+          0.0,
+          148.37,
+          194.71,
+          316.27
+        ]
+      }
+    ]
+  }
+]

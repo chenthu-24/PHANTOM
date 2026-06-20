@@ -1,0 +1,6 @@
+path: C:/Users/Cao Jingxing/OneDrive/Desktop/phantom_ws/old_model_auto_labeled/eval_phantom_cone_yellow_random200_20260612_220615_conf025
+train: images_annotated
+val: images_annotated
+names:
+  0: traffic_cone
+  1: yellow_car

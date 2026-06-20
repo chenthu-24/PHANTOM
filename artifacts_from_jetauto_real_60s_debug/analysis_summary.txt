@@ -1,0 +1,27 @@
+/cmd_vel_raw.linear.x avg/max/min: None / None / None (n=0)
+/cmd_vel_raw.angular.z avg/max/min: None / None / None (n=0)
+/controller/cmd_vel.linear.x avg/max/min: None / None / None (n=0)
+/controller/cmd_vel.angular.z avg/max/min: None / None / None (n=0)
+front_min avg/max/min: None / None / None (n=0)
+front_blocked_soft/hard count: 0 / 0
+best_heading trend avg/max/min: None / None / None (n=0)
+rear_pressure avg/max/min: None / None / None (n=0)
+YOLO detection count: 0 classes={}
+traffic_cone detection count: 0
+z_bump_detected count: 0
+z_bump_score avg/max/min: None / None / None (n=0)
+z_bump_depth_jump_m avg/max/min: None / None / None (n=0)
+CONE_BASE_RECOVER count: 0
+long_time_spin_detected: False (max_spin_seconds=0.0)
+normal_forward_detected: False
+avoidance_behavior_detected: False
+stop_success: False
+dominant planner state: None
+dominant safety reason: None
+/odom.twist.linear.x avg/max/min: None / None / None (n=0)
+/odom.twist.angular.z avg/max/min: None / None / None (n=0)
+/odom displacement_xy: None
+/odom_raw.twist.linear.x avg/max/min: None / None / None (n=0)
+/odom_raw.twist.angular.z avg/max/min: None / None / None (n=0)
+/odom_raw displacement_xy: None
+sample counts: {'cmd_vel_raw': 0, 'controller_cmd_vel': 0, 'front_free_space': 0, 'rear_risk': 0, 'detections_messages': 0, 'planner_state': 0, 'safety_decision': 0, 'odom': 0, 'odom_raw': 0}

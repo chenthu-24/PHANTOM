@@ -1,0 +1,86 @@
+{
+  "model_path": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\models\\yolo\\phantom_cone_yellow_autolabel_cuda50_v2_20260620_003418_best.pt",
+  "input_dir": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\data\\eval",
+  "output_dir": "C:\\Users\\Cao Jingxing\\OneDrive\\Desktop\\phantom_ws\\data\\eval_yolo_autolabel_cuda50_v2_rerun_20260620_005020",
+  "imgsz": 640,
+  "conf": 0.25,
+  "images": [
+    {
+      "image": "微信图片_20260611111538_727_88.jpg",
+      "output": "微信图片_20260611111538_727_88_yolo.jpg",
+      "detection_count": 1,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.4546,
+          "xyxy": [
+            147.94,
+            444.42,
+            804.74,
+            1258.09
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111539_728_88.jpg",
+      "output": "微信图片_20260611111539_728_88_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260611111540_729_88.jpg",
+      "output": "微信图片_20260611111540_729_88_yolo.jpg",
+      "detection_count": 2,
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.604,
+          "xyxy": [
+            674.0,
+            405.56,
+            1294.82,
+            760.08
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "yellow_car",
+          "conf": 0.2947,
+          "xyxy": [
+            674.63,
+            408.54,
+            1288.9,
+            1070.61
+          ]
+        }
+      ]
+    },
+    {
+      "image": "微信图片_20260611111541_730_88.jpg",
+      "output": "微信图片_20260611111541_730_88_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260611111543_731_88.jpg",
+      "output": "微信图片_20260611111543_731_88_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260611111545_734_88.jpg",
+      "output": "微信图片_20260611111545_734_88_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    },
+    {
+      "image": "微信图片_20260611111548_736_88.jpg",
+      "output": "微信图片_20260611111548_736_88_yolo.jpg",
+      "detection_count": 0,
+      "detections": []
+    }
+  ]
+}

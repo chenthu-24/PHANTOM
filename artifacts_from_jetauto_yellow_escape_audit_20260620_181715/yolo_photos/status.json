@@ -1,0 +1,19 @@
+{
+  "state": "complete",
+  "ready": true,
+  "started": true,
+  "elapsed_s": 28.55,
+  "saved_count": 6,
+  "saved": [
+    "/home/ubuntu/phantom_ws/artifacts/yellow_escape_audit_20260620_181715/yolo_photos/yolo_005s.jpg",
+    "/home/ubuntu/phantom_ws/artifacts/yellow_escape_audit_20260620_181715/yolo_photos/yolo_010s.jpg",
+    "/home/ubuntu/phantom_ws/artifacts/yellow_escape_audit_20260620_181715/yolo_photos/yolo_015s.jpg",
+    "/home/ubuntu/phantom_ws/artifacts/yellow_escape_audit_20260620_181715/yolo_photos/yolo_020s.jpg",
+    "/home/ubuntu/phantom_ws/artifacts/yellow_escape_audit_20260620_181715/yolo_photos/yolo_025s.jpg",
+    "/home/ubuntu/phantom_ws/artifacts/yellow_escape_audit_20260620_181715/yolo_photos/yolo_stop_029s.jpg"
+  ],
+  "image_count": 48,
+  "inference_count": 47,
+  "latest_detections": [],
+  "model_path": "/home/ubuntu/phantom_ws/models/yolo/phantom_cone_yellow_random200_best.pt"
+}
